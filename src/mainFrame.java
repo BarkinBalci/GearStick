@@ -31,6 +31,12 @@ public class mainFrame extends javax.swing.JFrame {
         videoPanel = new javax.swing.JPanel();
         audioPanel = new javax.swing.JPanel();
         summaryPanel = new javax.swing.JPanel();
+        presetLabel = new javax.swing.JLabel();
+        presetComboBox = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
+        jTextField1 = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openBtn = new javax.swing.JMenuItem();
@@ -42,8 +48,6 @@ public class mainFrame extends javax.swing.JFrame {
         activityButton = new javax.swing.JMenuItem();
         preferencesButton = new javax.swing.JMenuItem();
         presetsMenu = new javax.swing.JMenu();
-        presetsSubBtn = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         managePresetsBtn = new javax.swing.JMenuItem();
         savePresetBtn = new javax.swing.JMenuItem();
         deletePresetBtn = new javax.swing.JMenuItem();
@@ -58,17 +62,17 @@ public class mainFrame extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GearStick");
 
-        mainTabbedPane.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        mainTabbedPane.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
         javax.swing.GroupLayout dimensionsPanelLayout = new javax.swing.GroupLayout(dimensionsPanel);
         dimensionsPanel.setLayout(dimensionsPanelLayout);
         dimensionsPanelLayout.setHorizontalGroup(
             dimensionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 694, Short.MAX_VALUE)
+            .addGap(0, 696, Short.MAX_VALUE)
         );
         dimensionsPanelLayout.setVerticalGroup(
             dimensionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 298, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         mainTabbedPane.addTab("Dimensions", dimensionsPanel);
@@ -77,11 +81,11 @@ public class mainFrame extends javax.swing.JFrame {
         filtersPanel.setLayout(filtersPanelLayout);
         filtersPanelLayout.setHorizontalGroup(
             filtersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 694, Short.MAX_VALUE)
+            .addGap(0, 696, Short.MAX_VALUE)
         );
         filtersPanelLayout.setVerticalGroup(
             filtersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 298, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         mainTabbedPane.addTab("Filters", filtersPanel);
@@ -90,11 +94,11 @@ public class mainFrame extends javax.swing.JFrame {
         videoPanel.setLayout(videoPanelLayout);
         videoPanelLayout.setHorizontalGroup(
             videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 694, Short.MAX_VALUE)
+            .addGap(0, 696, Short.MAX_VALUE)
         );
         videoPanelLayout.setVerticalGroup(
             videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 298, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         mainTabbedPane.addTab("Video", videoPanel);
@@ -103,11 +107,11 @@ public class mainFrame extends javax.swing.JFrame {
         audioPanel.setLayout(audioPanelLayout);
         audioPanelLayout.setHorizontalGroup(
             audioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 694, Short.MAX_VALUE)
+            .addGap(0, 696, Short.MAX_VALUE)
         );
         audioPanelLayout.setVerticalGroup(
             audioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 298, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         mainTabbedPane.addTab("Audio", audioPanel);
@@ -116,131 +120,164 @@ public class mainFrame extends javax.swing.JFrame {
         summaryPanel.setLayout(summaryPanelLayout);
         summaryPanelLayout.setHorizontalGroup(
             summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 694, Short.MAX_VALUE)
+            .addGap(0, 696, Short.MAX_VALUE)
         );
         summaryPanelLayout.setVerticalGroup(
             summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 298, Short.MAX_VALUE)
+            .addGap(0, 300, Short.MAX_VALUE)
         );
 
         mainTabbedPane.addTab("Summary", summaryPanel);
 
-        fileMenu.setText("File");
+        presetLabel.setText("Preset: ");
 
-        openBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        openBtn.setText("Open Source");
-        openBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                openBtnActionPerformed(evt);
-            }
-        });
-        fileMenu.add(openBtn);
+        presetComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default", "Slow", "Fast", "Very Fast" }));
 
-        startBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        startBtn.setText("Start Encode");
-        fileMenu.add(startBtn);
+        jButton1.setText("Start Encode");
 
-        pauseBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        pauseBtn.setText("Pause");
-        pauseBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pauseBtnActionPerformed(evt);
-            }
-        });
-        fileMenu.add(pauseBtn);
+        jLabel1.setText("Save As:");
 
-        stopBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        stopBtn.setText("Stop");
-        fileMenu.add(stopBtn);
+        jTextField1.setText("C:\\");
+            jTextField1.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    jTextField1ActionPerformed(evt);
+                }
+            });
 
-        exitBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        exitBtn.setText("Exit");
-        fileMenu.add(exitBtn);
+            jButton2.setText("Browse");
 
-        menuBar.add(fileMenu);
+            fileMenu.setText("File");
 
-        toolsMenu.setText("Tools");
+            openBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_DOWN_MASK));
+            openBtn.setText("Open Source");
+            openBtn.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    openBtnActionPerformed(evt);
+                }
+            });
+            fileMenu.add(openBtn);
 
-        activityButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        activityButton.setText("Activity Log");
-        toolsMenu.add(activityButton);
+            startBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+            startBtn.setText("Start Encode");
+            fileMenu.add(startBtn);
 
-        preferencesButton.setText("Preferences");
-        toolsMenu.add(preferencesButton);
+            pauseBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_DOWN_MASK));
+            pauseBtn.setText("Pause");
+            pauseBtn.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    pauseBtnActionPerformed(evt);
+                }
+            });
+            fileMenu.add(pauseBtn);
 
-        menuBar.add(toolsMenu);
+            stopBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+            stopBtn.setText("Stop");
+            fileMenu.add(stopBtn);
 
-        presetsMenu.setText("Presets");
+            exitBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_DOWN_MASK));
+            exitBtn.setText("Exit");
+            fileMenu.add(exitBtn);
 
-        presetsSubBtn.setText("Presets");
+            menuBar.add(fileMenu);
 
-        jMenuItem1.setText("Default");
-        presetsSubBtn.add(jMenuItem1);
+            toolsMenu.setText("Tools");
 
-        presetsMenu.add(presetsSubBtn);
+            activityButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+            activityButton.setText("Activity Log");
+            toolsMenu.add(activityButton);
 
-        managePresetsBtn.setText("Manage Presets");
-        managePresetsBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                managePresetsBtnActionPerformed(evt);
-            }
-        });
-        presetsMenu.add(managePresetsBtn);
+            preferencesButton.setText("Preferences");
+            toolsMenu.add(preferencesButton);
 
-        savePresetBtn.setText("Save New Preset");
-        presetsMenu.add(savePresetBtn);
+            menuBar.add(toolsMenu);
 
-        deletePresetBtn.setText("Delete Preset");
-        presetsMenu.add(deletePresetBtn);
+            presetsMenu.setText("Presets");
 
-        importPresetBtn.setText("Import from File");
-        presetsMenu.add(importPresetBtn);
+            managePresetsBtn.setText("Manage Presets");
+            managePresetsBtn.addActionListener(new java.awt.event.ActionListener() {
+                public void actionPerformed(java.awt.event.ActionEvent evt) {
+                    managePresetsBtnActionPerformed(evt);
+                }
+            });
+            presetsMenu.add(managePresetsBtn);
 
-        exportPresetsBtn.setText("Export to File");
-        presetsMenu.add(exportPresetsBtn);
+            savePresetBtn.setText("Save New Preset");
+            presetsMenu.add(savePresetBtn);
 
-        menuBar.add(presetsMenu);
+            deletePresetBtn.setText("Delete Preset");
+            presetsMenu.add(deletePresetBtn);
 
-        queueButton.setText("Queue");
+            importPresetBtn.setText("Import from File");
+            presetsMenu.add(importPresetBtn);
 
-        queueBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        queueBtn.setText("Queue");
-        queueButton.add(queueBtn);
+            exportPresetsBtn.setText("Export to File");
+            presetsMenu.add(exportPresetsBtn);
 
-        addQueueBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        addQueueBtn.setText("Add to Queue");
-        queueButton.add(addQueueBtn);
+            menuBar.add(presetsMenu);
 
-        menuBar.add(queueButton);
+            queueButton.setText("Queue");
 
-        helpMenu.setText("Help");
+            queueBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+            queueBtn.setText("Queue");
+            queueButton.add(queueBtn);
 
-        helpBtn.setText("About ShiftStick");
-        helpMenu.add(helpBtn);
+            addQueueBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+            addQueueBtn.setText("Add to Queue");
+            queueButton.add(addQueueBtn);
 
-        menuBar.add(helpMenu);
+            menuBar.add(queueButton);
 
-        setJMenuBar(menuBar);
+            helpMenu.setText("Help");
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(30, 30, 30)
-                .addComponent(mainTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(100, 100, 100)
-                .addComponent(mainTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
-        );
+            helpBtn.setText("About ShiftStick");
+            helpMenu.add(helpBtn);
 
-        pack();
-    }// </editor-fold>//GEN-END:initComponents
+            menuBar.add(helpMenu);
+
+            setJMenuBar(menuBar);
+
+            javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+            getContentPane().setLayout(layout);
+            layout.setHorizontalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(30, 30, 30)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(jLabel1)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(jTextField1)
+                            .addGap(18, 18, 18)
+                            .addComponent(jButton2))
+                        .addComponent(mainTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 700, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(presetLabel)
+                            .addGap(18, 18, 18)
+                            .addComponent(presetComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jButton1)))
+                    .addContainerGap(30, Short.MAX_VALUE))
+            );
+            layout.setVerticalGroup(
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layout.createSequentialGroup()
+                    .addGap(40, 40, 40)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(presetLabel)
+                        .addComponent(presetComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton1))
+                    .addGap(33, 33, 33)
+                    .addComponent(mainTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGap(18, 18, 18)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel1)
+                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jButton2))
+                    .addContainerGap(37, Short.MAX_VALUE))
+            );
+
+            pack();
+        }// </editor-fold>//GEN-END:initComponents
 
     private void openBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openBtnActionPerformed
         // TODO add your handling code here:
@@ -253,6 +290,10 @@ public class mainFrame extends javax.swing.JFrame {
     private void managePresetsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managePresetsBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_managePresetsBtnActionPerformed
+
+    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextField1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -302,15 +343,19 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem helpBtn;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuItem importPresetBtn;
-    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextField jTextField1;
     private javax.swing.JTabbedPane mainTabbedPane;
     private javax.swing.JMenuItem managePresetsBtn;
     private javax.swing.JMenuBar menuBar;
     private javax.swing.JMenuItem openBtn;
     private javax.swing.JMenuItem pauseBtn;
     private javax.swing.JMenuItem preferencesButton;
+    private javax.swing.JComboBox<String> presetComboBox;
+    private javax.swing.JLabel presetLabel;
     private javax.swing.JMenu presetsMenu;
-    private javax.swing.JMenu presetsSubBtn;
     private javax.swing.JMenuItem queueBtn;
     private javax.swing.JMenu queueButton;
     private javax.swing.JMenuItem savePresetBtn;
