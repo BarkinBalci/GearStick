@@ -142,7 +142,7 @@
           <SubComponents>
             <MenuItem class="javax.swing.JMenuItem" name="helpBtn">
               <Properties>
-                <Property name="text" type="java.lang.String" value="About ShiftStick"/>
+                <Property name="text" type="java.lang.String" value="About GearStick"/>
               </Properties>
             </MenuItem>
           </SubComponents>
@@ -374,9 +374,6 @@
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="jTextField1">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="C:\u005c" containsInvalidXMLChars="true"/>
-      </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jTextField1ActionPerformed"/>
       </Events>
