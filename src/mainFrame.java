@@ -54,6 +54,7 @@ public class mainFrame extends javax.swing.JFrame {
         hardwareAccelerationComboBox = new javax.swing.JCheckBox();
         constantFramerateComboBox = new javax.swing.JCheckBox();
         peakFramerateComboBox = new javax.swing.JCheckBox();
+        audioPanel = new javax.swing.JPanel();
         presetLabel = new javax.swing.JLabel();
         presetComboBox = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
@@ -316,6 +317,19 @@ public class mainFrame extends javax.swing.JFrame {
 
         mainTabbedPane.addTab("Video", videoPanel);
 
+        javax.swing.GroupLayout audioPanelLayout = new javax.swing.GroupLayout(audioPanel);
+        audioPanel.setLayout(audioPanelLayout);
+        audioPanelLayout.setHorizontalGroup(
+            audioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 936, Short.MAX_VALUE)
+        );
+        audioPanelLayout.setVerticalGroup(
+            audioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 389, Short.MAX_VALUE)
+        );
+
+        mainTabbedPane.addTab("Audio", audioPanel);
+
         presetLabel.setText("Preset: ");
 
         presetComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default", "Slow", "Fast", "Very Fast" }));
@@ -554,6 +568,7 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem addQueueBtn;
     private javax.swing.JLabel advancedOptionsLabel;
     private javax.swing.JTextPane advancedOptionsTextPane;
+    private javax.swing.JPanel audioPanel;
     private javax.swing.JButton backButton;
     private javax.swing.JButton browseBtn;
     private javax.swing.JCheckBox constantFramerateComboBox;
