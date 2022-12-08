@@ -47,7 +47,6 @@ public class mainFrame extends javax.swing.JFrame {
         jComboBox2 = new javax.swing.JComboBox<>();
         jComboBox3 = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
-        audioPanel = new javax.swing.JPanel();
         presetLabel = new javax.swing.JLabel();
         presetComboBox = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
@@ -250,19 +249,6 @@ public class mainFrame extends javax.swing.JFrame {
         );
 
         mainTabbedPane.addTab("Video", videoPanel);
-
-        javax.swing.GroupLayout audioPanelLayout = new javax.swing.GroupLayout(audioPanel);
-        audioPanel.setLayout(audioPanelLayout);
-        audioPanelLayout.setHorizontalGroup(
-            audioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 736, Short.MAX_VALUE)
-        );
-        audioPanelLayout.setVerticalGroup(
-            audioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 389, Short.MAX_VALUE)
-        );
-
-        mainTabbedPane.addTab("Audio", audioPanel);
 
         presetLabel.setText("Preset: ");
 
@@ -481,7 +467,6 @@ public class mainFrame extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenuItem activityButton;
     private javax.swing.JMenuItem addQueueBtn;
-    private javax.swing.JPanel audioPanel;
     private javax.swing.JButton backButton;
     private javax.swing.JButton browseBtn;
     private javax.swing.JMenuItem deletePresetBtn;
