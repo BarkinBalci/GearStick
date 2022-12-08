@@ -23,21 +23,38 @@ public class mainFrame extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         mainTabbedPane = new javax.swing.JTabbedPane();
+        summaryPanel = new javax.swing.JPanel();
+        formatLabel = new javax.swing.JLabel();
+        formatCBox = new javax.swing.JComboBox<>();
+        tracksLabel = new javax.swing.JLabel();
+        filtersLabel = new javax.swing.JLabel();
+        sizeLabel = new javax.swing.JLabel();
+        previewLabel = new javax.swing.JLabel();
+        previewWindow = new javax.swing.JLabel();
+        backButton = new javax.swing.JButton();
+        forwardButton = new javax.swing.JButton();
+        sizeTextBox = new javax.swing.JTextField();
+        filtersTextBox = new javax.swing.JTextField();
+        tracksTextPanel = new javax.swing.JTextPane();
         dimensionsPanel = new javax.swing.JPanel();
         filtersPanel = new javax.swing.JPanel();
         videoPanel = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jComboBox2 = new javax.swing.JComboBox<>();
+        jComboBox3 = new javax.swing.JComboBox<>();
+        jLabel7 = new javax.swing.JLabel();
         audioPanel = new javax.swing.JPanel();
-        summaryPanel = new javax.swing.JPanel();
         presetLabel = new javax.swing.JLabel();
         presetComboBox = new javax.swing.JComboBox<>();
         jButton1 = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jButton2 = new javax.swing.JButton();
+        saveLabel = new javax.swing.JLabel();
+        saveTextBox = new javax.swing.JTextField();
+        browseBtn = new javax.swing.JButton();
+        reloadBtn = new javax.swing.JButton();
         menuBar = new javax.swing.JMenuBar();
         fileMenu = new javax.swing.JMenu();
         openBtn = new javax.swing.JMenuItem();
@@ -65,82 +82,209 @@ public class mainFrame extends javax.swing.JFrame {
 
         mainTabbedPane.setBorder(javax.swing.BorderFactory.createEtchedBorder());
 
+        formatLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        formatLabel.setText("Format:");
+
+        formatCBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "MP4", "MKV", "WebM", "GIF" }));
+
+        tracksLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        tracksLabel.setText("Tracks:");
+
+        filtersLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        filtersLabel.setText("Filters:");
+
+        sizeLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        sizeLabel.setText("Size:");
+
+        previewLabel.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        previewLabel.setText("Preview:");
+
+        previewWindow.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dummy_360x288_ffffff_cccccc.png"))); // NOI18N
+
+        backButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        backButton.setText("<");
+
+        forwardButton.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        forwardButton.setText(">");
+        forwardButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                forwardButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout summaryPanelLayout = new javax.swing.GroupLayout(summaryPanel);
+        summaryPanel.setLayout(summaryPanelLayout);
+        summaryPanelLayout.setHorizontalGroup(
+            summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, summaryPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(forwardButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(164, 164, 164))
+            .addGroup(summaryPanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(summaryPanelLayout.createSequentialGroup()
+                        .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sizeLabel)
+                            .addComponent(filtersLabel))
+                        .addGap(26, 26, 26)
+                        .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sizeTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(filtersTextBox, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(summaryPanelLayout.createSequentialGroup()
+                        .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(formatLabel)
+                            .addComponent(tracksLabel))
+                        .addGap(20, 20, 20)
+                        .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(summaryPanelLayout.createSequentialGroup()
+                                .addComponent(tracksTextPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 192, Short.MAX_VALUE)
+                                .addGap(72, 72, 72))
+                            .addGroup(summaryPanelLayout.createSequentialGroup()
+                                .addComponent(formatCBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(previewWindow, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(previewLabel))
+                        .addGap(26, 26, 26))))
+        );
+        summaryPanelLayout.setVerticalGroup(
+            summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(summaryPanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(previewLabel)
+                    .addComponent(formatLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(formatCBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(summaryPanelLayout.createSequentialGroup()
+                        .addGap(71, 71, 71)
+                        .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(tracksLabel)
+                            .addComponent(tracksTextPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(20, 20, 20)
+                        .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(filtersTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(filtersLabel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(sizeLabel)
+                            .addComponent(sizeTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(previewWindow, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(backButton)
+                    .addComponent(forwardButton))
+                .addContainerGap(15, Short.MAX_VALUE))
+        );
+
+        mainTabbedPane.addTab("Summary", summaryPanel);
+
         javax.swing.GroupLayout dimensionsPanelLayout = new javax.swing.GroupLayout(dimensionsPanel);
         dimensionsPanel.setLayout(dimensionsPanelLayout);
         dimensionsPanelLayout.setHorizontalGroup(
-                dimensionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 696, Short.MAX_VALUE));
+            dimensionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 736, Short.MAX_VALUE)
+        );
         dimensionsPanelLayout.setVerticalGroup(
-                dimensionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 300, Short.MAX_VALUE));
+            dimensionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 389, Short.MAX_VALUE)
+        );
 
         mainTabbedPane.addTab("Dimensions", dimensionsPanel);
 
         javax.swing.GroupLayout filtersPanelLayout = new javax.swing.GroupLayout(filtersPanel);
         filtersPanel.setLayout(filtersPanelLayout);
         filtersPanelLayout.setHorizontalGroup(
-                filtersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 696, Short.MAX_VALUE));
+            filtersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 736, Short.MAX_VALUE)
+        );
         filtersPanelLayout.setVerticalGroup(
-                filtersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 300, Short.MAX_VALUE));
+            filtersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 389, Short.MAX_VALUE)
+        );
 
         mainTabbedPane.addTab("Filters", filtersPanel);
+
+        jLabel6.setText("Video Encoder:");
+
+        jComboBox2.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "H.264", "H.265", "AV1" }));
+
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "24", "30", "60", "120" }));
+
+        jLabel7.setText("Framerate:");
 
         javax.swing.GroupLayout videoPanelLayout = new javax.swing.GroupLayout(videoPanel);
         videoPanel.setLayout(videoPanelLayout);
         videoPanelLayout.setHorizontalGroup(
-                videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 696, Short.MAX_VALUE));
+            videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(videoPanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addGroup(videoPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(videoPanelLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addGap(18, 18, 18)
+                        .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(544, Short.MAX_VALUE))
+        );
         videoPanelLayout.setVerticalGroup(
-                videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 300, Short.MAX_VALUE));
+            videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(videoPanelLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(jComboBox2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(30, 30, 30)
+                .addGroup(videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7))
+                .addContainerGap(292, Short.MAX_VALUE))
+        );
 
         mainTabbedPane.addTab("Video", videoPanel);
 
         javax.swing.GroupLayout audioPanelLayout = new javax.swing.GroupLayout(audioPanel);
         audioPanel.setLayout(audioPanelLayout);
         audioPanelLayout.setHorizontalGroup(
-                audioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 696, Short.MAX_VALUE));
+            audioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 736, Short.MAX_VALUE)
+        );
         audioPanelLayout.setVerticalGroup(
-                audioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 300, Short.MAX_VALUE));
+            audioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 389, Short.MAX_VALUE)
+        );
 
         mainTabbedPane.addTab("Audio", audioPanel);
 
-        javax.swing.GroupLayout summaryPanelLayout = new javax.swing.GroupLayout(summaryPanel);
-        summaryPanel.setLayout(summaryPanelLayout);
-        summaryPanelLayout.setHorizontalGroup(
-                summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 696, Short.MAX_VALUE));
-        summaryPanelLayout.setVerticalGroup(
-                summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 300, Short.MAX_VALUE));
-
-        mainTabbedPane.addTab("Summary", summaryPanel);
-
         presetLabel.setText("Preset: ");
 
-        presetComboBox.setModel(
-                new javax.swing.DefaultComboBoxModel<>(new String[] { "Default", "Slow", "Fast", "Very Fast" }));
+        presetComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default", "Slow", "Fast", "Very Fast" }));
 
         jButton1.setText("Start Encode");
 
-        jLabel1.setText("Save As:");
+        saveLabel.setText("Save As:");
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        saveTextBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                saveTextBoxActionPerformed(evt);
             }
         });
 
-        jButton2.setText("Browse");
+        browseBtn.setText("Browse");
+
+        reloadBtn.setText("Reload");
 
         fileMenu.setText("File");
 
-        openBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O,
-                java.awt.event.InputEvent.ALT_DOWN_MASK));
+        openBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_DOWN_MASK));
         openBtn.setText("Open Source");
         openBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -149,13 +293,11 @@ public class mainFrame extends javax.swing.JFrame {
         });
         fileMenu.add(openBtn);
 
-        startBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E,
-                java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        startBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         startBtn.setText("Start Encode");
         fileMenu.add(startBtn);
 
-        pauseBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P,
-                java.awt.event.InputEvent.ALT_DOWN_MASK));
+        pauseBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_DOWN_MASK));
         pauseBtn.setText("Pause");
         pauseBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -164,13 +306,11 @@ public class mainFrame extends javax.swing.JFrame {
         });
         fileMenu.add(pauseBtn);
 
-        stopBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K,
-                java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        stopBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         stopBtn.setText("Stop");
         fileMenu.add(stopBtn);
 
-        exitBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4,
-                java.awt.event.InputEvent.ALT_DOWN_MASK));
+        exitBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_DOWN_MASK));
         exitBtn.setText("Exit");
         fileMenu.add(exitBtn);
 
@@ -178,8 +318,7 @@ public class mainFrame extends javax.swing.JFrame {
 
         toolsMenu.setText("Tools");
 
-        activityButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L,
-                java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        activityButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         activityButton.setText("Activity Log");
         toolsMenu.add(activityButton);
 
@@ -214,13 +353,11 @@ public class mainFrame extends javax.swing.JFrame {
 
         queueButton.setText("Queue");
 
-        queueBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q,
-                java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        queueBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         queueBtn.setText("Queue");
         queueButton.add(queueBtn);
 
-        addQueueBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A,
-                java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        addQueueBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         addQueueBtn.setText("Add to Queue");
         queueButton.add(addQueueBtn);
 
@@ -238,51 +375,53 @@ public class mainFrame extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(layout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(jLabel1)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jTextField1)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(jButton2))
-                                        .addComponent(mainTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 700,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addComponent(presetLabel)
-                                                .addGap(18, 18, 18)
-                                                .addComponent(presetComboBox, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                        249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
-                                                        javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                                .addComponent(jButton1)))
-                                .addContainerGap(30, Short.MAX_VALUE)));
+                            .addComponent(saveLabel)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(saveTextBox)
+                            .addGap(18, 18, 18)
+                            .addComponent(browseBtn))
+                        .addGroup(layout.createSequentialGroup()
+                            .addComponent(presetLabel)
+                            .addGap(18, 18, 18)
+                            .addComponent(presetComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(reloadBtn)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 209, Short.MAX_VALUE)
+                            .addComponent(jButton1)))
+                    .addComponent(mainTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 740, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(40, 40, 40)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(presetLabel)
-                                        .addComponent(presetComboBox, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton1))
-                                .addGap(33, 33, 33)
-                                .addComponent(mainTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 335,
-                                        javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jLabel1)
-                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                                javax.swing.GroupLayout.DEFAULT_SIZE,
-                                                javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton2))
-                                .addContainerGap(37, Short.MAX_VALUE)));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(presetLabel)
+                    .addComponent(presetComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1)
+                    .addComponent(reloadBtn))
+                .addGap(30, 30, 30)
+                .addComponent(mainTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(saveLabel)
+                    .addComponent(saveTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(browseBtn))
+                .addContainerGap(30, Short.MAX_VALUE))
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void forwardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forwardButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_forwardButtonActionPerformed
 
     private void openBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_openBtnActionPerformed
         // TODO add your handling code here:
@@ -343,19 +482,27 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JMenuItem activityButton;
     private javax.swing.JMenuItem addQueueBtn;
     private javax.swing.JPanel audioPanel;
+    private javax.swing.JButton backButton;
+    private javax.swing.JButton browseBtn;
     private javax.swing.JMenuItem deletePresetBtn;
     private javax.swing.JPanel dimensionsPanel;
     private javax.swing.JMenuItem exitBtn;
     private javax.swing.JMenuItem exportPresetsBtn;
     private javax.swing.JMenu fileMenu;
+    private javax.swing.JLabel filtersLabel;
     private javax.swing.JPanel filtersPanel;
+    private javax.swing.JTextField filtersTextBox;
+    private javax.swing.JComboBox<String> formatCBox;
+    private javax.swing.JLabel formatLabel;
+    private javax.swing.JButton forwardButton;
     private javax.swing.JMenuItem helpBtn;
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuItem importPresetBtn;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JComboBox<String> jComboBox2;
+    private javax.swing.JComboBox<String> jComboBox3;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JTabbedPane mainTabbedPane;
     private javax.swing.JMenuItem managePresetsBtn;
     private javax.swing.JMenuBar menuBar;
@@ -365,13 +512,22 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> presetComboBox;
     private javax.swing.JLabel presetLabel;
     private javax.swing.JMenu presetsMenu;
+    private javax.swing.JLabel previewLabel;
+    private javax.swing.JLabel previewWindow;
     private javax.swing.JMenuItem queueBtn;
     private javax.swing.JMenu queueButton;
+    private javax.swing.JButton reloadBtn;
+    private javax.swing.JLabel saveLabel;
     private javax.swing.JMenuItem savePresetBtn;
+    private javax.swing.JTextField saveTextBox;
+    private javax.swing.JLabel sizeLabel;
+    private javax.swing.JTextField sizeTextBox;
     private javax.swing.JMenuItem startBtn;
     private javax.swing.JMenuItem stopBtn;
     private javax.swing.JPanel summaryPanel;
     private javax.swing.JMenu toolsMenu;
+    private javax.swing.JLabel tracksLabel;
+    private javax.swing.JTextPane tracksTextPanel;
     private javax.swing.JPanel videoPanel;
     // End of variables declaration//GEN-END:variables
 }
