@@ -26,92 +26,126 @@ public class mainFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         menuBar = new javax.swing.JMenuBar();
-        fileButton = new javax.swing.JMenu();
-        openButton = new javax.swing.JMenuItem();
-        startButton = new javax.swing.JMenuItem();
-        pauseButton = new javax.swing.JMenuItem();
-        stopButton = new javax.swing.JMenuItem();
-        exitButton = new javax.swing.JMenuItem();
-        toolsButton = new javax.swing.JMenu();
-        activityButton = new javax.swing.JMenu();
-        preferencesButton = new javax.swing.JMenu();
-        presetsButton = new javax.swing.JMenu();
+        fileMenu = new javax.swing.JMenu();
+        openBtn = new javax.swing.JMenuItem();
+        startBtn = new javax.swing.JMenuItem();
+        pauseBtn = new javax.swing.JMenuItem();
+        stopBtn = new javax.swing.JMenuItem();
+        exitBtn = new javax.swing.JMenuItem();
+        toolsMenu = new javax.swing.JMenu();
+        activityButton = new javax.swing.JMenuItem();
+        preferencesButton = new javax.swing.JMenuItem();
+        presetsMenu = new javax.swing.JMenu();
+        presetsSubBtn = new javax.swing.JMenu();
+        jMenuItem1 = new javax.swing.JMenuItem();
+        managePresetsBtn = new javax.swing.JMenuItem();
+        savePresetBtn = new javax.swing.JMenuItem();
+        deletePresetBtn = new javax.swing.JMenuItem();
+        importPresetBtn = new javax.swing.JMenuItem();
+        exportPresetsBtn = new javax.swing.JMenuItem();
         queueButton = new javax.swing.JMenu();
-        showQueueButton = new javax.swing.JMenu();
-        addQueueButton = new javax.swing.JMenu();
-        helpButton = new javax.swing.JMenu();
-        documentationButton = new javax.swing.JMenu();
-        aboutButton = new javax.swing.JMenu();
+        queueBtn = new javax.swing.JMenuItem();
+        addQueueBtn = new javax.swing.JMenuItem();
+        helpMenu = new javax.swing.JMenu();
+        helpBtn = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("GearStick");
 
-        fileButton.setText("File");
+        fileMenu.setText("File");
 
-        openButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        openButton.setText("Open Source");
-        openButton.addActionListener(new java.awt.event.ActionListener() {
+        openBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        openBtn.setText("Open Source");
+        openBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                openButtonActionPerformed(evt);
+                openBtnActionPerformed(evt);
             }
         });
-        fileButton.add(openButton);
+        fileMenu.add(openBtn);
 
-        startButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        startButton.setText("Start Encode");
-        fileButton.add(startButton);
+        startBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_E, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        startBtn.setText("Start Encode");
+        fileMenu.add(startBtn);
 
-        pauseButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        pauseButton.setText("Pause");
-        pauseButton.addActionListener(new java.awt.event.ActionListener() {
+        pauseBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        pauseBtn.setText("Pause");
+        pauseBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                pauseButtonActionPerformed(evt);
+                pauseBtnActionPerformed(evt);
             }
         });
-        fileButton.add(pauseButton);
+        fileMenu.add(pauseBtn);
 
-        stopButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_DOWN_MASK));
-        stopButton.setText("Stop");
-        fileButton.add(stopButton);
+        stopBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_K, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        stopBtn.setText("Stop");
+        fileMenu.add(stopBtn);
 
-        exitButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_DOWN_MASK));
-        exitButton.setText("Exit");
-        fileButton.add(exitButton);
+        exitBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_DOWN_MASK));
+        exitBtn.setText("Exit");
+        fileMenu.add(exitBtn);
 
-        menuBar.add(fileButton);
+        menuBar.add(fileMenu);
 
-        toolsButton.setText("Tools");
+        toolsMenu.setText("Tools");
 
+        activityButton.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_L, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         activityButton.setText("Activity Log");
-        toolsButton.add(activityButton);
+        toolsMenu.add(activityButton);
 
         preferencesButton.setText("Preferences");
-        toolsButton.add(preferencesButton);
+        toolsMenu.add(preferencesButton);
 
-        menuBar.add(toolsButton);
+        menuBar.add(toolsMenu);
 
-        presetsButton.setText("Presets");
-        menuBar.add(presetsButton);
+        presetsMenu.setText("Presets");
+
+        presetsSubBtn.setText("Presets");
+
+        jMenuItem1.setText("Default");
+        presetsSubBtn.add(jMenuItem1);
+
+        presetsMenu.add(presetsSubBtn);
+
+        managePresetsBtn.setText("Manage Presets");
+        managePresetsBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                managePresetsBtnActionPerformed(evt);
+            }
+        });
+        presetsMenu.add(managePresetsBtn);
+
+        savePresetBtn.setText("Save New Preset");
+        presetsMenu.add(savePresetBtn);
+
+        deletePresetBtn.setText("Delete Preset");
+        presetsMenu.add(deletePresetBtn);
+
+        importPresetBtn.setText("Import from File");
+        presetsMenu.add(importPresetBtn);
+
+        exportPresetsBtn.setText("Export to File");
+        presetsMenu.add(exportPresetsBtn);
+
+        menuBar.add(presetsMenu);
 
         queueButton.setText("Queue");
 
-        showQueueButton.setText("Show Queue");
-        queueButton.add(showQueueButton);
+        queueBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        queueBtn.setText("Queue");
+        queueButton.add(queueBtn);
 
-        addQueueButton.setText("Add to Queue");
-        queueButton.add(addQueueButton);
+        addQueueBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_DOWN_MASK));
+        addQueueBtn.setText("Add to Queue");
+        queueButton.add(addQueueBtn);
 
         menuBar.add(queueButton);
 
-        helpButton.setText("Help");
+        helpMenu.setText("Help");
 
-        documentationButton.setText("Documentation");
-        helpButton.add(documentationButton);
+        helpBtn.setText("About ShiftStick");
+        helpMenu.add(helpBtn);
 
-        aboutButton.setText("About ShiftStick");
-        helpButton.add(aboutButton);
-
-        menuBar.add(helpButton);
+        menuBar.add(helpMenu);
 
         setJMenuBar(menuBar);
 
@@ -129,13 +163,17 @@ public class mainFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void openButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openButtonActionPerformed
+    private void openBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_openBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_openButtonActionPerformed
+    }//GEN-LAST:event_openBtnActionPerformed
 
-    private void pauseButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseButtonActionPerformed
+    private void pauseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pauseBtnActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_pauseButtonActionPerformed
+    }//GEN-LAST:event_pauseBtnActionPerformed
+
+    private void managePresetsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_managePresetsBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_managePresetsBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -173,22 +211,28 @@ public class mainFrame extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JMenu aboutButton;
-    private javax.swing.JMenu activityButton;
-    private javax.swing.JMenu addQueueButton;
-    private javax.swing.JMenu documentationButton;
-    private javax.swing.JMenuItem exitButton;
-    private javax.swing.JMenu fileButton;
-    private javax.swing.JMenu helpButton;
+    private javax.swing.JMenuItem activityButton;
+    private javax.swing.JMenuItem addQueueBtn;
+    private javax.swing.JMenuItem deletePresetBtn;
+    private javax.swing.JMenuItem exitBtn;
+    private javax.swing.JMenuItem exportPresetsBtn;
+    private javax.swing.JMenu fileMenu;
+    private javax.swing.JMenuItem helpBtn;
+    private javax.swing.JMenu helpMenu;
+    private javax.swing.JMenuItem importPresetBtn;
+    private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem managePresetsBtn;
     private javax.swing.JMenuBar menuBar;
-    private javax.swing.JMenuItem openButton;
-    private javax.swing.JMenuItem pauseButton;
-    private javax.swing.JMenu preferencesButton;
-    private javax.swing.JMenu presetsButton;
+    private javax.swing.JMenuItem openBtn;
+    private javax.swing.JMenuItem pauseBtn;
+    private javax.swing.JMenuItem preferencesButton;
+    private javax.swing.JMenu presetsMenu;
+    private javax.swing.JMenu presetsSubBtn;
+    private javax.swing.JMenuItem queueBtn;
     private javax.swing.JMenu queueButton;
-    private javax.swing.JMenu showQueueButton;
-    private javax.swing.JMenuItem startButton;
-    private javax.swing.JMenuItem stopButton;
-    private javax.swing.JMenu toolsButton;
+    private javax.swing.JMenuItem savePresetBtn;
+    private javax.swing.JMenuItem startBtn;
+    private javax.swing.JMenuItem stopBtn;
+    private javax.swing.JMenu toolsMenu;
     // End of variables declaration//GEN-END:variables
 }

@@ -4,12 +4,12 @@
   <NonVisualComponents>
     <Menu class="javax.swing.JMenuBar" name="menuBar">
       <SubComponents>
-        <Menu class="javax.swing.JMenu" name="fileButton">
+        <Menu class="javax.swing.JMenu" name="fileMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="File"/>
           </Properties>
           <SubComponents>
-            <MenuItem class="javax.swing.JMenuItem" name="openButton">
+            <MenuItem class="javax.swing.JMenuItem" name="openBtn">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Alt+O"/>
@@ -17,10 +17,10 @@
                 <Property name="text" type="java.lang.String" value="Open Source"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="openBtnActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="startButton">
+            <MenuItem class="javax.swing.JMenuItem" name="startBtn">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+E"/>
@@ -28,7 +28,7 @@
                 <Property name="text" type="java.lang.String" value="Start Encode"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="pauseButton">
+            <MenuItem class="javax.swing.JMenuItem" name="pauseBtn">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Alt+P"/>
@@ -36,10 +36,10 @@
                 <Property name="text" type="java.lang.String" value="Pause"/>
               </Properties>
               <Events>
-                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pauseButtonActionPerformed"/>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="pauseBtnActionPerformed"/>
               </Events>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="stopButton">
+            <MenuItem class="javax.swing.JMenuItem" name="stopBtn">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Ctrl+K"/>
@@ -47,7 +47,7 @@
                 <Property name="text" type="java.lang.String" value="Stop"/>
               </Properties>
             </MenuItem>
-            <MenuItem class="javax.swing.JMenuItem" name="exitButton">
+            <MenuItem class="javax.swing.JMenuItem" name="exitBtn">
               <Properties>
                 <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
                   <KeyStroke key="Alt+F4"/>
@@ -57,60 +57,106 @@
             </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="toolsButton">
+        <Menu class="javax.swing.JMenu" name="toolsMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Tools"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="activityButton">
+            <MenuItem class="javax.swing.JMenuItem" name="activityButton">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+L"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Activity Log"/>
               </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="preferencesButton">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="preferencesButton">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Preferences"/>
               </Properties>
-            </Menu>
+            </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="presetsButton">
+        <Menu class="javax.swing.JMenu" name="presetsMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Presets"/>
           </Properties>
+          <SubComponents>
+            <Menu class="javax.swing.JMenu" name="presetsSubBtn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Presets"/>
+              </Properties>
+              <SubComponents>
+                <MenuItem class="javax.swing.JMenuItem" name="jMenuItem1">
+                  <Properties>
+                    <Property name="text" type="java.lang.String" value="Default"/>
+                  </Properties>
+                </MenuItem>
+              </SubComponents>
+            </Menu>
+            <MenuItem class="javax.swing.JMenuItem" name="managePresetsBtn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Manage Presets"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="managePresetsBtnActionPerformed"/>
+              </Events>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="savePresetBtn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Save New Preset"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="deletePresetBtn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Delete Preset"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="importPresetBtn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Import from File"/>
+              </Properties>
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="exportPresetsBtn">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Export to File"/>
+              </Properties>
+            </MenuItem>
+          </SubComponents>
         </Menu>
         <Menu class="javax.swing.JMenu" name="queueButton">
           <Properties>
             <Property name="text" type="java.lang.String" value="Queue"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="showQueueButton">
+            <MenuItem class="javax.swing.JMenuItem" name="queueBtn">
               <Properties>
-                <Property name="text" type="java.lang.String" value="Show Queue"/>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+Q"/>
+                </Property>
+                <Property name="text" type="java.lang.String" value="Queue"/>
               </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="addQueueButton">
+            </MenuItem>
+            <MenuItem class="javax.swing.JMenuItem" name="addQueueBtn">
               <Properties>
+                <Property name="accelerator" type="javax.swing.KeyStroke" editor="org.netbeans.modules.form.editors.KeyStrokeEditor">
+                  <KeyStroke key="Ctrl+A"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="Add to Queue"/>
               </Properties>
-            </Menu>
+            </MenuItem>
           </SubComponents>
         </Menu>
-        <Menu class="javax.swing.JMenu" name="helpButton">
+        <Menu class="javax.swing.JMenu" name="helpMenu">
           <Properties>
             <Property name="text" type="java.lang.String" value="Help"/>
           </Properties>
           <SubComponents>
-            <Menu class="javax.swing.JMenu" name="documentationButton">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="Documentation"/>
-              </Properties>
-            </Menu>
-            <Menu class="javax.swing.JMenu" name="aboutButton">
+            <MenuItem class="javax.swing.JMenuItem" name="helpBtn">
               <Properties>
                 <Property name="text" type="java.lang.String" value="About ShiftStick"/>
               </Properties>
-            </Menu>
+            </MenuItem>
           </SubComponents>
         </Menu>
       </SubComponents>
