@@ -1,2 +1,4 @@
 **/private/
-build/
+**/build
+*.class
+
