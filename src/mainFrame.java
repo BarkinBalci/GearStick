@@ -158,20 +158,20 @@ public class mainFrame extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, summaryPanelLayout.createSequentialGroup()
                                 .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(filtersTextBox, javax.swing.GroupLayout.DEFAULT_SIZE, 285, Short.MAX_VALUE)
+                                    .addComponent(filtersTextBox, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                                     .addComponent(tracksTextPanel)
                                     .addComponent(sizeTextBox))
                                 .addGap(39, 39, 39)))
                         .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(previewWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(previewLabel))
-                        .addGap(14, 14, 14))))
+                        .addGap(23, 23, 23))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, summaryPanelLayout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(backButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(forwardButton, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(228, 228, 228))
+                .addGap(238, 238, 238))
         );
         summaryPanelLayout.setVerticalGroup(
             summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -579,7 +579,7 @@ public class mainFrame extends javax.swing.JFrame {
                     .addComponent(saveLabel)
                     .addComponent(saveTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(browseBtn))
-                .addGap(30, 30, 30))
+                .addGap(29, 29, 29))
         );
 
         pack();
