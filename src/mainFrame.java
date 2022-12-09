@@ -67,6 +67,9 @@ public class mainFrame extends javax.swing.JFrame {
         hardwareAccelerationComboBox = new javax.swing.JCheckBox();
         constantFramerateComboBox = new javax.swing.JCheckBox();
         peakFramerateComboBox = new javax.swing.JCheckBox();
+        constantQualityCheckBox = new javax.swing.JCheckBox();
+        averageBitrateCheckBox = new javax.swing.JCheckBox();
+        averageBitrateTextBox = new javax.swing.JTextField();
         audioPanel = new javax.swing.JPanel();
         presetLabel = new javax.swing.JLabel();
         presetComboBox = new javax.swing.JComboBox<>();
@@ -160,7 +163,7 @@ public class mainFrame extends javax.swing.JFrame {
                                     .addComponent(sizeTextBox))
                                 .addGap(39, 39, 39)))
                         .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(previewWindow, javax.swing.GroupLayout.PREFERRED_SIZE, 512, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(previewWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(previewLabel))
                         .addGap(14, 14, 14))))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, summaryPanelLayout.createSequentialGroup()
@@ -198,12 +201,12 @@ public class mainFrame extends javax.swing.JFrame {
                             .addComponent(sizeTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(summaryPanelLayout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(previewWindow, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(previewWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(backButton)
-                    .addComponent(forwardButton))
-                .addContainerGap(15, Short.MAX_VALUE))
+                .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(forwardButton)
+                    .addComponent(backButton))
+                .addGap(15, 15, 15))
         );
 
         mainTabbedPane.addTab("Summary", summaryPanel);
@@ -317,6 +320,16 @@ public class mainFrame extends javax.swing.JFrame {
 
         peakFramerateComboBox.setText("Peak Framerate");
 
+        constantQualityCheckBox.setSelected(true);
+        constantQualityCheckBox.setText("Constant Quality:");
+
+        averageBitrateCheckBox.setText("Average Bitrate:");
+        averageBitrateCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                averageBitrateCheckBoxActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout videoPanelLayout = new javax.swing.GroupLayout(videoPanel);
         videoPanel.setLayout(videoPanelLayout);
         videoPanelLayout.setHorizontalGroup(
@@ -344,10 +357,15 @@ public class mainFrame extends javax.swing.JFrame {
                                     .addComponent(hardwareAccelerationComboBox)
                                     .addComponent(constantFramerateComboBox)
                                     .addComponent(peakFramerateComboBox))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 310, Short.MAX_VALUE)
+                                .addGap(310, 310, 310)
                                 .addGroup(videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(qualityLabel)
-                                    .addComponent(qualitySlider, javax.swing.GroupLayout.PREFERRED_SIZE, 407, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(qualitySlider, javax.swing.GroupLayout.DEFAULT_SIZE, 407, Short.MAX_VALUE)
+                                    .addComponent(constantQualityCheckBox)
+                                    .addGroup(videoPanelLayout.createSequentialGroup()
+                                        .addComponent(averageBitrateCheckBox)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(averageBitrateTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                         .addGap(23, 23, 23))))
         );
         videoPanelLayout.setVerticalGroup(
@@ -358,25 +376,27 @@ public class mainFrame extends javax.swing.JFrame {
                     .addComponent(videoEncoderLabel)
                     .addComponent(encoderComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(qualityLabel))
-                .addGroup(videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(videoPanelLayout.createSequentialGroup()
-                        .addGap(20, 20, 20)
-                        .addComponent(qualitySlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(videoPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(hardwareAccelerationComboBox)))
-                .addGap(16, 16, 16)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(hardwareAccelerationComboBox)
+                    .addComponent(constantQualityCheckBox))
+                .addGap(10, 10, 10)
+                .addComponent(qualitySlider, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(framerateComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(framerateLabel))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(constantFramerateComboBox)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(videoPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(constantFramerateComboBox)
+                    .addComponent(averageBitrateCheckBox)
+                    .addComponent(averageBitrateTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(81, 81, 81)
                 .addComponent(peakFramerateComboBox)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 69, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(advancedOptionsLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(advancedOptionsTextPane, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(advancedOptionsTextPane, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
 
@@ -533,17 +553,14 @@ public class mainFrame extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(browseBtn))
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(presetLabel)
-                                .addGap(18, 18, 18)
-                                .addComponent(presetComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(reloadBtn)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButton1))
-                            .addComponent(mainTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 940, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(presetLabel)
+                        .addGap(18, 18, 18)
+                        .addComponent(presetComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(reloadBtn)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1))
+                    .addComponent(mainTabbedPane))
                 .addGap(30, 30, 30))
         );
         layout.setVerticalGroup(
@@ -556,21 +573,17 @@ public class mainFrame extends javax.swing.JFrame {
                     .addComponent(reloadBtn)
                     .addComponent(jButton1))
                 .addGap(30, 30, 30)
-                .addComponent(mainTabbedPane, javax.swing.GroupLayout.PREFERRED_SIZE, 424, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(mainTabbedPane)
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(saveLabel)
                     .addComponent(saveTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(browseBtn))
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addGap(30, 30, 30))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void forwardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forwardButtonActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_forwardButtonActionPerformed
 
     private void saveTextBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_saveTextBoxActionPerformed
         // TODO add your handling code here:
@@ -593,6 +606,14 @@ public class mainFrame extends javax.swing.JFrame {
             Logger.getLogger(mainFrame.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_helpBtnActionPerformed
+
+    private void averageBitrateCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_averageBitrateCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_averageBitrateCheckBoxActionPerformed
+
+    private void forwardButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_forwardButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_forwardButtonActionPerformed
 
     private void openBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_openBtnActionPerformed
         // TODO add your handling code here:
@@ -655,9 +676,12 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JLabel advancedOptionsLabel;
     private javax.swing.JTextPane advancedOptionsTextPane;
     private javax.swing.JPanel audioPanel;
+    private javax.swing.JCheckBox averageBitrateCheckBox;
+    private javax.swing.JTextField averageBitrateTextBox;
     private javax.swing.JButton backButton;
     private javax.swing.JButton browseBtn;
     private javax.swing.JCheckBox constantFramerateComboBox;
+    private javax.swing.JCheckBox constantQualityCheckBox;
     private javax.swing.JComboBox<String> deinterlaceComboBox;
     private javax.swing.JLabel deinterlaceLabel;
     private javax.swing.JMenuItem deletePresetBtn;
