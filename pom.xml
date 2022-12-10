@@ -75,7 +75,7 @@
                         <!-- Default configuration for running with: mvn clean javafx:run -->
                         <id>default-cli</id>
                         <configuration>
-                            <mainClass>com.gearstick.gearstick/com.gearstick.gearstick.HelloApplication</mainClass>
+                            <mainClass>com.gearstick.gearstick/com.gearstick.gearstick.Main</mainClass>
                             <launcher>app</launcher>
                             <jlinkZipName>app</jlinkZipName>
                             <jlinkImageName>app</jlinkImageName>

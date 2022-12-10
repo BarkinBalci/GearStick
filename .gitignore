@@ -1,5 +1,4 @@
 **/private/
 build/*
 *.class
-
 /dist/
