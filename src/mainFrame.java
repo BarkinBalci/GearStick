@@ -45,6 +45,8 @@ public class mainFrame extends javax.swing.JFrame {
         sizeTextBox = new javax.swing.JTextField();
         filtersTextBox = new javax.swing.JTextField();
         tracksTextPanel = new javax.swing.JTextPane();
+        webOptimizedCheckBox = new javax.swing.JCheckBox();
+        keepMetadataCheckBox = new javax.swing.JCheckBox();
         dimensionsPanel = new javax.swing.JPanel();
         filtersPanel = new javax.swing.JPanel();
         detelecineLabel = new javax.swing.JLabel();
@@ -135,6 +137,15 @@ public class mainFrame extends javax.swing.JFrame {
             }
         });
 
+        webOptimizedCheckBox.setText("Web Optimized");
+        webOptimizedCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                webOptimizedCheckBoxActionPerformed(evt);
+            }
+        });
+
+        keepMetadataCheckBox.setText("Keep Metadata");
+
         javax.swing.GroupLayout summaryPanelLayout = new javax.swing.GroupLayout(summaryPanel);
         summaryPanel.setLayout(summaryPanelLayout);
         summaryPanelLayout.setHorizontalGroup(
@@ -153,15 +164,18 @@ public class mainFrame extends javax.swing.JFrame {
                             .addComponent(tracksLabel))
                         .addGap(20, 20, 20)
                         .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(summaryPanelLayout.createSequentialGroup()
-                                .addComponent(formatCBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, summaryPanelLayout.createSequentialGroup()
                                 .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(filtersTextBox, javax.swing.GroupLayout.DEFAULT_SIZE, 276, Short.MAX_VALUE)
                                     .addComponent(tracksTextPanel)
                                     .addComponent(sizeTextBox))
-                                .addGap(39, 39, 39)))
+                                .addGap(39, 39, 39))
+                            .addGroup(summaryPanelLayout.createSequentialGroup()
+                                .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(formatCBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(webOptimizedCheckBox)
+                                    .addComponent(keepMetadataCheckBox))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(previewWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(previewLabel))
@@ -185,9 +199,13 @@ public class mainFrame extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, summaryPanelLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(previewLabel)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(summaryPanelLayout.createSequentialGroup()
-                        .addGap(77, 77, 77)
+                        .addComponent(webOptimizedCheckBox, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(keepMetadataCheckBox)
+                        .addGap(25, 25, 25)
                         .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(tracksLabel)
                             .addComponent(tracksTextPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -199,9 +217,7 @@ public class mainFrame extends javax.swing.JFrame {
                         .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(sizeLabel)
                             .addComponent(sizeTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(summaryPanelLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(previewWindow, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addComponent(previewWindow, javax.swing.GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(summaryPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(forwardButton)
@@ -219,7 +235,7 @@ public class mainFrame extends javax.swing.JFrame {
         );
         dimensionsPanelLayout.setVerticalGroup(
             dimensionsPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 389, Short.MAX_VALUE)
+            .addGap(0, 390, Short.MAX_VALUE)
         );
 
         mainTabbedPane.addTab("Dimensions", dimensionsPanel);
@@ -284,7 +300,7 @@ public class mainFrame extends javax.swing.JFrame {
                 .addGroup(filtersPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(sharpenLabel)
                     .addComponent(sharpenComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(245, Short.MAX_VALUE))
+                .addContainerGap(246, Short.MAX_VALUE))
         );
 
         mainTabbedPane.addTab("Filters", filtersPanel);
@@ -391,12 +407,12 @@ public class mainFrame extends javax.swing.JFrame {
                     .addComponent(constantFramerateComboBox)
                     .addComponent(averageBitrateCheckBox)
                     .addComponent(averageBitrateTextBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(81, 81, 81)
-                .addComponent(peakFramerateComboBox)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(peakFramerateComboBox)
+                .addGap(81, 81, 81)
                 .addComponent(advancedOptionsLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(advancedOptionsTextPane, javax.swing.GroupLayout.DEFAULT_SIZE, 75, Short.MAX_VALUE)
+                .addComponent(advancedOptionsTextPane, javax.swing.GroupLayout.DEFAULT_SIZE, 76, Short.MAX_VALUE)
                 .addGap(20, 20, 20))
         );
 
@@ -410,7 +426,7 @@ public class mainFrame extends javax.swing.JFrame {
         );
         audioPanelLayout.setVerticalGroup(
             audioPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 389, Short.MAX_VALUE)
+            .addGap(0, 390, Short.MAX_VALUE)
         );
 
         mainTabbedPane.addTab("Audio", audioPanel);
@@ -418,6 +434,11 @@ public class mainFrame extends javax.swing.JFrame {
         presetLabel.setText("Preset: ");
 
         presetComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Default", "Slow", "Fast", "Very Fast" }));
+        presetComboBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                presetComboBoxActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Start Encode");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -473,6 +494,11 @@ public class mainFrame extends javax.swing.JFrame {
 
         exitBtn.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_F4, java.awt.event.InputEvent.ALT_DOWN_MASK));
         exitBtn.setText("Exit");
+        exitBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exitBtnActionPerformed(evt);
+            }
+        });
         fileMenu.add(exitBtn);
 
         menuBar.add(fileMenu);
@@ -615,6 +641,18 @@ public class mainFrame extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_forwardButtonActionPerformed
 
+    private void presetComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_presetComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_presetComboBoxActionPerformed
+
+    private void webOptimizedCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_webOptimizedCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_webOptimizedCheckBoxActionPerformed
+
+    private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
+       System.exit(0);
+    }//GEN-LAST:event_exitBtnActionPerformed
+
     private void openBtnActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_openBtnActionPerformed
         // TODO add your handling code here:
     }// GEN-LAST:event_openBtnActionPerformed
@@ -707,6 +745,7 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JMenu helpMenu;
     private javax.swing.JMenuItem importPresetBtn;
     private javax.swing.JButton jButton1;
+    private javax.swing.JCheckBox keepMetadataCheckBox;
     private javax.swing.JTabbedPane mainTabbedPane;
     private javax.swing.JMenuItem managePresetsBtn;
     private javax.swing.JMenuBar menuBar;
@@ -739,5 +778,6 @@ public class mainFrame extends javax.swing.JFrame {
     private javax.swing.JTextPane tracksTextPanel;
     private javax.swing.JLabel videoEncoderLabel;
     private javax.swing.JPanel videoPanel;
+    private javax.swing.JCheckBox webOptimizedCheckBox;
     // End of variables declaration//GEN-END:variables
 }

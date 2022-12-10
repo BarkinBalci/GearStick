@@ -54,6 +54,9 @@
                 </Property>
                 <Property name="text" type="java.lang.String" value="Exit"/>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="exitBtnActionPerformed"/>
+              </Events>
             </MenuItem>
           </SubComponents>
         </Menu>
@@ -269,10 +272,6 @@
                               </Group>
                               <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="formatCBox" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="32767" attributes="0"/>
-                                  </Group>
                                   <Group type="102" alignment="1" attributes="0">
                                       <Group type="103" groupAlignment="1" attributes="0">
                                           <Component id="filtersTextBox" alignment="1" pref="276" max="32767" attributes="0"/>
@@ -280,6 +279,14 @@
                                           <Component id="sizeTextBox" alignment="1" max="32767" attributes="0"/>
                                       </Group>
                                       <EmptySpace min="-2" pref="39" max="-2" attributes="0"/>
+                                  </Group>
+                                  <Group type="102" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="formatCBox" min="-2" max="-2" attributes="0"/>
+                                          <Component id="webOptimizedCheckBox" min="-2" max="-2" attributes="0"/>
+                                          <Component id="keepMetadataCheckBox" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace max="32767" attributes="0"/>
                                   </Group>
                               </Group>
                               <Group type="103" groupAlignment="0" attributes="0">
@@ -315,9 +322,13 @@
                               <Component id="previewLabel" min="-2" max="-2" attributes="0"/>
                           </Group>
                       </Group>
+                      <EmptySpace min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="77" max="-2" attributes="0"/>
+                              <Component id="webOptimizedCheckBox" min="-2" pref="20" max="-2" attributes="0"/>
+                              <EmptySpace max="-2" attributes="0"/>
+                              <Component id="keepMetadataCheckBox" min="-2" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="25" max="-2" attributes="0"/>
                               <Group type="103" groupAlignment="0" attributes="0">
                                   <Component id="tracksLabel" min="-2" max="-2" attributes="0"/>
                                   <Component id="tracksTextPanel" min="-2" pref="126" max="-2" attributes="0"/>
@@ -333,10 +344,7 @@
                                   <Component id="sizeTextBox" alignment="3" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" max="-2" attributes="0"/>
-                              <Component id="previewWindow" max="32767" attributes="0"/>
-                          </Group>
+                          <Component id="previewWindow" pref="289" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace type="unrelated" min="-2" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="3" attributes="0">
@@ -436,6 +444,19 @@
             </Component>
             <Component class="javax.swing.JTextPane" name="tracksTextPanel">
             </Component>
+            <Component class="javax.swing.JCheckBox" name="webOptimizedCheckBox">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Web Optimized"/>
+              </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="webOptimizedCheckBoxActionPerformed"/>
+              </Events>
+            </Component>
+            <Component class="javax.swing.JCheckBox" name="keepMetadataCheckBox">
+              <Properties>
+                <Property name="text" type="java.lang.String" value="Keep Metadata"/>
+              </Properties>
+            </Component>
           </SubComponents>
         </Container>
         <Container class="javax.swing.JPanel" name="dimensionsPanel">
@@ -455,7 +476,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="389" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="390" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -523,7 +544,7 @@
                           <Component id="sharpenLabel" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="sharpenComboBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace pref="245" max="32767" attributes="0"/>
+                      <EmptySpace pref="246" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -697,12 +718,12 @@
                           <Component id="averageBitrateCheckBox" alignment="3" min="-2" max="-2" attributes="0"/>
                           <Component id="averageBitrateTextBox" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
                       <Component id="peakFramerateComboBox" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="81" max="-2" attributes="0"/>
                       <Component id="advancedOptionsLabel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" max="-2" attributes="0"/>
-                      <Component id="advancedOptionsTextPane" pref="75" max="32767" attributes="0"/>
+                      <Component id="advancedOptionsTextPane" pref="76" max="32767" attributes="0"/>
                       <EmptySpace min="-2" pref="20" max="-2" attributes="0"/>
                   </Group>
               </Group>
@@ -834,7 +855,7 @@
             </DimensionLayout>
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <EmptySpace min="0" pref="389" max="32767" attributes="0"/>
+                  <EmptySpace min="0" pref="390" max="32767" attributes="0"/>
               </Group>
             </DimensionLayout>
           </Layout>
@@ -857,6 +878,9 @@
           </StringArray>
         </Property>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="presetComboBoxActionPerformed"/>
+      </Events>
       <AuxValues>
         <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
       </AuxValues>
