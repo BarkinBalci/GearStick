@@ -19,17 +19,30 @@
         <menus>
           <Menu mnemonicParsing="false" text="File">
             <items>
-              <MenuItem mnemonicParsing="false" text="Close" />
+              <MenuItem mnemonicParsing="false" text="Open File" />
+                  <MenuItem mnemonicParsing="false" text="Start Encode" />
+                  <MenuItem mnemonicParsing="false" text="Pause" />
+                  <MenuItem mnemonicParsing="false" text="Stop" />
+                  <MenuItem mnemonicParsing="false" text="Exit" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Tools">
             <items>
-              <MenuItem mnemonicParsing="false" text="Delete" />
+              <MenuItem mnemonicParsing="false" text="Activity Log" />
+                  <MenuItem mnemonicParsing="false" text="Preferences" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="Gears">
             <items>
-              <MenuItem mnemonicParsing="false" text="About" />
+                  <Menu mnemonicParsing="false" text="Gears">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Default" />
+                        <MenuItem mnemonicParsing="false" text="Slow" />
+                        <MenuItem mnemonicParsing="false" text="Fast" />
+                        <MenuItem mnemonicParsing="false" text="Very Fast" />
+                    </items>
+                  </Menu>
+              <MenuItem mnemonicParsing="false" text="Manage Gears" />
             </items>
           </Menu>
             <Menu mnemonicParsing="false" text="Help">
