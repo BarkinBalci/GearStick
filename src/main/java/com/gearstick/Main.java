@@ -1,4 +1,4 @@
-package com.gearstick.gearstick;
+package com.gearstick;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
