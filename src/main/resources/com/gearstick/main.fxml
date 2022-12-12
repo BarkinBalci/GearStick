@@ -10,6 +10,7 @@
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 
@@ -25,6 +26,9 @@
                   <MenuItem mnemonicParsing="false" text="Stop" />
                   <MenuItem mnemonicParsing="false" text="Exit" />
             </items>
+               <accelerator>
+                  <KeyCodeCombination alt="ANY" code="O" control="UP" meta="UP" shift="UP" shortcut="UP" />
+               </accelerator>
           </Menu>
           <Menu mnemonicParsing="false" text="Tools">
             <items>

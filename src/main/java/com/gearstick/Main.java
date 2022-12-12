@@ -14,7 +14,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("player"));
+        scene = new Scene(loadFXML("main"));
         stage.setTitle("GearStick");
         stage.setScene(scene);
         stage.show();
