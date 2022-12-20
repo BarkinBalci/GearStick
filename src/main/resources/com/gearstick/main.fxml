@@ -58,18 +58,22 @@
       <Button fx:id="startDecryption" layoutX="917.0" layoutY="46.0" mnemonicParsing="false" onAction="#Decrypt" text="Decrypt" />
       <Button fx:id="startEncryption" layoutX="330.0" layoutY="46.0" mnemonicParsing="false" onAction="#Encrypt" text="Encrypt" />
        <TextField fx:id="inputTextField" layoutX="144.0" layoutY="100.0" prefHeight="25.0" prefWidth="168.0" />
-       <TextField fx:id="outputTextField" layoutX="144.0" layoutY="261.0" prefHeight="25.0" prefWidth="168.0" />
-      <Label layoutX="25.0" layoutY="559.0" text="Save As:" />
+       <TextField fx:id="outputTextField" layoutX="144.0" layoutY="327.0" prefHeight="25.0" prefWidth="168.0" />
+       <Label layoutX="25.0" layoutY="559.0" text="Save As:" />
       <TextField layoutX="74.0" layoutY="555.0" prefHeight="25.0" prefWidth="812.0" />
       <Button layoutX="920.0" layoutY="555.0" mnemonicParsing="false" text="Browse" />
-      <TextArea layoutX="74.0" layoutY="395.0" prefHeight="142.0" prefWidth="812.0" />
-      <Label layoutX="74.0" layoutY="369.0" text="Advanced:" />
+      <TextArea layoutX="74.0" layoutY="424.0" prefHeight="113.0" prefWidth="812.0" />
+      <Label layoutX="75.0" layoutY="389.0" text="Advanced:" />
       <Label layoutX="74.0" layoutY="104.0" text="Input:" />
-      <Label layoutX="74.0" layoutY="265.0" text="Output:" />
-       <TextField fx:id="saltTextField" layoutX="144.0" layoutY="193.0" prefHeight="25.0" prefWidth="168.0" />
-      <TextField fx:id="secretKeyTextField" layoutX="144.0" layoutY="144.0" prefHeight="25.0" prefWidth="168.0" />
-      <Label layoutX="74.0" layoutY="148.0" text="Secret Key:" />
-      <Label layoutX="74.0" layoutY="197.0" text="Salt:" />
+      <Label layoutX="74.0" layoutY="331.0" text="Output:" />
+       <TextField fx:id="saltTextField" layoutX="144.0" layoutY="206.0" prefHeight="25.0" prefWidth="168.0" />
+      <TextField fx:id="secretKeyTextField" layoutX="144.0" layoutY="248.0" prefHeight="25.0" prefWidth="168.0" />
+      <Label layoutX="74.0" layoutY="252.0" text="Secret Key:" />
+      <Label layoutX="74.0" layoutY="210.0" text="Salt:" />
+      <Button fx:id="generateButton" layoutX="330.0" layoutY="248.0" mnemonicParsing="false" onAction="#Generate" text="Generate" />
+      <TextField fx:id="seedTextField" layoutX="144.0" layoutY="170.0" prefHeight="25.0" prefWidth="168.0" />
+      <Label layoutX="74.0" layoutY="174.0" text="Seed:" />
+      <Button fx:id="randomizeButton" layoutX="408.0" layoutY="248.0" mnemonicParsing="false" onAction="#Randomize" text="Randomize" />
 
    </children>
 </Pane>
