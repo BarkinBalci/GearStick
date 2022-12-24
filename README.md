@@ -1,2 +1,2 @@
 # GearStick
-GearStick is an open-source cryptographer that is currently under development for Linux, Mac, and Windows platforms.
+GearStick is an open-source cryptographer with password-managing capabilities that is currently under development for Windows, Linux, and macOS platforms.
