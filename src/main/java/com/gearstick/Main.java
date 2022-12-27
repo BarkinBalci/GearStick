@@ -13,7 +13,7 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        var main = loadFXML("Main");
+        var main = loadFXML("Cryptography");
         var menuBar = loadFXML("MenuBar");
         scene = new Scene(new VBox(menuBar, main));
         stage.setTitle("GearStick");

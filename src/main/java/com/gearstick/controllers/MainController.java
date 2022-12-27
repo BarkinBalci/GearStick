@@ -72,12 +72,17 @@ public class MainController implements Initializable {
         secretKeyTextField.setText(encodedKey);
     }
 
-    @FXML
-    private ComboBox<String> gearComboBox;
-
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        gearComboBox.setItems(FXCollections.observableArrayList("AES256", "AES512", "SHA256", "SHA512"));
-        gearComboBox.getSelectionModel().selectFirst();
+
     }
+
+    //@FXML
+    //private ComboBox<String> gearComboBox;
+
+    //@Override
+    //public void initialize(URL url, ResourceBundle resourceBundle) {
+        //gearComboBox.setItems(FXCollections.observableArrayList("AES256", "AES512", "SHA256", "SHA512"));
+        //gearComboBox.getSelectionModel().selectFirst();
+    //}
 }

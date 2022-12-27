@@ -7,7 +7,7 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0" prefWidth="499.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
    <children>
-      <Button fx:id="startDecryption" layoutX="374.0" layoutY="37.0" mnemonicParsing="false" onAction="#Decrypt" text="Decrypt" />
+      <Button fx:id="startDecryption" layoutX="368.0" layoutY="37.0" mnemonicParsing="false" onAction="#Decrypt" text="Decrypt" />
       <Button fx:id="startEncryption" layoutX="300.0" layoutY="37.0" mnemonicParsing="false" onAction="#Encrypt" text="Encrypt" />
        <TextField fx:id="inputTextField" layoutX="110.0" layoutY="37.0" prefHeight="25.0" prefWidth="168.0" />
        <TextField fx:id="outputTextField" layoutX="110.0" layoutY="264.0" prefHeight="25.0" prefWidth="168.0" />
