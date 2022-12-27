@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.Pane?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0" prefWidth="499.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
+   <children>
+      <Button fx:id="startDecryption" layoutX="374.0" layoutY="37.0" mnemonicParsing="false" onAction="#Decrypt" text="Decrypt" />
+      <Button fx:id="startEncryption" layoutX="300.0" layoutY="37.0" mnemonicParsing="false" onAction="#Encrypt" text="Encrypt" />
+       <TextField fx:id="inputTextField" layoutX="110.0" layoutY="37.0" prefHeight="25.0" prefWidth="168.0" />
+       <TextField fx:id="outputTextField" layoutX="110.0" layoutY="264.0" prefHeight="25.0" prefWidth="168.0" />
+      <Label layoutX="40.0" layoutY="41.0" text="Input:" />
+      <Label layoutX="40.0" layoutY="268.0" text="Output:" />
+       <TextField fx:id="saltTextField" layoutX="110.0" layoutY="143.0" prefHeight="25.0" prefWidth="168.0" />
+      <TextField fx:id="secretKeyTextField" layoutX="110.0" layoutY="185.0" prefHeight="25.0" prefWidth="168.0" />
+      <Label layoutX="40.0" layoutY="189.0" text="Secret Key:" />
+      <Label layoutX="40.0" layoutY="147.0" text="Salt:" />
+      <Button fx:id="generateButton" layoutX="296.0" layoutY="185.0" mnemonicParsing="false" onAction="#Generate" text="Generate" />
+      <TextField fx:id="seedTextField" layoutX="110.0" layoutY="104.0" prefHeight="25.0" prefWidth="168.0" />
+      <Label layoutX="40.0" layoutY="108.0" text="Seed:" />
+      <Button fx:id="randomizeButton" layoutX="374.0" layoutY="185.0" mnemonicParsing="false" onAction="#Randomize" text="Randomize" />
+
+   </children>
+</Pane>
