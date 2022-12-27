@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.input.KeyCodeCombination?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="com.gearstick.controllers.MainController">
+   <children>
+      <MenuBar prefHeight="25.0" prefWidth="808.0">
+         <menus>
+            <Menu mnemonicParsing="false" text="File">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Open File" />
+                  <MenuItem mnemonicParsing="false" text="Start Encode" />
+                  <MenuItem mnemonicParsing="false" text="Pause" />
+                  <MenuItem mnemonicParsing="false" text="Stop" />
+                  <MenuItem mnemonicParsing="false" text="Exit" />
+               </items>
+               <accelerator>
+                  <KeyCodeCombination alt="ANY" code="O" control="UP" meta="UP" shift="UP" shortcut="UP" />
+               </accelerator>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Tools">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Activity Log" />
+                  <MenuItem mnemonicParsing="false" text="Preferences" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Gears">
+               <items>
+                  <Menu mnemonicParsing="false" text="Gears">
+                     <items>
+                        <MenuItem mnemonicParsing="false" text="Default" />
+                        <MenuItem mnemonicParsing="false" text="Slow" />
+                        <MenuItem mnemonicParsing="false" text="Fast" />
+                        <MenuItem mnemonicParsing="false" text="Very Fast" />
+                     </items>
+                  </Menu>
+                  <MenuItem mnemonicParsing="false" text="Manage Gears" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Vault" />
+            <Menu mnemonicParsing="false" text="Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Action 1" />
+               </items>
+            </Menu>
+         </menus>
+      </MenuBar>
+   </children>
+</VBox>

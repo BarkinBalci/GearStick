@@ -33,8 +33,10 @@ public class MainController implements Initializable {
     private TextField saltTextField;
     @FXML
     private TextField seedTextField;
+
     @FXML
-    private void Encrypt() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
+    private void Encrypt() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException,
+            IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
         String inputText = inputTextField.getText();
         String encodedKey = secretKeyTextField.getText();
         byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
@@ -42,8 +44,10 @@ public class MainController implements Initializable {
         String encryptedString = AES.encrypt("AES/CBC/PKCS5Padding", inputText, originalKey);
         outputTextField.setText(encryptedString);
     }
+
     @FXML
-    private void Decrypt() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException, IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
+    private void Decrypt() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException,
+            IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
         String inputText = inputTextField.getText();
         String encodedKey = secretKeyTextField.getText();
         byte[] decodedKey = Base64.getDecoder().decode(encodedKey);

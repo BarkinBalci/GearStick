@@ -4,15 +4,18 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException;
 
 public class Main extends Application {
     private static Scene scene;
 
-    @Override   
+    @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(loadFXML("main"));
+        var main = loadFXML("Main");
+        var menuBar = loadFXML("MenuBar");
+        scene = new Scene(new VBox(menuBar, main));
         stage.setTitle("GearStick");
         stage.setScene(scene);
         stage.show();
