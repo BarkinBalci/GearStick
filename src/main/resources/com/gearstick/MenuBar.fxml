@@ -6,8 +6,7 @@
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.VBox?>
 
-
-<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1"  fx:controller="com.gearstick.controllers.MainController">
+<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
    <children>
       <MenuBar prefHeight="25.0" prefWidth="808.0">
          <menus>
@@ -42,7 +41,15 @@
                   <MenuItem mnemonicParsing="false" text="Manage Gears" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Vault" />
+            <Menu mnemonicParsing="false" text="Vault">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#switchToVault" text="Open Vault" />
+               </items></Menu>
+            <Menu mnemonicParsing="false" text="Cryptography">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#switchToCryptography" text="Open Cryptography" />
+               </items>
+            </Menu>
             <Menu mnemonicParsing="false" text="Help">
                <items>
                   <MenuItem mnemonicParsing="false" text="Action 1" />

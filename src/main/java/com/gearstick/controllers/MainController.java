@@ -9,10 +9,10 @@ import java.util.Base64;
 import java.util.ResourceBundle;
 
 import com.gearstick.AES;
-import javafx.collections.FXCollections;
+import com.gearstick.Main;
+
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 
 import javax.crypto.BadPaddingException;
@@ -72,17 +72,19 @@ public class MainController implements Initializable {
         secretKeyTextField.setText(encodedKey);
     }
 
+    @FXML
+    public void switchToVault() {
+        Main.setRoot("vault");
+    }
+
+    @FXML
+    public void switchToCryptography() {
+        Main.setRoot("main");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
-    //@FXML
-    //private ComboBox<String> gearComboBox;
-
-    //@Override
-    //public void initialize(URL url, ResourceBundle resourceBundle) {
-        //gearComboBox.setItems(FXCollections.observableArrayList("AES256", "AES512", "SHA256", "SHA512"));
-        //gearComboBox.getSelectionModel().selectFirst();
-    //}
 }

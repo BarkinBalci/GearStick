@@ -7,23 +7,69 @@ import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import java.io.IOException;
+import java.util.HashMap;
 
 public class Main extends Application {
     private static Scene scene;
+    private static Parent[] root;
+
+    /**
+     * save fxml load result in order to
+     * save cpu/memory to not load again
+     */
+    private static HashMap<String, Parent> screenMap = new HashMap<>();
 
     @Override
     public void start(Stage stage) throws IOException {
-        var main = loadFXML("Cryptography");
-        var menuBar = loadFXML("MenuBar");
-        scene = new Scene(new VBox(menuBar, main));
+        scene = new Scene(new VBox());
+        loadRoot();
+
         stage.setTitle("GearStick");
         stage.setScene(scene);
         stage.show();
     }
 
+    public static void setRoot(String root) {
+        try {
+            switch (root) {
+                case "main":
+                    Main.root[1] = loadFXML("Cryptography");
+                    break;
+                case "vault":
+                    Main.root[1] = loadFXML("Vault");
+                    break;
+                case "register":
+                    Main.root[1] = loadFXML("Register");
+                    break;
+                case "login":
+                    Main.root[1] = loadFXML("Login");
+                    break;
+
+                default:
+                    throw new RuntimeException("Unhandled root mode");
+            }
+            loadRoot();
+        } catch (IOException e) {
+            // frontend (JavaFX file) error
+            e.printStackTrace();
+        }
+    }
+
+    private static void loadRoot() throws IOException {
+        if (root == null) {
+            root = new Parent[] { loadFXML("MenuBar"), loadFXML("Cryptography") };
+        }
+        ((VBox) scene.getRoot()).getChildren().setAll(root);
+    }
+
     private static Parent loadFXML(String fxml) throws IOException {
+        var result = screenMap.get(fxml);
+        if (result != null)
+            return result;
+
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
-        return fxmlLoader.load();
+        screenMap.put(fxml, fxmlLoader.load());
+        return screenMap.get(fxml);
     }
 
     public static void main(String[] args) {
