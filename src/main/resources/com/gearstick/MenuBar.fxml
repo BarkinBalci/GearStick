@@ -22,12 +22,6 @@
                   <KeyCodeCombination alt="ANY" code="O" control="UP" meta="UP" shift="UP" shortcut="UP" />
                </accelerator>
             </Menu>
-            <Menu mnemonicParsing="false" text="Tools">
-               <items>
-                  <MenuItem mnemonicParsing="false" text="Activity Log" />
-                  <MenuItem mnemonicParsing="false" text="Preferences" />
-               </items>
-            </Menu>
             <Menu mnemonicParsing="false" text="Gears">
                <items>
                   <Menu mnemonicParsing="false" text="Gears">
@@ -39,6 +33,17 @@
                      </items>
                   </Menu>
                   <MenuItem mnemonicParsing="false" text="Manage Gears" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Tools">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="Activity Log" />
+                  <MenuItem mnemonicParsing="false" text="Preferences" />
+               </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="Generator">
+               <items>
+                  <MenuItem mnemonicParsing="false" onAction="#switchToGenerator" text="Open Generator" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Vault">

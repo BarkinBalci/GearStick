@@ -82,6 +82,11 @@ public class MainController implements Initializable {
         Main.setRoot("main");
     }
 
+    @FXML
+    public void switchToGenerator() {
+        Main.setRoot("generator");
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
