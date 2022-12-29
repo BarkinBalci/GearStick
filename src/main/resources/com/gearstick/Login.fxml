@@ -10,6 +10,6 @@
    <children>
       <TextField layoutX="51.0" layoutY="88.0" prefHeight="25.0" prefWidth="267.0" />
       <Button layoutX="324.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" text="Set Visible" />
-      <Label layoutX="51.0" layoutY="61.0" text="Enter your master password to enter the vault:" />
+      <Label layoutX="51.0" layoutY="61.0" text="Enter your master password:" />
    </children>
 </Pane>
