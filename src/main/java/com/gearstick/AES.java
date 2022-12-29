@@ -43,7 +43,7 @@ public class AES {
         SecretKey key = keyGenerator.generateKey();
         return key;
     }
-    //Generates a key by deriving it from password.
+    //Generates a key by deriving it from a password.
     public static SecretKey generateKey(String seed, String salt)
             throws NoSuchAlgorithmException, InvalidKeySpecException {
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
@@ -52,13 +52,11 @@ public class AES {
         return key;
     }
 
-    public static void encryptFile(String algorithm, SecretKey key, File inputFile, File outputFile)
+    public static void encryptFile(String algorithm, File inputFile, SecretKey key, IvParameterSpec iv,  File outputFile)
             throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException,
             InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
-        byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-        IvParameterSpec ivspec = new IvParameterSpec(iv);
         Cipher cipher = Cipher.getInstance(algorithm);
-        cipher.init(Cipher.ENCRYPT_MODE, key, ivspec);
+        cipher.init(Cipher.ENCRYPT_MODE, key, iv);
 
         FileInputStream inputStream = new FileInputStream(inputFile);
         FileOutputStream outputStream = new FileOutputStream(outputFile);
@@ -79,13 +77,11 @@ public class AES {
         outputStream.close();
     }
 
-    public static void decryptFile(String algorithm, SecretKey key, File inputFile, File outputFile)
+    public static void decryptFile(String algorithm, File inputFile, SecretKey key, IvParameterSpec iv, File outputFile)
             throws IOException, NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException,
             InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
-        byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-        IvParameterSpec ivspec = new IvParameterSpec(iv);
         Cipher cipher = Cipher.getInstance(algorithm);
-        cipher.init(Cipher.DECRYPT_MODE, key, ivspec);
+        cipher.init(Cipher.DECRYPT_MODE, key, iv);
 
         FileInputStream inputStream = new FileInputStream(inputFile);
         FileOutputStream outputStream = new FileOutputStream(outputFile);
@@ -106,10 +102,15 @@ public class AES {
         outputStream.close();
     }
 
-    public static IvParameterSpec generateIv() {
-        byte[] iv = new byte[16];
+    public static IvParameterSpec generateIv(int lenght) {
+        byte[] iv = new byte[lenght];
         new SecureRandom().nextBytes(iv);
         return new IvParameterSpec(iv);
     }
 
+    public static byte[] generateSalt(int length) {
+        byte[] salt = new byte[length];
+        new SecureRandom().nextBytes(salt);
+        return salt;
+    }
 }
