@@ -17,24 +17,22 @@ import java.security.spec.KeySpec;
 import java.util.Base64;
 
 public class AES {
-    public static String encrypt(String algorithm, String input, SecretKey key)
+    public static String encrypt(String algorithm, String input, SecretKey key, IvParameterSpec iv)
             throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException,
             InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
-        byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-        IvParameterSpec ivspec = new IvParameterSpec(iv);
+
         Cipher cipher = Cipher.getInstance(algorithm);
-        cipher.init(Cipher.ENCRYPT_MODE, key, ivspec);
+        cipher.init(Cipher.ENCRYPT_MODE, key, iv);
         byte[] cipherText = cipher.doFinal(input.getBytes());
         return Base64.getEncoder().encodeToString(cipherText);
     }
 
-    public static String decrypt(String algorithm, String cipherText, SecretKey key)
+    public static String decrypt(String algorithm, String cipherText, SecretKey key, IvParameterSpec iv)
             throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException,
             InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
-        byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-        IvParameterSpec ivspec = new IvParameterSpec(iv);
+
         Cipher cipher = Cipher.getInstance(algorithm);
-        cipher.init(Cipher.DECRYPT_MODE, key, ivspec);
+        cipher.init(Cipher.DECRYPT_MODE, key, iv);
         byte[] plainText = cipher.doFinal(Base64.getDecoder().decode(cipherText));
         return new String(plainText);
     }
@@ -45,7 +43,7 @@ public class AES {
         SecretKey key = keyGenerator.generateKey();
         return key;
     }
-
+    //Generates a key by deriving it from password.
     public static SecretKey generateKey(String seed, String salt)
             throws NoSuchAlgorithmException, InvalidKeySpecException {
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
@@ -113,4 +111,5 @@ public class AES {
         new SecureRandom().nextBytes(iv);
         return new IvParameterSpec(iv);
     }
+
 }

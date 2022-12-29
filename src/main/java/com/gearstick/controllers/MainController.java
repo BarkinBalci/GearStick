@@ -41,7 +41,7 @@ public class MainController implements Initializable {
         String encodedKey = secretKeyTextField.getText();
         byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
         SecretKey originalKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
-        String encryptedString = AES.encrypt("AES/CBC/PKCS5Padding", inputText, originalKey);
+        String encryptedString = AES.encrypt("AES/CBC/PKCS5Padding", inputText, originalKey, AES.generateIv());
         outputTextField.setText(encryptedString);
     }
 
@@ -52,7 +52,7 @@ public class MainController implements Initializable {
         String encodedKey = secretKeyTextField.getText();
         byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
         SecretKey originalKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
-        String decryptedString = AES.decrypt("AES/CBC/PKCS5Padding", inputText, originalKey);
+        String decryptedString = AES.decrypt("AES/CBC/PKCS5Padding", inputText, originalKey, AES.generateIv());
         outputTextField.setText(decryptedString);
     }
 
