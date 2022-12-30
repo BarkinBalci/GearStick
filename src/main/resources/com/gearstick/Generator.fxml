@@ -6,18 +6,21 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <Slider blockIncrement="1.0" layoutX="93.0" layoutY="137.0" majorTickUnit="16.0" max="128.0" minorTickCount="4" prefHeight="24.0" prefWidth="256.0" showTickMarks="true" value="32.0" />
       <Label layoutX="32.0" layoutY="140.0" text="Lenght:" />
-      <CheckBox layoutX="28.0" layoutY="193.0" mnemonicParsing="false" text="A-Z" />
-      <CheckBox layoutX="27.0" layoutY="228.0" mnemonicParsing="false" text="a-z" />
-      <CheckBox layoutX="27.0" layoutY="264.0" mnemonicParsing="false" text="0-9" />
-      <CheckBox layoutX="27.0" layoutY="298.0" mnemonicParsing="false" text="!@#$%^&amp;*" />
-      <TextField layoutX="27.0" layoutY="54.0" prefHeight="67.0" prefWidth="547.0" />
-      <Label layoutX="28.0" layoutY="23.0" text="Password:" />
+      <CheckBox layoutX="32.0" layoutY="181.0" mnemonicParsing="false" text="A-Z" />
+      <CheckBox layoutX="94.0" layoutY="181.0" mnemonicParsing="false" text="a-z" />
+      <CheckBox layoutX="151.0" layoutY="181.0" mnemonicParsing="false" text="0-9" />
+      <CheckBox layoutX="209.0" layoutY="181.0" mnemonicParsing="false" text="!@#$%^&amp;*" />
+      <TextField layoutX="27.0" layoutY="54.0" prefHeight="67.0" prefWidth="445.0" />
+      <Label layoutX="28.0" layoutY="23.0" text="Password:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
       <Button layoutX="99.0" layoutY="19.0" mnemonicParsing="false" text="Copy" />
       <Button layoutX="157.0" layoutY="19.0" mnemonicParsing="false" text="Generate" />
    </children>

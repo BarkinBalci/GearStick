@@ -43,16 +43,25 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Generator">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#switchToGenerator" text="Open Generator" />
+                  <MenuItem mnemonicParsing="false" onAction="#switchToGenerator" text="Open Generator">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="G" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+                     </accelerator></MenuItem>
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Vault">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#switchToVault" text="Open Vault" />
+                  <MenuItem mnemonicParsing="false" onAction="#switchToVault" text="Open Vault">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="V" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+                     </accelerator></MenuItem>
                </items></Menu>
             <Menu mnemonicParsing="false" text="Cryptography">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#switchToCryptography" text="Open Cryptography" />
+                  <MenuItem mnemonicParsing="false" onAction="#switchToCryptography" text="Open Cryptography">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="C" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+                     </accelerator></MenuItem>
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Help">
