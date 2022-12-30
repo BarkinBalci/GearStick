@@ -8,7 +8,7 @@
 
 <VBox alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
    <children>
-      <MenuBar prefHeight="25.0" prefWidth="808.0">
+      <MenuBar prefHeight="25.0" prefWidth="412.0">
          <menus>
             <Menu mnemonicParsing="false" text="File">
                <items>
