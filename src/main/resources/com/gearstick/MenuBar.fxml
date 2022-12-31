@@ -7,28 +7,28 @@
 <?import javafx.scene.input.KeyCodeCombination?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
+<VBox alignment="CENTER" prefHeight="25.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
    <children>
       <MenuBar prefHeight="25.0" prefWidth="450.0">
          <menus>
             <Menu mnemonicParsing="false" text="GearStick">
                <items>
-                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="Maximize" />
+                  <MenuItem mnemonicParsing="false" text="Minimize" />
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <MenuItem mnemonicParsing="false" text="GearStick Documentation" />
                   <MenuItem mnemonicParsing="false" text="Exit">
                      <accelerator>
                         <KeyCodeCombination alt="DOWN" code="F4" control="UP" meta="UP" shift="UP" shortcut="UP" />
                      </accelerator></MenuItem>
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Tools">
+            <Menu text="_Tools">
                <items>
                   <MenuItem mnemonicParsing="false" text="Activity Log" />
                   <MenuItem mnemonicParsing="false" text="Preferences" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Vault">
+            <Menu text="_Vault">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#switchToVault" text="Vault">
                      <accelerator>
@@ -39,7 +39,7 @@
                   <MenuItem mnemonicParsing="false" text="Manage Vaults" />
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Checksum">
+            <Menu text="_Checksum">
               <items>
                 <MenuItem mnemonicParsing="false" text="Checksum">
                      <accelerator>
@@ -48,7 +48,7 @@
                   </MenuItem>
               </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Generator">
+            <Menu text="_Generator">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#switchToGenerator" text="Generator">
                      <accelerator>
@@ -56,12 +56,18 @@
                      </accelerator></MenuItem>
                </items>
             </Menu>
-            <Menu mnemonicParsing="false" text="Cryptography">
+            <Menu text="_Cryptography">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#switchToCryptography" text="Cryptography">
                      <accelerator>
                         <KeyCodeCombination alt="UP" code="C" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
                      </accelerator></MenuItem>
+               </items>
+            </Menu>
+            <Menu text="_Help">
+               <items>
+                  <MenuItem mnemonicParsing="false" text="About" />
+                  <MenuItem mnemonicParsing="false" text="Documentation" />
                </items>
             </Menu>
          </menus>
