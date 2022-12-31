@@ -37,8 +37,7 @@ public class Cryptography {
     public static SecretKey randomizeKey(int n) throws NoSuchAlgorithmException {
         KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
         keyGenerator.init(n);
-        SecretKey key = keyGenerator.generateKey();
-        return key;
+        return keyGenerator.generateKey();
     }
 
     /**
@@ -48,8 +47,7 @@ public class Cryptography {
             throws NoSuchAlgorithmException, InvalidKeySpecException {
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
         KeySpec spec = new PBEKeySpec(masterPassword.toCharArray(), salt.getBytes(), 65536, 256);
-        SecretKey key = new SecretKeySpec(factory.generateSecret(spec).getEncoded(), "AES");
-        return key;
+        return new SecretKeySpec(factory.generateSecret(spec).getEncoded(), "AES");
     }
 
     public static IvParameterSpec generateIv(int lenght) {
