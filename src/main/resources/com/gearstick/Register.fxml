@@ -4,12 +4,17 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.Pane?>
-
+<?import javafx.scene.text.Font?>
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextField layoutX="51.0" layoutY="88.0" prefHeight="25.0" prefWidth="267.0" />
-      <Button layoutX="324.0" layoutY="88.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" text="Set Visible" />
-      <Label layoutX="51.0" layoutY="61.0" text="Select your master password:" />
+      <TextField layoutX="60.0" layoutY="77.0" prefHeight="25.0" prefWidth="280.0" />
+      <Button layoutX="314.0" layoutY="77.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" text="Set Visible" />
+      <Label layoutX="60.0" layoutY="54.0" text="Select your master password:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font></Label>
+      <Button layoutX="100.0" layoutY="125.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Enter" />
+      <Button layoutX="220.0" layoutY="125.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Cancel" />
    </children>
 </Pane>

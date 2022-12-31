@@ -8,7 +8,7 @@ import java.security.spec.InvalidKeySpecException;
 import java.util.Base64;
 import java.util.ResourceBundle;
 
-import com.gearstick.AES;
+import com.gearstick.Cryptography;
 import com.gearstick.Main;
 
 import javafx.fxml.FXML;
@@ -32,7 +32,7 @@ public class MainController implements Initializable {
     @FXML
     private TextField saltTextField;
     @FXML
-    private TextField seedTextField;
+    private TextField passwordTextField;
 
     @FXML
     private void Encrypt() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException,
@@ -41,7 +41,7 @@ public class MainController implements Initializable {
         String encodedKey = secretKeyTextField.getText();
         byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
         SecretKey originalKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
-        String encryptedString = AES.encrypt("AES/CBC/PKCS5Padding", inputText, originalKey, AES.generateIv(16));
+        String encryptedString = Cryptography.encrypt("AES/CBC/PKCS5Padding", inputText, originalKey, Cryptography.getIV());
         outputTextField.setText(encryptedString);
     }
 
@@ -52,22 +52,21 @@ public class MainController implements Initializable {
         String encodedKey = secretKeyTextField.getText();
         byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
         SecretKey originalKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
-        String decryptedString = AES.decrypt("AES/CBC/PKCS5Padding", inputText, originalKey, AES.generateIv(16));
+        String decryptedString = Cryptography.decrypt("AES/CBC/PKCS5Padding", inputText, originalKey, Cryptography.getIV());
         outputTextField.setText(decryptedString);
     }
 
     @FXML
     private void Randomize() throws NoSuchAlgorithmException {
-        SecretKey secretKey = AES.randomizeKey(128);
+        SecretKey secretKey = Cryptography.randomizeKey(128);
         String encodedKey = Base64.getEncoder().encodeToString(secretKey.getEncoded());
         secretKeyTextField.setText(encodedKey);
     }
 
     @FXML
     private void Generate() throws NoSuchAlgorithmException, InvalidKeySpecException {
-        String seedText = seedTextField.getText();
-        String saltText = saltTextField.getText();
-        SecretKey secretKey = AES.generateKey(seedText, saltText);
+        String passwordText = passwordTextField.getText();
+        SecretKey secretKey = Cryptography.generateKey(passwordText, Cryptography.getSalt());
         String encodedKey = Base64.getEncoder().encodeToString(secretKey.getEncoded());
         secretKeyTextField.setText(encodedKey);
     }
