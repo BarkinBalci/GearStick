@@ -30,27 +30,27 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Vault">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#switchToVault" text="Open Vault">
+                  <MenuItem mnemonicParsing="false" onAction="#switchToVault" text="Vault">
                      <accelerator>
                         <KeyCodeCombination alt="UP" code="V" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
                      </accelerator>
                   </MenuItem>
                   <SeparatorMenuItem mnemonicParsing="false" />
-                  <Menu mnemonicParsing="false" text="Vaults">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Default" />
-                    </items>
-                  </Menu>
+                  <MenuItem mnemonicParsing="false" text="Manage Vaults" />
                </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Checksum">
               <items>
-                <MenuItem mnemonicParsing="false" text="Action 1" />
+                <MenuItem mnemonicParsing="false" text="Checksum">
+                     <accelerator>
+                        <KeyCodeCombination alt="UP" code="C" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+                     </accelerator>
+                  </MenuItem>
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="Generator">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#switchToGenerator" text="Open Generator">
+                  <MenuItem mnemonicParsing="false" onAction="#switchToGenerator" text="Generator">
                      <accelerator>
                         <KeyCodeCombination alt="UP" code="G" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
                      </accelerator></MenuItem>
@@ -58,7 +58,7 @@
             </Menu>
             <Menu mnemonicParsing="false" text="Cryptography">
                <items>
-                  <MenuItem mnemonicParsing="false" onAction="#switchToCryptography" text="Open Cryptography">
+                  <MenuItem mnemonicParsing="false" onAction="#switchToCryptography" text="Cryptography">
                      <accelerator>
                         <KeyCodeCombination alt="UP" code="C" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
                      </accelerator></MenuItem>
