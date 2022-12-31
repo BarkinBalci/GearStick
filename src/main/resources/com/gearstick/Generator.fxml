@@ -22,6 +22,7 @@
             <Font name="System Bold" size="12.0" />
          </font></Label>
       <Button layoutX="99.0" layoutY="19.0" mnemonicParsing="false" text="Copy" />
-      <Button layoutX="157.0" layoutY="19.0" mnemonicParsing="false" text="Generate" />
+      <Button layoutX="151.0" layoutY="19.0" mnemonicParsing="false" text="Generate" />
+      <Button layoutX="221.0" layoutY="19.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="43.0" text="Save" />
    </children>
 </Pane>
