@@ -3,3 +3,8 @@ build/*
 *.class
 /dist/
 target/
+
+## Current project
+*.vault
+*.gearstick
+**/vaults/

@@ -1,13 +1,5 @@
 package com.gearstick;
 
-import javax.crypto.*;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.PBEKeySpec;
-import javax.crypto.spec.SecretKeySpec;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -15,6 +7,11 @@ import java.security.SecureRandom;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.KeySpec;
 import java.util.Base64;
+
+import javax.crypto.*;
+import javax.crypto.spec.IvParameterSpec;
+import javax.crypto.spec.PBEKeySpec;
+import javax.crypto.spec.SecretKeySpec;
 
 public class Cryptography {
     public static String encrypt(String algorithm, String input, SecretKey key, IvParameterSpec iv)
@@ -43,7 +40,10 @@ public class Cryptography {
         SecretKey key = keyGenerator.generateKey();
         return key;
     }
-    //Generates a key by deriving it from a password.
+
+    /**
+     * Generates a key by deriving it from a password.
+     */
     public static SecretKey generateKey(String masterPassword, String salt)
             throws NoSuchAlgorithmException, InvalidKeySpecException {
         SecretKeyFactory factory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
@@ -64,13 +64,13 @@ public class Cryptography {
         return salt;
     }
 
-    //Placeholder method, will be deleted later.
-    public static String getSalt(){
-        return "Placeholder";
+    public static String getSalt() {
+        throw new UnsupportedOperationException("Not implemented yet.");
     }
-    //Placeholder method, will be deleted later.
-    public static IvParameterSpec getIV(){
-        byte[] iv = {0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0};
+
+    public static IvParameterSpec getIV() {
+        byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
+        // TODO: get iv from vault
         return new IvParameterSpec(iv);
     }
 }
