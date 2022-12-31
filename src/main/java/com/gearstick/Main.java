@@ -32,24 +32,12 @@ public class Main extends Application {
     public static void setRoot(String root) {
         try {
             switch (root) {
-                case "main":
-                    Main.root[1] = loadFXML("Cryptography");
-                    break;
-                case "vault":
-                    Main.root[1] = loadFXML("Vault");
-                    break;
-                case "register":
-                    Main.root[1] = loadFXML("Register");
-                    break;
-                case "login":
-                    Main.root[1] = loadFXML("Login");
-                    break;
-                case "generator":
-                    Main.root[1] = loadFXML("Generator");
-                    break;
-
-                default:
-                    throw new RuntimeException("Unhandled root mode");
+                case "main" -> Main.root[1] = loadFXML("Cryptography");
+                case "vault" -> Main.root[1] = loadFXML("Vault");
+                case "register" -> Main.root[1] = loadFXML("Register");
+                case "login" -> Main.root[1] = loadFXML("Login");
+                case "generator" -> Main.root[1] = loadFXML("Generator");
+                default -> throw new RuntimeException("Unhandled root mode");
             }
             loadRoot();
         } catch (IOException e) {
