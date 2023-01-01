@@ -10,12 +10,12 @@
 
 <Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
    <children>
-      <Slider blockIncrement="1.0" layoutX="94.0" layoutY="154.0" majorTickUnit="16.0" max="128.0" minorTickCount="4" prefHeight="24.0" prefWidth="330.0" showTickMarks="true" value="32.0" />
+      <Slider fx:id="lenghtSlider" blockIncrement="1.0" layoutX="94.0" layoutY="154.0" majorTickUnit="16.0" max="128.0" minorTickCount="4" prefHeight="24.0" prefWidth="330.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="32.0" />
       <Label layoutX="33.0" layoutY="157.0" text="Lenght:" />
-      <CheckBox layoutX="33.0" layoutY="198.0" mnemonicParsing="false" text="A-Z" />
-      <CheckBox layoutX="95.0" layoutY="198.0" mnemonicParsing="false" text="a-z" />
-      <CheckBox layoutX="152.0" layoutY="198.0" mnemonicParsing="false" text="0-9" />
-      <CheckBox layoutX="210.0" layoutY="198.0" mnemonicParsing="false" text="!@#$%^&amp;*" />
+      <CheckBox fx:id="uppercaseCheckBox" layoutX="32.0" layoutY="200.0" mnemonicParsing="false" selected="true" text="Uppercase Letters (A-Z)" />
+      <CheckBox fx:id="lowercaseCheckBox" layoutX="32.0" layoutY="230.0" mnemonicParsing="false" selected="true" text="Lowercase Letters (a-z)" />
+      <CheckBox fx:id="numberCheckBox" layoutX="32.0" layoutY="260.0" mnemonicParsing="false" selected="true" text="Numbers (0-9)" />
+      <CheckBox fx:id="specialCheckBox" layoutX="32.0" layoutY="290.0" mnemonicParsing="false" selected="true" text="Special Characters (!@#$%^&amp;*)" />
       <Label layoutX="29.0" layoutY="40.0" text="Password:">
          <font>
             <Font name="System Bold" size="12.0" />

@@ -12,11 +12,9 @@ import com.gearstick.Cryptography;
 import com.gearstick.Generator;
 import com.gearstick.Main;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -36,9 +34,20 @@ public class MainController implements Initializable {
     private TextField saltTextField;
     @FXML
     private TextField passwordTextField;
-
+    @FXML
+    private Label lenghtLabel;
     @FXML
     private TextArea passwordTextArea;
+    @FXML
+    private Slider lenghtSlider;
+    @FXML
+    private CheckBox numberCheckBox;
+    @FXML
+    private CheckBox lowercaseCheckBox;
+    @FXML
+    private CheckBox uppercaseCheckBox;
+    @FXML
+    private CheckBox specialCheckBox;
 
     @FXML
     private void Encrypt() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException,
@@ -78,9 +87,12 @@ public class MainController implements Initializable {
     }
     @FXML
     private void generatePassword() {
-        passwordTextArea.setText(Generator.generateSecureRandomPassword());
+        passwordTextArea.setText(Generator.generatePassword((int)lenghtSlider.getValue(), specialCheckBox.isSelected(), numberCheckBox.isSelected(), lowercaseCheckBox.isSelected(), uppercaseCheckBox.isSelected()));
     }
-
+    @FXML
+    private void updateLabel(){
+        lenghtLabel.setText(String.valueOf(lenghtSlider.getValue()));
+    }
     @FXML
     public void switchToVault() {
         Main.setRoot("vault");
@@ -100,8 +112,6 @@ public class MainController implements Initializable {
     public void switchToChecksum(){
         Main.setRoot("checksum");
     }
-
-
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {

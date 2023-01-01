@@ -9,31 +9,35 @@ import java.util.stream.IntStream;
 import java.util.stream.Stream;
 
 public class Generator {
-    public static Stream<Character> getRandomSpecialChars(int count) {
+    public static Stream<Character> generateSpecial(int count, boolean bool) {
         Random random = new SecureRandom();
         IntStream specialChars = random.ints(count, 33, 45);
+        if(!bool)specialChars = IntStream.empty();
         return specialChars.mapToObj(data -> (char) data);
     }
-    public static Stream<Character> getRandomNumbers(int count) {
+    public static Stream<Character> generateNumbers(int count, boolean bool) {
         Random random = new SecureRandom();
         IntStream numberChars = random.ints(count, 48, 57);
+        if(!bool)numberChars = IntStream.empty();
         return numberChars.mapToObj(data -> (char) data);
     }
-    public static Stream<Character> getRandomLowercaseAlphabets(int count) {
+    public static Stream<Character> generateUppercase(int count, boolean bool) {
         Random random = new SecureRandom();
-        IntStream alphabetChars = random.ints(count, 65, 90);
-        return alphabetChars.mapToObj(data -> (char) data);
+        IntStream uppercaseChars = random.ints(count, 65, 90);
+        if(!bool)uppercaseChars = IntStream.empty();
+        return uppercaseChars.mapToObj(data -> (char) data);
     }
-    public static Stream<Character> getRandomUppercaseAlphabets(int count) {
+    public static Stream<Character> generateLowercase(int count, boolean bool) {
         Random random = new SecureRandom();
-        IntStream alphabetChars = random.ints(count, 97, 122);
-        return alphabetChars.mapToObj(data -> (char) data);
+        IntStream lowercaseChars = random.ints(count, 97, 122);
+        if(!bool)lowercaseChars = IntStream.empty();
+        return lowercaseChars.mapToObj(data -> (char) data);
     }
-    public static String generateSecureRandomPassword() {
-        Stream<Character> pwdStream = Stream.concat(getRandomNumbers(8), Stream.concat(getRandomSpecialChars(8), Stream.concat(getRandomLowercaseAlphabets(8), getRandomUppercaseAlphabets(8))));
+    public static String generatePassword(int lenght, boolean special, boolean number, boolean lowercase, boolean uppercase) {
+        Stream<Character> pwdStream = Stream.concat(generateSpecial(lenght, special), Stream.concat(generateNumbers(lenght, number), Stream.concat(generateLowercase(lenght, lowercase), generateUppercase(lenght, uppercase))));
         List<Character> charList = pwdStream.collect(Collectors.toList());
         Collections.shuffle(charList);
-        String password = charList.stream().collect(StringBuilder::new, StringBuilder::append, StringBuilder::append).toString();
-        return password;
+        List<Character> sizedList = charList.subList(0, lenght);
+        return sizedList.stream().collect(StringBuilder::new, StringBuilder::append, StringBuilder::append).toString();
     }
 }
