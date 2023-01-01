@@ -4,11 +4,11 @@
 <?import javafx.scene.control.CheckBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
    <children>
       <Slider blockIncrement="1.0" layoutX="94.0" layoutY="154.0" majorTickUnit="16.0" max="128.0" minorTickCount="4" prefHeight="24.0" prefWidth="330.0" showTickMarks="true" value="32.0" />
       <Label layoutX="33.0" layoutY="157.0" text="Lenght:" />
@@ -16,13 +16,13 @@
       <CheckBox layoutX="95.0" layoutY="198.0" mnemonicParsing="false" text="a-z" />
       <CheckBox layoutX="152.0" layoutY="198.0" mnemonicParsing="false" text="0-9" />
       <CheckBox layoutX="210.0" layoutY="198.0" mnemonicParsing="false" text="!@#$%^&amp;*" />
-      <TextField layoutX="28.0" layoutY="71.0" prefHeight="67.0" prefWidth="545.0" />
       <Label layoutX="29.0" layoutY="40.0" text="Password:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
+      <Button layoutX="152.0" layoutY="36.0" mnemonicParsing="false" onAction="#generatePassword" text="Generate" />
       <Button layoutX="100.0" layoutY="36.0" mnemonicParsing="false" text="Copy" />
-      <Button layoutX="152.0" layoutY="36.0" mnemonicParsing="false" text="Generate" />
+      <TextArea fx:id="passwordTextArea" layoutX="32.0" layoutY="66.0" prefHeight="75.0" prefWidth="535.0" wrapText="true" />
       <Button layoutX="222.0" layoutY="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="43.0" text="Save" />
    </children>
 </Pane>
