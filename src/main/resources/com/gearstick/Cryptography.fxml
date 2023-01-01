@@ -6,33 +6,33 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="300.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
    <children>
-      <Button fx:id="startDecryption" layoutX="388.0" layoutY="22.0" mnemonicParsing="false" onAction="#Decrypt" prefHeight="25.0" prefWidth="85.0" text="Decrypt" />
-      <Button fx:id="startEncryption" layoutX="288.0" layoutY="22.0" mnemonicParsing="false" onAction="#Encrypt" prefHeight="25.0" prefWidth="85.0" text="Encrypt" />
-       <TextField fx:id="inputTextField" layoutX="108.0" layoutY="22.0" prefHeight="25.0" prefWidth="168.0" />
-       <TextField fx:id="outputTextField" layoutX="108.0" layoutY="122.0" prefHeight="25.0" prefWidth="168.0" />
-      <Label layoutX="28.0" layoutY="26.0" text="Input:">
+      <Button fx:id="startDecryption" layoutX="488.0" layoutY="32.0" mnemonicParsing="false" onAction="#Decrypt" prefHeight="25.0" prefWidth="85.0" text="Decrypt" />
+      <Button fx:id="startEncryption" layoutX="388.0" layoutY="32.0" mnemonicParsing="false" onAction="#Encrypt" prefHeight="25.0" prefWidth="85.0" text="Encrypt" />
+       <TextField fx:id="inputTextField" layoutX="108.0" layoutY="32.0" prefHeight="25.0" prefWidth="250.0" />
+       <TextField fx:id="outputTextField" layoutX="108.0" layoutY="152.0" prefHeight="25.0" prefWidth="250.0" />
+      <Label layoutX="28.0" layoutY="36.0" text="Input:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Label layoutX="28.0" layoutY="126.0" text="Output:">
+      <Label layoutX="28.0" layoutY="156.0" text="Output:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <TextField fx:id="secretKeyTextField" layoutX="108.0" layoutY="62.0" prefHeight="25.0" prefWidth="168.0" />
-      <Label layoutX="28.0" layoutY="66.0" text="Secret Key:">
+      <TextField fx:id="secretKeyTextField" layoutX="108.0" layoutY="72.0" prefHeight="25.0" prefWidth="250.0" />
+      <Label layoutX="28.0" layoutY="76.0" text="Secret Key:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Button fx:id="generateButton" layoutX="288.0" layoutY="62.0" mnemonicParsing="false" onAction="#Generate" prefHeight="25.0" prefWidth="85.0" text="Generate" />
-      <Button fx:id="randomizeButton" layoutX="388.0" layoutY="62.0" mnemonicParsing="false" onAction="#Randomize" prefHeight="25.0" prefWidth="85.0" text="Randomize" />
-      <Label layoutX="28.0" layoutY="182.0" text="Advanced:">
+      <Button fx:id="generateButton" layoutX="388.0" layoutY="72.0" mnemonicParsing="false" onAction="#Generate" prefHeight="25.0" prefWidth="85.0" text="Generate" />
+      <Button fx:id="randomizeButton" layoutX="488.0" layoutY="72.0" mnemonicParsing="false" onAction="#Randomize" prefHeight="25.0" prefWidth="85.0" text="Randomize" />
+      <Label layoutX="28.0" layoutY="232.0" text="Advanced:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font>
       </Label>
-      <TextField layoutX="28.0" layoutY="202.0" prefHeight="76.0" prefWidth="445.0" />
+      <TextField layoutX="28.0" layoutY="252.0" prefHeight="120.0" prefWidth="545.0" />
 
    </children>
 </Pane>
