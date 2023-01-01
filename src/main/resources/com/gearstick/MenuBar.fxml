@@ -41,7 +41,7 @@
             </Menu>
             <Menu text="_Checksum">
               <items>
-                <MenuItem mnemonicParsing="false" text="Checksum">
+                <MenuItem mnemonicParsing="false" onAction="#switchToChecksum" text="Checksum">
                      <accelerator>
                         <KeyCodeCombination alt="UP" code="C" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
                      </accelerator>
@@ -56,11 +56,11 @@
                      </accelerator></MenuItem>
                </items>
             </Menu>
-            <Menu text="_Cryptography">
+            <Menu text="Cry_ptography">
                <items>
                   <MenuItem mnemonicParsing="false" onAction="#switchToCryptography" text="Cryptography">
                      <accelerator>
-                        <KeyCodeCombination alt="UP" code="C" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
+                        <KeyCodeCombination alt="UP" code="P" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
                      </accelerator></MenuItem>
                </items>
             </Menu>
