@@ -37,6 +37,7 @@ public class Main extends Application {
                 case "register" -> Main.root[1] = loadFXML("Register");
                 case "login" -> Main.root[1] = loadFXML("Login");
                 case "generator" -> Main.root[1] = loadFXML("Generator");
+                case "checksum" -> Main.root[1] = loadFXML("Checksum");
                 default -> throw new RuntimeException("Unhandled root mode");
             }
             loadRoot();
