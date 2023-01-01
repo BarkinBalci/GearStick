@@ -9,10 +9,13 @@ import java.util.Base64;
 import java.util.ResourceBundle;
 
 import com.gearstick.Cryptography;
+import com.gearstick.Generator;
 import com.gearstick.Main;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 
 import javax.crypto.BadPaddingException;
@@ -33,6 +36,9 @@ public class MainController implements Initializable {
     private TextField saltTextField;
     @FXML
     private TextField passwordTextField;
+
+    @FXML
+    private TextArea passwordTextArea;
 
     @FXML
     private void Encrypt() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException,
@@ -70,6 +76,10 @@ public class MainController implements Initializable {
         String encodedKey = Base64.getEncoder().encodeToString(secretKey.getEncoded());
         secretKeyTextField.setText(encodedKey);
     }
+    @FXML
+    private void generatePassword() {
+        passwordTextArea.setText(Generator.generateSecureRandomPassword());
+    }
 
     @FXML
     public void switchToVault() {
@@ -86,9 +96,15 @@ public class MainController implements Initializable {
         Main.setRoot("generator");
     }
 
+    @FXML
+    public void switchToChecksum(){
+        Main.setRoot("checksum");
+    }
+
+
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
-
 }
