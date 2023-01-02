@@ -33,11 +33,11 @@ public class Generator {
         if(!bool)lowercaseChars = IntStream.empty();
         return lowercaseChars.mapToObj(data -> (char) data);
     }
-    public static String generatePassword(int lenght, boolean special, boolean number, boolean lowercase, boolean uppercase) {
-        Stream<Character> pwdStream = Stream.concat(generateSpecial(lenght, special), Stream.concat(generateNumbers(lenght, number), Stream.concat(generateLowercase(lenght, lowercase), generateUppercase(lenght, uppercase))));
+    public static String generatePassword(int length, boolean special, boolean number, boolean lowercase, boolean uppercase) {
+        Stream<Character> pwdStream = Stream.concat(generateSpecial(length, special), Stream.concat(generateNumbers(length, number), Stream.concat(generateLowercase(length, lowercase), generateUppercase(length, uppercase))));
         List<Character> charList = pwdStream.collect(Collectors.toList());
         Collections.shuffle(charList);
-        List<Character> sizedList = charList.subList(0, lenght);
+        List<Character> sizedList = charList.subList(0, length);
         return sizedList.stream().collect(StringBuilder::new, StringBuilder::append, StringBuilder::append).toString();
     }
 }

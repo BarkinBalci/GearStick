@@ -50,8 +50,8 @@ public class Cryptography {
         return new SecretKeySpec(factory.generateSecret(spec).getEncoded(), "AES");
     }
 
-    public static IvParameterSpec generateIv(int lenght) {
-        byte[] iv = new byte[lenght];
+    public static IvParameterSpec generateIv(int length) {
+        byte[] iv = new byte[length];
         new SecureRandom().nextBytes(iv);
         return new IvParameterSpec(iv);
     }
