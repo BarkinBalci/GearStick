@@ -56,7 +56,8 @@ public class MainController implements Initializable {
         String encodedKey = secretKeyTextField.getText();
         byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
         SecretKey originalKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
-        String encryptedString = Cryptography.encrypt("AES/CBC/PKCS5Padding", inputText, originalKey, Cryptography.getIV());
+        String encryptedString = Cryptography.encrypt("AES/CBC/PKCS5Padding", inputText, originalKey,
+                Cryptography.getIV());
         outputTextField.setText(encryptedString);
     }
 
@@ -67,7 +68,8 @@ public class MainController implements Initializable {
         String encodedKey = secretKeyTextField.getText();
         byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
         SecretKey originalKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
-        String decryptedString = Cryptography.decrypt("AES/CBC/PKCS5Padding", inputText, originalKey, Cryptography.getIV());
+        String decryptedString = Cryptography.decrypt("AES/CBC/PKCS5Padding", inputText, originalKey,
+                Cryptography.getIV());
         outputTextField.setText(decryptedString);
     }
 
@@ -85,17 +87,21 @@ public class MainController implements Initializable {
         String encodedKey = Base64.getEncoder().encodeToString(secretKey.getEncoded());
         secretKeyTextField.setText(encodedKey);
     }
+
     @FXML
     private void generatePassword() {
-        passwordTextArea.setText(Generator.generatePassword((int)lenghtSlider.getValue(), specialCheckBox.isSelected(), numberCheckBox.isSelected(), lowercaseCheckBox.isSelected(), uppercaseCheckBox.isSelected()));
+        passwordTextArea.setText(Generator.generatePassword((int) lenghtSlider.getValue(), specialCheckBox.isSelected(),
+                numberCheckBox.isSelected(), lowercaseCheckBox.isSelected(), uppercaseCheckBox.isSelected()));
     }
+
     @FXML
-    private void updateLabel(){
+    private void updateLabel() {
         lenghtLabel.setText(String.valueOf(lenghtSlider.getValue()));
     }
+
     @FXML
     public void switchToVault() {
-        Main.setRoot("vault");
+        VaultController.requestLoginOrRegister();
     }
 
     @FXML
@@ -109,7 +115,7 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    public void switchToChecksum(){
+    public void switchToChecksum() {
         Main.setRoot("checksum");
     }
 

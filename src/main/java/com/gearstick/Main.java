@@ -33,9 +33,9 @@ public class Main extends Application {
         try {
             switch (root) {
                 case "main" -> Main.root[1] = loadFXML("Cryptography");
-                case "vault" -> Main.root[1] = loadFXML("Vault");
-                case "register" -> Main.root[1] = loadFXML("Register");
-                case "login" -> Main.root[1] = loadFXML("Login");
+                case "vault" -> Main.root[1] = loadFXML("Vault/Dashboard");
+                case "register" -> Main.root[1] = loadFXML("Vault/Register");
+                case "login" -> Main.root[1] = loadFXML("Vault/Login");
                 case "generator" -> Main.root[1] = loadFXML("Generator");
                 case "checksum" -> Main.root[1] = loadFXML("Checksum");
                 default -> throw new RuntimeException("Unhandled root mode");

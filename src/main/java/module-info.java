@@ -12,4 +12,5 @@ module com.gearstick {
 
     exports com.gearstick;
     exports com.gearstick.controllers;
+    exports com.gearstick.vault;
 }
