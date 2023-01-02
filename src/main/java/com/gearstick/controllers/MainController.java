@@ -35,11 +35,11 @@ public class MainController implements Initializable {
     @FXML
     private TextField passwordTextField;
     @FXML
-    private Label lenghtLabel;
+    private Label lenghtLabel = new Label("8");
     @FXML
     private TextArea passwordTextArea;
     @FXML
-    private Slider lenghtSlider;
+    private Slider lenghtSlider = new Slider(0, 128, 8);
     @FXML
     private CheckBox numberCheckBox;
     @FXML
@@ -95,11 +95,6 @@ public class MainController implements Initializable {
     }
 
     @FXML
-    private void updateLabel() {
-        lenghtLabel.setText(String.valueOf(lenghtSlider.getValue()));
-    }
-
-    @FXML
     public void switchToVault() {
         VaultController.requestLoginOrRegister();
     }
@@ -121,6 +116,7 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-
+        lenghtSlider.valueProperty()
+                .addListener((observableValue, oldNumber, newNumber) -> lenghtLabel.setText(newNumber.intValue() + ""));
     }
 }

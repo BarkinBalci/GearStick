@@ -30,7 +30,6 @@ public class VaultController implements Initializable {
 
     @FXML
     public static void requestLoginOrRegister() {
-        // TODO: not working
         System.out.println("size: " + VaultStore.vaults.size() + " current: " + currentVault);
         if (VaultStore.vaults.size() == 0) {
             // redirect to register
