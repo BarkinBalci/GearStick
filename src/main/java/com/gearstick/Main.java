@@ -17,7 +17,7 @@ public class Main extends Application {
      * save fxml load result in order to
      * save cpu/memory to not load again
      */
-    private static HashMap<String, Parent> screenMap = new HashMap<>();
+    private static final HashMap<String, Parent> screenMap = new HashMap<>();
 
     @Override
     public void start(Stage stage) throws IOException {
