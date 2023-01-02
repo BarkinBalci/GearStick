@@ -31,7 +31,7 @@ public class VaultStore {
 
     public static HashMap<String, Vault> vaults = new HashMap<>();
 
-    public static void saveVault(Vault vault) {
+    public static void saveVaultToFolder(Vault vault) {
         new File(FOLDER).mkdirs();
         try {
             FileOutputStream fileOut = new FileOutputStream(FOLDER + vault.name + EXTENSION);
@@ -82,5 +82,11 @@ public class VaultStore {
     public static void deleteVault(String nameWithExtension) {
         File file = new File(FOLDER + nameWithExtension);
         file.delete();
+    }
+
+    public static Vault createVault(Vault vault) {
+        saveVaultToFolder(vault);
+        vaults.put(vault.name, vault);
+        return vault;
     }
 }

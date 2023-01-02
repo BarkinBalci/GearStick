@@ -12,6 +12,7 @@
    <children>
       <Slider fx:id="lenghtSlider" blockIncrement="1.0" layoutX="94.0" layoutY="154.0" majorTickUnit="16.0" max="128.0" minorTickCount="4" prefHeight="24.0" prefWidth="330.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="32.0" />
       <Label layoutX="33.0" layoutY="157.0" text="Lenght:" />
+      <Label fx:id="lenghtLabel" layoutX="436.0" layoutY="157.0" text="32" />
       <CheckBox fx:id="uppercaseCheckBox" layoutX="32.0" layoutY="200.0" mnemonicParsing="false" selected="true" text="Uppercase Letters (A-Z)" />
       <CheckBox fx:id="lowercaseCheckBox" layoutX="32.0" layoutY="230.0" mnemonicParsing="false" selected="true" text="Lowercase Letters (a-z)" />
       <CheckBox fx:id="numberCheckBox" layoutX="32.0" layoutY="260.0" mnemonicParsing="false" selected="true" text="Numbers (0-9)" />
