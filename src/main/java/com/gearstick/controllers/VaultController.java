@@ -3,6 +3,8 @@ package com.gearstick.controllers;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import javax.crypto.SecretKey;
+
 import com.gearstick.Main;
 import com.gearstick.vault.Vault;
 import com.gearstick.vault.VaultStore;
@@ -43,20 +45,27 @@ public class VaultController implements Initializable {
     }
 
     public void login(String name, String password) throws Exception {
-        // TODO: convert String password to SecretKey
-        // help needed
+
         var vault = VaultStore.vaults.get(name);
         if (vault == null) {
             throw new Exception("No vault found for this name");
         }
 
-        if (vault.validate(null)) {
+        SecretKey secretKey;
+
+        try {
+            secretKey = vault.getKey(password);
+        } catch (Exception e) {
+            throw new Exception("Invalid password");
+        }
+
+        if (vault.validate(secretKey)) {
             setVault(vault);
-            requestLoginOrRegister();
         } else {
             throw new Exception("Wrong password");
         }
 
+        requestLoginOrRegister();
     }
 
     public void setVault(Vault vault) {

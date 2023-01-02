@@ -76,4 +76,8 @@ public class Vault implements java.io.Serializable {
 
         return false;
     }
+
+    public SecretKey getKey(String password) throws Exception {
+        return Cryptography.generateKey(password, SALT);
+    }
 }
