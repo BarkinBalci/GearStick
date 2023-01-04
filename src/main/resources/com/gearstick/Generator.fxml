@@ -5,25 +5,45 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
-   <children>
-      <Slider fx:id="lenghtSlider" blockIncrement="1.0" layoutX="94.0" layoutY="154.0" majorTickUnit="16.0" max="128.0" minorTickCount="4" prefHeight="24.0" prefWidth="330.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="32.0" />
-      <Label layoutX="33.0" layoutY="157.0" text="Lenght:" />
-      <Label fx:id="lenghtLabel" layoutX="436.0" layoutY="157.0" text="32" />
-      <CheckBox fx:id="uppercaseCheckBox" layoutX="32.0" layoutY="200.0" mnemonicParsing="false" selected="true" text="Uppercase Letters (A-Z)" />
-      <CheckBox fx:id="lowercaseCheckBox" layoutX="32.0" layoutY="230.0" mnemonicParsing="false" selected="true" text="Lowercase Letters (a-z)" />
-      <CheckBox fx:id="numberCheckBox" layoutX="32.0" layoutY="260.0" mnemonicParsing="false" selected="true" text="Numbers (0-9)" />
-      <CheckBox fx:id="specialCheckBox" layoutX="32.0" layoutY="290.0" mnemonicParsing="false" selected="true" text="Special Characters (!@#$%^&amp;*)" />
-      <Label layoutX="29.0" layoutY="40.0" text="Password:">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font></Label>
-      <Button layoutX="152.0" layoutY="36.0" mnemonicParsing="false" onAction="#generatePassword" text="Generate" />
-      <Button layoutX="100.0" layoutY="36.0" mnemonicParsing="false" text="Copy" />
-      <TextArea fx:id="passwordTextArea" layoutX="32.0" layoutY="66.0" prefHeight="75.0" prefWidth="535.0" wrapText="true" />
-      <Button layoutX="222.0" layoutY="36.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="43.0" text="Save" />
-   </children>
-</Pane>
+<VBox prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+  <children>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="602.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Slider fx:id="lenghtSlider" blockIncrement="1.0" layoutX="30.0" layoutY="199.0" majorTickUnit="8.0" max="64.0" prefHeight="24.0" prefWidth="330.0" showTickLabels="true" showTickMarks="true" snapToTicks="true" value="24.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="290.0" />
+            <Label layoutX="98.0" layoutY="59.0" text="Lenght:" />
+            <Label fx:id="lenghtLabel" layoutX="366.0" layoutY="199.0" text="24" AnchorPane.rightAnchor="260.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <CheckBox fx:id="uppercaseCheckBox" layoutX="24.0" layoutY="280.0" mnemonicParsing="false" selected="true" text="Uppercase Letters (A-Z)" AnchorPane.leftAnchor="30.0" />
+            <CheckBox fx:id="lowercaseCheckBox" layoutX="24.0" layoutY="305.0" mnemonicParsing="false" selected="true" text="Lowercase Letters (a-z)" AnchorPane.leftAnchor="30.0" />
+            <CheckBox fx:id="numberCheckBox" layoutX="24.0" layoutY="330.0" mnemonicParsing="false" selected="true" text="Numbers (0-9)" AnchorPane.leftAnchor="30.0" />
+            <CheckBox fx:id="specialCheckBox" layoutX="24.0" layoutY="355.0" mnemonicParsing="false" selected="true" text="Special Characters (!@#$%^&amp;*)" AnchorPane.leftAnchor="30.0" />
+            <Label layoutX="21.0" layoutY="32.0" text="Password:" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Button layoutX="30.0" layoutY="129.0" mnemonicParsing="false" onAction="#generatePassword" text="Generate" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="129.0" />
+            <Button layoutX="566.0" layoutY="129.0" mnemonicParsing="false" text="Copy" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="129.0" />
+            <TextArea fx:id="passwordTextArea" layoutX="30.0" layoutY="47.0" prefHeight="75.0" prefWidth="600.0" wrapText="true" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="47.0" />
+            <Button layoutX="511.0" layoutY="129.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="43.0" text="Save" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="129.0" />
+            <Label layoutX="30.0" layoutY="181.0" text="Lenght:" AnchorPane.leftAnchor="30.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="255.0" text="Options:" AnchorPane.leftAnchor="30.0">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>
