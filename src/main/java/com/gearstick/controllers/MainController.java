@@ -35,11 +35,11 @@ public class MainController implements Initializable {
     @FXML
     private TextField passwordTextField;
     @FXML
-    private Label lenghtLabel = new Label("8");
+    private Label lengthLabel = new Label("8");
     @FXML
     private TextArea passwordTextArea;
     @FXML
-    private Slider lenghtSlider = new Slider(0, 128, 8);
+    private Slider lengthSlider = new Slider(0, 128, 8);
     @FXML
     private CheckBox numberCheckBox;
     @FXML
@@ -90,7 +90,7 @@ public class MainController implements Initializable {
 
     @FXML
     private void generatePassword() {
-        passwordTextArea.setText(Generator.generatePassword((int) lenghtSlider.getValue(), specialCheckBox.isSelected(),
+        passwordTextArea.setText(Generator.generatePassword((int) lengthSlider.getValue(), specialCheckBox.isSelected(),
                 numberCheckBox.isSelected(), lowercaseCheckBox.isSelected(), uppercaseCheckBox.isSelected()));
     }
 
@@ -116,7 +116,7 @@ public class MainController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        lenghtSlider.valueProperty()
-                .addListener((observableValue, oldNumber, newNumber) -> lenghtLabel.setText(newNumber.intValue() + ""));
+        lengthSlider.valueProperty()
+                .addListener((observableValue, oldNumber, newNumber) -> lengthLabel.setText(newNumber.intValue() + ""));
     }
 }
