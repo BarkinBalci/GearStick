@@ -13,7 +13,10 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
+import com.gearstick.controllers.VaultController;
+
 public class Cryptography {
+
     public static String encrypt(String algorithm, String input, SecretKey key, IvParameterSpec iv)
             throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException,
             InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
@@ -67,8 +70,11 @@ public class Cryptography {
     }
 
     public static IvParameterSpec getIV() {
+        if (VaultController.currentVault != null)
+            return new IvParameterSpec(VaultController.currentVault.get().getIV());
+
+        // default IV (which is not secure since user is not logged)
         byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
-        // TODO: get iv from vault
         return new IvParameterSpec(iv);
     }
 }

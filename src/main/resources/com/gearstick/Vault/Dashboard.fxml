@@ -1,52 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import com.gluonhq.charm.glisten.control.Avatar?>
 <?import javafx.scene.control.Accordion?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TitledPane?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-
-<VBox alignment="CENTER" prefHeight="397.0" prefWidth="429.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.VaultController">
+<VBox alignment="CENTER" prefHeight="401.0" prefWidth="511.0" spacing="50.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.VaultController">
    <children>
-      <FlowPane alignment="CENTER">
+      <HBox alignment="CENTER">
          <children>
-            <Avatar />
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="User:" wrappingWidth="42.13671875" />
-            <Text fx:id="vaultnameText" strokeType="OUTSIDE" strokeWidth="0.0" text="test" wrappingWidth="107.13671875" />
-         </children>
-      </FlowPane>
-      <Text layoutX="203.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Credentials" wrappingWidth="78.13671875" />
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
-         <children>
-            <Accordion>
-              <panes>
-                <TitledPane animated="false" text="Twitter">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                           <children>
-                              <Text layoutX="24.0" layoutY="14.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Password: " />
-                              <Button layoutX="100.0" layoutY="-4.0" mnemonicParsing="false" text="Click to Show" />
-                           </children>
-                        </AnchorPane>
-                  </content>
-                </TitledPane>
-                <TitledPane animated="false" text="Twitch">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-                </TitledPane>
-                <TitledPane animated="false" text="Discord">
-                  <content>
-                    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
-                  </content>
-                </TitledPane>
-              </panes>
-            </Accordion>
+            <AnchorPane>
+               <children>
+                  <Text layoutX="21.0" layoutY="24.0" strokeType="OUTSIDE" strokeWidth="0.0" text="User:" wrappingWidth="42.13671875" />
+                  <Text fx:id="vaultnameText" layoutX="64.0" layoutY="25.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="107.13671875" />
+                  <Text layoutX="21.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Status:" wrappingWidth="42.13671875" />
+                  <Text fx:id="vaultIsValidatedText" layoutX="64.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="-" wrappingWidth="107.13671875" />
+                  <AnchorPane layoutX="21.0" layoutY="67.0" prefHeight="247.0" prefWidth="413.0">
+                     <children>
+                        <Text layoutX="168.0" layoutY="26.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Credentials" wrappingWidth="78.13671875" />
+                        <Accordion fx:id="credentialsAccordion" layoutX="89.0" layoutY="43.0" prefHeight="26.0" prefWidth="152.0">
+                           <panes>
+                              <fx:include source="CredentialPane.fxml" />
+                           </panes>
+                        </Accordion>
+                     </children>
+                  </AnchorPane>
+               </children>
+            </AnchorPane>
          </children>
       </HBox>
    </children>

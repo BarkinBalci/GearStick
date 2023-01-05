@@ -13,6 +13,8 @@ public class Main extends Application {
     private static Scene scene;
     private static Parent[] root;
 
+    public static final Boolean DEBUG = true;
+
     /**
      * save fxml load result in order to
      * save cpu/memory to not load again
@@ -54,12 +56,21 @@ public class Main extends Application {
         ((VBox) scene.getRoot()).getChildren().setAll(root);
     }
 
-    private static Parent loadFXML(String fxml) throws IOException {
+    public static Parent loadFXML(String fxml) throws IOException {
+        return loadFXML(fxml, null);
+    }
+
+    public static Parent loadFXML(String fxml, Object controller) throws IOException {
         var result = screenMap.get(fxml);
         if (result != null)
             return result;
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
+        if (controller != null) {
+            // if controller is present, do not use cache
+            fxmlLoader.setController(controller);
+            return fxmlLoader.load();
+        }
         screenMap.put(fxml, fxmlLoader.load());
         return screenMap.get(fxml);
     }

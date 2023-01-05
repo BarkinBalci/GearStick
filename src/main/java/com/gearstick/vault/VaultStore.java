@@ -61,7 +61,7 @@ public class VaultStore {
 
     public static void loadVault(String nameWithExtension) {
         try {
-            FileInputStream fileIn = new FileInputStream(nameWithExtension);
+            FileInputStream fileIn = new FileInputStream(FOLDER + nameWithExtension);
             ObjectInputStream in = new ObjectInputStream(fileIn);
 
             Vault vault = (Vault) in.readObject();

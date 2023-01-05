@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="275.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.VaultLoginController">
    <children>
-      <TextField layoutX="60.0" layoutY="77.0" prefHeight="25.0" prefWidth="280.0" />
-      <Button layoutX="314.0" layoutY="77.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" text="Set Visible" />
-      <Label layoutX="60.0" layoutY="54.0" text="Enter your master password:">
+      <Label layoutX="60.0" layoutY="34.0" text="Vault:">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <Label layoutX="60.0" layoutY="103.0" text="Enter your master password:">
          <font>
             <Font name="System Bold" size="12.0" />
          </font></Label>
-      <Button layoutX="100.0" layoutY="125.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Enter" />
-      <Button layoutX="220.0" layoutY="125.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Cancel" />
+      <PasswordField fx:id="vaultpasswordPasswordField" layoutX="66.0" layoutY="126.0" prefHeight="25.0" prefWidth="276.0" />
+      <Button layoutX="316.0" layoutY="126.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" text="Set Visible" visible="false" />
+      <Button defaultButton="true" layoutX="100.0" layoutY="174.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="80.0" text="Enter" />
+      <Button cancelButton="true" layoutX="220.0" layoutY="174.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Cancel" />
+      <Text fx:id="errorText" fill="#f80000" layoutX="60.0" layoutY="243.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Text:" />
+      <ComboBox fx:id="vaultnameComboBox" layoutX="65.0" layoutY="58.0" prefWidth="150.0" />
    </children>
 </Pane>
