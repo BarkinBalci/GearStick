@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import com.gearstick.Cryptography;
 import com.gearstick.Generator;
 import com.gearstick.Main;
+import com.gearstick.controllers.vault.VaultController;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;

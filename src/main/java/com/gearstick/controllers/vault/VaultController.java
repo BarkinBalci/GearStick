@@ -1,4 +1,4 @@
-package com.gearstick.controllers;
+package com.gearstick.controllers.vault;
 
 import java.io.IOException;
 import java.net.URL;
@@ -60,19 +60,12 @@ public class VaultController implements Initializable {
         }
 
         if (vault.validate(secretKey)) {
-            setVault(vault);
+            currentVault.set(vault);
         } else {
             throw new Exception("Wrong password");
         }
 
         requestLoginOrRegister();
-    }
-
-    public static void setVault(Vault vault) {
-        if (vault == null)
-            return;
-
-        currentVault.set(vault);
     }
 
     public static void loadVaults() {
@@ -85,7 +78,7 @@ public class VaultController implements Initializable {
                 newVault.addCredential("Twitch", "testpass");
                 newVault.addCredential("Twitter", "testpass");
                 VaultStore.createVault(newVault);
-                setVault(VaultStore.vaults.get("test"));
+                currentVault.set(VaultStore.vaults.get("test"));
             } catch (Exception e) {
                 e.printStackTrace();
             }

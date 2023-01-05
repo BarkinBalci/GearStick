@@ -13,7 +13,7 @@ import javax.crypto.spec.IvParameterSpec;
 import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
-import com.gearstick.controllers.VaultController;
+import com.gearstick.controllers.vault.VaultController;
 
 public class Cryptography {
 

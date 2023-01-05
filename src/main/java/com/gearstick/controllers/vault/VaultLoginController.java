@@ -1,4 +1,4 @@
-package com.gearstick.controllers;
+package com.gearstick.controllers.vault;
 
 import java.net.URL;
 import java.util.ResourceBundle;

@@ -1,4 +1,4 @@
-package com.gearstick.controllers;
+package com.gearstick.controllers.vault;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -65,7 +65,7 @@ public class VaultCredentialController implements Initializable {
                 toggleButton.setText("Hide");
             } else {
                 passwordText.setText("");
-                toggleButton.setText("Show");
+                toggleButton.setText("Click to Show");
             }
         });
     }
