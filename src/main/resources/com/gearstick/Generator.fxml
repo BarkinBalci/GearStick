@@ -31,7 +31,7 @@
             </Label>
             <Button layoutX="30.0" layoutY="129.0" mnemonicParsing="false" onAction="#generatePassword" style="-fx-background-color: #1e2329;" text="Generate" textFill="#d7d7d7" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="129.0" />
             <Button layoutX="566.0" layoutY="129.0" mnemonicParsing="false" style="-fx-background-color: #1e2329;" text="Copy" textFill="#d7d7d7" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="129.0" />
-            <TextArea fx:id="passwordTextArea" layoutX="30.0" layoutY="47.0" prefHeight="75.0" prefWidth="600.0" style="-fx-control-inner-background: #1e2329; -fx-font: white;" wrapText="true" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="47.0" />
+            <TextArea fx:id="passwordTextArea" layoutX="30.0" layoutY="47.0" prefHeight="75.0" prefWidth="600.0" style="-fx-control-inner-background: #1e2329;" wrapText="true" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="47.0" />
             <Button layoutX="511.0" layoutY="129.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="43.0" style="-fx-background-color: #1e2329;" text="Save" textFill="#d7d7d7" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="129.0" />
             <Label layoutX="30.0" layoutY="181.0" text="Length:" textFill="#d7d7d7" AnchorPane.leftAnchor="30.0">
                <font>

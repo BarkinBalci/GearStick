@@ -31,15 +31,15 @@
             <Button fx:id="startEncryption" layoutX="390.0" layoutY="50.0" mnemonicParsing="false" onAction="#Encrypt" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #1e2329;" text="Encrypt" textFill="#d7d7d7" AnchorPane.rightAnchor="125.0" />
             <Button fx:id="generateButton" layoutX="390.0" layoutY="106.0" mnemonicParsing="false" onAction="#Generate" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #1e2329;" text="Generate" textFill="#d7d7d7" AnchorPane.rightAnchor="125.0" />
             <Button fx:id="randomizeButton" layoutX="485.0" layoutY="106.0" mnemonicParsing="false" onAction="#Randomize" prefHeight="25.0" prefWidth="85.0" style="-fx-background-color: #1e2329;" text="Randomize" textFill="#d7d7d7" AnchorPane.rightAnchor="30.0" />
-            <TextField fx:id="inputTextField" layoutX="30.0" layoutY="50.0" prefHeight="25.0" prefWidth="325.0" style="-fx-control-inner-background: #1e2329; -fx-font: #d7d7d7;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="245.0" />
-            <TextField fx:id="outputTextField" layoutX="30.0" layoutY="182.0" prefHeight="25.0" prefWidth="325.0" style="-fx-control-inner-background: #1e2329; -fx-font: #d7d7d7;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="245.0" />
-            <TextField fx:id="secretKeyTextField" layoutX="30.0" layoutY="106.0" prefHeight="25.0" prefWidth="325.0" style="-fx-control-inner-background: #1e2329; -fx-font: #d7d7d7;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="245.0" />
+            <TextField fx:id="inputTextField" layoutX="30.0" layoutY="50.0" prefHeight="25.0" prefWidth="325.0" style="-fx-control-inner-background: #1e2329;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="245.0" />
+            <TextField fx:id="outputTextField" layoutX="30.0" layoutY="182.0" prefHeight="25.0" prefWidth="325.0" style="-fx-control-inner-background: #1e2329;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="245.0" />
+            <TextField fx:id="secretKeyTextField" layoutX="30.0" layoutY="106.0" prefHeight="25.0" prefWidth="325.0" style="-fx-control-inner-background: #1e2329;" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="245.0" />
             <Label layoutX="28.0" layoutY="6.0" text="Input:" textFill="#d7d7d7" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextArea layoutX="30.0" layoutY="256.0" prefHeight="110.0" prefWidth="540.0" style="-fx-control-inner-background: #1e2329; -fx-font: #d7d7d7;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+            <TextArea layoutX="30.0" layoutY="256.0" prefHeight="110.0" prefWidth="540.0" style="-fx-control-inner-background: #1e2329;" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
          </children>
     </AnchorPane>
   </children>

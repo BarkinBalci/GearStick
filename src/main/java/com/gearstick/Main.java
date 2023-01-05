@@ -6,7 +6,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -28,7 +27,6 @@ public class Main extends Application {
         scene = new Scene(new VBox());
         loadRoot();
         stage.setTitle("GearStick");
-        stage.initStyle(StageStyle.UNIFIED);
 
         stage.setScene(scene);
         stage.show();
@@ -56,8 +54,6 @@ public class Main extends Application {
         setRoot(root, null);
     }
 
-
-
     private static void loadRoot() throws IOException {
         if (root == null) {
             root = new Parent[] { loadFXML("MenuBar"), loadFXML("Cryptography") };
@@ -81,11 +77,14 @@ public class Main extends Application {
             return result;
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
-        if (noCache || controller != null) {
-            // if controller is present, do not use cache
+        if (controller != null)
+            // custom controller
             fxmlLoader.setController(controller);
+
+        if (noCache || controller != null)
+            // if controller is present, do not use cache
             return fxmlLoader.load();
-        }
+
         screenMap.put(fxml, fxmlLoader.load());
         return screenMap.get(fxml);
     }
