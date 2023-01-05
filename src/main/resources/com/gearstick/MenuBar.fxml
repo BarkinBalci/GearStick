@@ -35,6 +35,7 @@
                         <KeyCodeCombination alt="UP" code="V" control="UP" meta="UP" shift="DOWN" shortcut="UP" />
                      </accelerator>
                   </MenuItem>
+                  <MenuItem mnemonicParsing="false" onAction="#switchToRegister" text="Register" />
                   <SeparatorMenuItem mnemonicParsing="false" />
                   <MenuItem mnemonicParsing="false" text="Manage Vaults" />
                </items>

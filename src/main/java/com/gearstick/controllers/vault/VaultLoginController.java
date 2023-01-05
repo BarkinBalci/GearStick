@@ -53,7 +53,7 @@ public class VaultLoginController implements Initializable {
         }
         errorText.setText("");
         if (Main.DEBUG && !vaultnameComboBox.getItems().isEmpty()) {
-            errorText.setText("DEBUG: Developer mode is enabled, password is 'testpass'");
+            errorText.setText("DEBUG: Developer mode is enabled, 'test' vault's password is 'testpass'");
         }
     }
 }

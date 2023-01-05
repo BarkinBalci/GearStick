@@ -1,6 +1,5 @@
 package com.gearstick.controllers.vault;
 
-import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -13,23 +12,17 @@ import com.gearstick.vault.VaultStore;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Accordion;
-import javafx.scene.control.TitledPane;
-import javafx.scene.text.Text;
 
 public class VaultController implements Initializable {
 
+    /**
+     * The current vault with onChange-listener
+     */
     public static SimpleObjectProperty<Vault> currentVault = new SimpleObjectProperty<Vault>();
 
-    @FXML
-    public Text vaultnameText = new Text();
-
-    @FXML
-    public Text vaultIsValidatedText = new Text();
-
-    @FXML
-    public Accordion credentialsAccordion = new Accordion();
-
+    /**
+     * Auto redirect to login or register
+     */
     @FXML
     public static void requestLoginOrRegister() {
         loadVaults();
@@ -41,8 +34,18 @@ public class VaultController implements Initializable {
                 // redirect to login
                 Main.setRoot("login");
             } else
-                Main.setRoot("vault");
+                Main.setRoot("vault", new VaultDashboardController(currentVault.get()));
         }
+    }
+
+    public static void register(String name, String password) throws Exception {
+        Vault vault = new Vault(name, password);
+        if (VaultStore.createVault(vault) == null)
+            // TODO: replace vault with modal confirmation
+            throw new Exception("Vault already exists");
+
+        currentVault.set(vault);
+        requestLoginOrRegister();
     }
 
     public static void login(String name, String password) throws Exception {
@@ -68,6 +71,14 @@ public class VaultController implements Initializable {
         requestLoginOrRegister();
     }
 
+    public static void logout() {
+        if (currentVault.get() != null) {
+            currentVault.get().invalidate();
+        }
+
+        requestLoginOrRegister();
+    }
+
     public static void loadVaults() {
         VaultStore.loadVaults();
 
@@ -85,39 +96,12 @@ public class VaultController implements Initializable {
         }
     }
 
-    public TitledPane createCredentialsPane(String key) {
-        try {
-            var contents = Main.loadFXML("Vault/CredentialPane", new VaultCredentialController(key));
-            TitledPane pane = (TitledPane) contents;
-            return pane;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-
-    public void reRenderVault(Vault vault) {
-        if (vault != null) {
-            vaultnameText.setText(vault.name);
-            vaultIsValidatedText.setText(vault.isValidated() ? "Validated" : "Not validated");
-
-            if (vault.isValidated()) {
-                vault.getCredentialKeys().forEach(key -> {
-                    credentialsAccordion.getPanes().add(createCredentialsPane(key));
-                });
-            }
-        }
-    }
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        if (currentVault.get() != null)
-            credentialsAccordion.getPanes().get(0).setVisible(false);
-
-        reRenderVault(currentVault.get());
-        currentVault.addListener((e, oldVault, newVault) -> reRenderVault(newVault));
         loadVaults();
+        currentVault.addListener((e, o, vault) -> {
+            requestLoginOrRegister();
+        });
     }
 
 }

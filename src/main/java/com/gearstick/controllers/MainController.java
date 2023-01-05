@@ -101,6 +101,11 @@ public class MainController implements Initializable {
     }
 
     @FXML
+    public void switchToRegister() {
+        Main.setRoot("register");
+    }
+
+    @FXML
     public void switchToCryptography() {
         Main.setRoot("main");
     }

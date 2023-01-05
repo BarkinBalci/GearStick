@@ -85,6 +85,8 @@ public class VaultStore {
     }
 
     public static Vault createVault(Vault vault) {
+        if (vaults.containsKey(vault.name))
+            return null;
         saveVaultToFolder(vault);
         vaults.put(vault.name, vault);
         return vault;

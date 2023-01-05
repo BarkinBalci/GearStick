@@ -73,6 +73,10 @@ public class Vault implements java.io.Serializable {
         return KEY != null;
     }
 
+    public void invalidate() {
+        KEY = null;
+    }
+
     public Boolean validate(SecretKey KEY) throws Exception {
         if (getEncryptionCipher(KEY).equals(cipherResult)) {
             this.KEY = KEY;

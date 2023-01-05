@@ -31,13 +31,13 @@ public class Main extends Application {
         stage.show();
     }
 
-    public static void setRoot(String root) {
+    public static void setRoot(String root, Object controller) {
         try {
             switch (root) {
                 case "main" -> Main.root[1] = loadFXML("Cryptography");
-                case "vault" -> Main.root[1] = loadFXML("Vault/Dashboard");
-                case "register" -> Main.root[1] = loadFXML("Vault/Register");
-                case "login" -> Main.root[1] = loadFXML("Vault/Login");
+                case "vault" -> Main.root[1] = loadFXML("Vault/Dashboard", controller);
+                case "register" -> Main.root[1] = loadFXML("Vault/Register", null, true); // no-cache (re-render)
+                case "login" -> Main.root[1] = loadFXML("Vault/Login", null, true); // no-cache (re-render)
                 case "generator" -> Main.root[1] = loadFXML("Generator");
                 case "checksum" -> Main.root[1] = loadFXML("Checksum");
                 default -> throw new RuntimeException("Unhandled root mode");
@@ -49,6 +49,10 @@ public class Main extends Application {
         }
     }
 
+    public static void setRoot(String root) {
+        setRoot(root, null);
+    }
+
     private static void loadRoot() throws IOException {
         if (root == null) {
             root = new Parent[] { loadFXML("MenuBar"), loadFXML("Cryptography") };
@@ -57,16 +61,22 @@ public class Main extends Application {
     }
 
     public static Parent loadFXML(String fxml) throws IOException {
-        return loadFXML(fxml, null);
+        // default
+        return loadFXML(fxml, null, false);
     }
 
     public static Parent loadFXML(String fxml, Object controller) throws IOException {
+        // with controller
+        return loadFXML(fxml, controller, false);
+    }
+
+    public static Parent loadFXML(String fxml, Object controller, boolean noCache) throws IOException {
         var result = screenMap.get(fxml);
         if (result != null)
             return result;
 
         FXMLLoader fxmlLoader = new FXMLLoader(Main.class.getResource(fxml + ".fxml"));
-        if (controller != null) {
+        if (noCache || controller != null) {
             // if controller is present, do not use cache
             fxmlLoader.setController(controller);
             return fxmlLoader.load();

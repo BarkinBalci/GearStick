@@ -25,11 +25,6 @@ public class VaultCredentialController implements Initializable {
     @FXML
     public Button toggleButton = new Button();
 
-    public VaultCredentialController() {
-        this.key = "DEFAULT";
-        titledPane.setVisible(false);
-    }
-
     public VaultCredentialController(String key) {
         this.key = key;
     }
