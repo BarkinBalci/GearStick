@@ -120,6 +120,11 @@ public class MainController implements Initializable {
         Main.setRoot("checksum");
     }
 
+    @FXML
+    public void exit() {
+        System.exit(0);
+    }
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         lengthSlider.valueProperty()

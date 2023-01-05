@@ -4,12 +4,18 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+
 import java.io.IOException;
 import java.util.HashMap;
 
+import com.gearstick.utils.EffectUtilities;
+
 public class Main extends Application {
+    public static Stage stage;
     private static Scene scene;
     private static Parent[] root;
 
@@ -23,11 +29,15 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
+        Main.stage = stage;
         scene = new Scene(new VBox());
         loadRoot();
+        EffectUtilities.makeDraggable(Main.stage, Main.getMainPane().getTop());
 
         stage.setTitle("GearStick");
         stage.setScene(scene);
+        stage.initStyle(StageStyle.UNDECORATED);
+        stage.initStyle(StageStyle.TRANSPARENT);
         stage.show();
     }
 
@@ -53,11 +63,16 @@ public class Main extends Application {
         setRoot(root, null);
     }
 
+    public static BorderPane getMainPane() {
+        return (BorderPane) root[0];
+    }
+
     private static void loadRoot() throws IOException {
         if (root == null) {
-            root = new Parent[] { loadFXML("MenuBar"), loadFXML("Cryptography") };
+            root = new Parent[] { loadFXML("Main"), loadFXML("Pages/Welcome") };
         }
-        ((VBox) scene.getRoot()).getChildren().setAll(root);
+        getMainPane().setCenter(root[1]);
+        scene.setRoot(root[0]);
     }
 
     public static Parent loadFXML(String fxml) throws IOException {
