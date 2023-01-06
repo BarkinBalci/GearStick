@@ -4,53 +4,49 @@
 <?import javafx.scene.control.ContextMenu?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="30.0" prefWidth="600.0" style="-fx-background-color: #22272e;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
+
+<HBox alignment="CENTER_LEFT" prefHeight="20.0" prefWidth="580.0" style="-fx-background-color: #282a36;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
    <children>
-      <AnchorPane prefHeight="20.0" prefWidth="583.0" style="-fx-background-color: #22272e;">
-         <children>
-            <Label layoutY="6.0" onMouseClicked="#switchToVault" text="Vault" textFill="#d7d7d7">
-               <padding>
-                  <Insets left="10.0" right="5.0" />
-               </padding>
-               <contextMenu>
-                  <ContextMenu>
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Manage Vaults" />
-                    </items>
-                  </ContextMenu>
-               </contextMenu>
-            </Label>
-            <Label layoutX="43.0" layoutY="6.0" onMouseClicked="#switchToGenerator" text="Generator" textFill="#d7d7d7">
-               <padding>
-                  <Insets left="5.0" right="5.0" />
-               </padding>
-            </Label>
-            <Label layoutX="172.0" layoutY="6.0" onMouseClicked="#switchToCryptography" text="Cryptography" textFill="#d7d7d7">
-               <padding>
-                  <Insets left="5.0" right="5.0" />
-               </padding>
-            </Label>
-            <Label layoutX="255.0" layoutY="6.0" text="Help" textFill="#d7d7d7">
-               <padding>
-                  <Insets left="5.0" right="5.0" />
-               </padding>
-               <contextMenu>
-                  <ContextMenu>
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-                    </items>
-                  </ContextMenu>
-               </contextMenu>
-            </Label>
-            <Label layoutX="107.0" layoutY="6.0" onMouseClicked="#switchToChecksum" text="Checksum" textFill="#d7d7d7">
-               <padding>
-                  <Insets left="5.0" right="5.0" />
-               </padding>
-            </Label>
-         </children>
-      </AnchorPane>
+      <Label onMouseClicked="#switchToVault" text="Vault" textFill="#d7d7d7">
+         <padding>
+            <Insets left="10.0" right="5.0" />
+         </padding>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" text="Manage Vaults" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </Label>
+      <Label onMouseClicked="#switchToGenerator" text="Generator" textFill="#d7d7d7">
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </Label>
+      <Label onMouseClicked="#switchToCryptography" text="Cryptography" textFill="#d7d7d7">
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </Label>
+      <Label text="Help" textFill="#d7d7d7">
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+         <contextMenu>
+            <ContextMenu>
+              <items>
+                <MenuItem mnemonicParsing="false" text="Unspecified Action" />
+              </items>
+            </ContextMenu>
+         </contextMenu>
+      </Label>
+      <Label onMouseClicked="#switchToChecksum" text="Checksum" textFill="#d7d7d7">
+         <padding>
+            <Insets left="5.0" right="5.0" />
+         </padding>
+      </Label>
    </children>
-</VBox>
+</HBox>

@@ -24,10 +24,13 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        scene = new Scene(new VBox());
-        loadRoot();
-        stage.setTitle("GearStick");
+        VBox vbox = new VBox();
+        vbox.setStyle("-fx-background-color: #272c33;");
 
+        scene = new Scene(vbox);
+        loadRoot();
+        makeStageResizable(stage);
+        stage.setTitle("GearStick");
         stage.setScene(scene);
         stage.show();
     }
@@ -87,6 +90,21 @@ public class Main extends Application {
 
         screenMap.put(fxml, fxmlLoader.load());
         return screenMap.get(fxml);
+    }
+
+    private void makeStageResizable(Stage stage) {
+        stage.widthProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal.doubleValue() < 800) {
+                if (root[1] instanceof VBox)
+                    ((VBox) root[1]).prefWidthProperty().bind(scene.widthProperty());
+            }
+        });
+        stage.heightProperty().addListener((obs, oldVal, newVal) -> {
+            if (newVal.doubleValue() < 600) {
+                if (root[1] instanceof VBox)
+                    ((VBox) root[1]).prefHeightProperty().bind(scene.heightProperty());
+            }
+        });
     }
 
     public static void main(String[] args) {

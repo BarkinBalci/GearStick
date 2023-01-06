@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #272c33;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
+<VBox alignment="CENTER" prefHeight="447.0" prefWidth="820.0" style="-fx-background-color: #272c33;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
   <children>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="400.0" prefWidth="595.0" VBox.vgrow="ALWAYS">
+    <AnchorPane VBox.vgrow="ALWAYS">
          <children>
             <Label layoutX="31.0" layoutY="162.0" text="Output:" textFill="#d7d7d7" AnchorPane.leftAnchor="30.0">
                <font>
