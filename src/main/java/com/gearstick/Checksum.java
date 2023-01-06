@@ -28,4 +28,7 @@ public class Checksum {
 
         return sb.toString();
     }
+    public static boolean compareHash(String fileHash, String targetHash){
+        return fileHash.equals(targetHash);
+    }
 }
