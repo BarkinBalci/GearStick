@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<BorderPane prefHeight="600.0" prefWidth="1028.0" style="-fx-background-color: #44475a;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
+<BorderPane prefHeight="550.0" prefWidth="900.0" style="-fx-background-color: #44475a;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
    <left>
       <VBox spacing="10.0" style="-fx-background-color: #282a36;" BorderPane.alignment="CENTER">
          <children>
@@ -19,7 +19,7 @@
                   <Font name="System Bold" size="12.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="32.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <viewport>
                         <Rectangle2D />
                      </viewport>
@@ -34,31 +34,31 @@
                   <Font name="System Bold" size="12.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="32.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/media-flash-icon.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToGenerator" style="-fx-background-color: transparent;" text="Password Generator" textFill="#f8f8f2">
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToGenerator" prefHeight="40.0" prefWidth="177.0" style="-fx-background-color: transparent;" text="Password Generator" textFill="#f8f8f2">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="32.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/cpu-icon.png" />
                      </image>
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToChecksum" style="-fx-background-color: transparent;" text="CheckSum" textFill="#f8f8f2">
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToChecksum" style="-fx-background-color: transparent;" text="Checksum" textFill="#f8f8f2">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
                <graphic>
-                  <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="32.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@icons/scanner-icon.png" />
                      </image>
