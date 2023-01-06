@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -24,12 +25,9 @@ public class Main extends Application {
 
     @Override
     public void start(Stage stage) throws IOException {
-        VBox vbox = new VBox();
-        vbox.setStyle("-fx-background-color: #272c33;");
-
-        scene = new Scene(vbox);
+        scene = new Scene(new VBox());
         loadRoot();
-        makeStageResizable(stage);
+
         stage.setTitle("GearStick");
         stage.setScene(scene);
         stage.show();
@@ -57,11 +55,16 @@ public class Main extends Application {
         setRoot(root, null);
     }
 
+    public static BorderPane getMainPane() {
+        return (BorderPane) root[0];
+    }
+
     private static void loadRoot() throws IOException {
         if (root == null) {
-            root = new Parent[] { loadFXML("MenuBar"), loadFXML("Cryptography") };
+            root = new Parent[] { loadFXML("Main"), loadFXML("Pages/Welcome") };
         }
-        ((VBox) scene.getRoot()).getChildren().setAll(root);
+        getMainPane().setCenter(root[1]);
+        scene.setRoot(root[0]);
     }
 
     public static Parent loadFXML(String fxml) throws IOException {
@@ -90,21 +93,6 @@ public class Main extends Application {
 
         screenMap.put(fxml, fxmlLoader.load());
         return screenMap.get(fxml);
-    }
-
-    private void makeStageResizable(Stage stage) {
-        stage.widthProperty().addListener((obs, oldVal, newVal) -> {
-            if (newVal.doubleValue() < 800) {
-                if (root[1] instanceof VBox)
-                    ((VBox) root[1]).prefWidthProperty().bind(scene.widthProperty());
-            }
-        });
-        stage.heightProperty().addListener((obs, oldVal, newVal) -> {
-            if (newVal.doubleValue() < 600) {
-                if (root[1] instanceof VBox)
-                    ((VBox) root[1]).prefHeightProperty().bind(scene.heightProperty());
-            }
-        });
     }
 
     public static void main(String[] args) {
