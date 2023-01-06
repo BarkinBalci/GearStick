@@ -7,12 +7,9 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
-import javafx.stage.StageStyle;
 
 import java.io.IOException;
 import java.util.HashMap;
-
-import com.gearstick.utils.EffectUtilities;
 
 public class Main extends Application {
     public static Stage stage;
@@ -32,12 +29,9 @@ public class Main extends Application {
         Main.stage = stage;
         scene = new Scene(new VBox());
         loadRoot();
-        EffectUtilities.makeDraggable(Main.stage, Main.getMainPane().getTop());
 
         stage.setTitle("GearStick");
         stage.setScene(scene);
-        stage.initStyle(StageStyle.UNDECORATED);
-        stage.initStyle(StageStyle.TRANSPARENT);
         stage.show();
     }
 

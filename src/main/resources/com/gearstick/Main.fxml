@@ -3,20 +3,18 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.geometry.Rectangle2D?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.effect.DropShadow?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.BorderPane?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
 
-<BorderPane prefHeight="600.0" prefWidth="1200.0" style="-fx-background-color: #E3C6C2;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
+<BorderPane prefHeight="600.0" prefWidth="1028.0" style="-fx-background-color: #44475a;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
    <left>
-      <VBox prefHeight="528.0" spacing="10.0" style="-fx-background-color: #D5AAA4;" BorderPane.alignment="CENTER">
+      <VBox spacing="10.0" style="-fx-background-color: #282a36;" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="BASELINE_LEFT" minWidth="230.0" mnemonicParsing="false" onAction="#switchToVault" style="-fx-background-color: transparent;" text="Vault">
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToVault" style="-fx-background-color: transparent;" text="Vault" textFill="#f8f8f2">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -31,7 +29,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="BASELINE_LEFT" minWidth="230.0" mnemonicParsing="false" onAction="#switchToCryptography" style="-fx-background-color: transparent;" text="Cryptography">
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToCryptography" style="-fx-background-color: transparent;" text="Cryptography" textFill="#f8f8f2">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -43,7 +41,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="BASELINE_LEFT" minWidth="230.0" mnemonicParsing="false" onAction="#switchToGenerator" style="-fx-background-color: transparent;" text="Password Generator">
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToGenerator" style="-fx-background-color: transparent;" text="Password Generator" textFill="#f8f8f2">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -55,7 +53,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button alignment="BASELINE_LEFT" minWidth="230.0" mnemonicParsing="false" onAction="#switchToChecksum" style="-fx-background-color: transparent;" text="CheckSum">
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToChecksum" style="-fx-background-color: transparent;" text="CheckSum" textFill="#f8f8f2">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -74,42 +72,9 @@
          <padding>
             <Insets top="15.0" />
          </padding>
+         <effect>
+            <DropShadow />
+         </effect>
       </VBox>
    </left>
-   <top>
-      <HBox alignment="CENTER_LEFT" spacing="50.0" style="-fx-background-color: #D7AAA4;">
-         <children>
-            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="GearStick">
-               <font>
-                  <Font name="Franklin Gothic Medium" size="36.0" />
-               </font>
-            </Text>
-            <FlowPane alignment="CENTER_RIGHT" columnHalignment="CENTER" prefHeight="72.0" prefWidth="933.0">
-               <children>
-                  <Button alignment="CENTER_RIGHT" contentDisplay="RIGHT" mnemonicParsing="false" onAction="#exit" style="-fx-background-color: transparent;" text="Exit">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                     <graphic>
-                        <ImageView fitHeight="32.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true">
-                           <viewport>
-                              <Rectangle2D />
-                           </viewport>
-                           <image>
-                              <Image url="@icons/exit-flat.png" />
-                           </image>
-                        </ImageView>
-                     </graphic>
-                  </Button>
-               </children>
-            </FlowPane>
-         </children>
-         <padding>
-            <Insets left="50.0" />
-         </padding>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
-      </HBox>
-   </top>
 </BorderPane>
