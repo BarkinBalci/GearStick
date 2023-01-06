@@ -65,12 +65,14 @@ public class Cryptography {
         return salt;
     }
 
-    public static String getSalt() {
-        throw new UnsupportedOperationException("Not implemented yet.");
+        public static String getSalt() {
+        if (VaultController.currentVault.get() != null)
+            return VaultController.currentVault.get().getSalt();
+        return "";
     }
 
     public static IvParameterSpec getIV() {
-        if (VaultController.currentVault != null)
+        if (VaultController.currentVault.get() != null)
             return new IvParameterSpec(VaultController.currentVault.get().getIV());
 
         // default IV (which is not secure since user is not logged)

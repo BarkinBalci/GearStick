@@ -108,6 +108,11 @@ public class Vault implements java.io.Serializable {
         return IV;
     }
 
+    public String getSalt(){
+        return SALT;
+    }
+
+
     public ArrayList<String> getCredentialKeys() {
         return new ArrayList<String>(credentials.keySet());
     }

@@ -81,7 +81,7 @@ public class MainController implements Initializable {
     @FXML
     private void Generate() throws NoSuchAlgorithmException, InvalidKeySpecException {
         String passwordText = secretKeyTextField.getText();
-        SecretKey secretKey = Cryptography.generateKey(passwordText, Cryptography.getSalt());
+        SecretKey secretKey = Cryptography.generateKey(passwordText, Cryptography.getSalt().toString());
         String encodedKey = Base64.getEncoder().encodeToString(secretKey.getEncoded());
         secretKeyTextField.setText(encodedKey);
     }

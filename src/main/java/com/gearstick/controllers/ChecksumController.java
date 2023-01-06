@@ -12,9 +12,11 @@ import com.gearstick.Main;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
+import javafx.stage.Window;
 
 public class ChecksumController implements Initializable {
     private SimpleObjectProperty<File> currentFile = new SimpleObjectProperty<>();
@@ -23,7 +25,10 @@ public class ChecksumController implements Initializable {
     private TextField currentFileName = new TextField("No file selected");
 
     @FXML
-    private TextArea hashTextArea = new TextArea("almk");
+    private TextArea hashTextArea;
+
+    @FXML
+    private TextField targetTextField;
 
     @FXML
     private void openFile() {
@@ -35,6 +40,21 @@ public class ChecksumController implements Initializable {
     @FXML
     private void calcChecksum() throws IOException, NoSuchAlgorithmException {
         hashTextArea.setText(Checksum.getChecksum("SHA-256", currentFile.get()));
+    }
+
+    @FXML
+    private void compareHash(){
+        boolean result = Checksum.compareHash(hashTextArea.getText(), targetTextField.getText());
+        Dialog<String> dialog = new Dialog<String>();
+        dialog.setTitle("Comparison Result");
+        if(result)
+            dialog.setContentText("Hashes match!");
+        else
+            dialog.setContentText("Comparison failed. The file might be compromised, use the file on your own risk!");
+        Window window = dialog.getDialogPane().getScene().getWindow();
+        window.setOnCloseRequest(event -> window.hide());
+        dialog.show();
+
     }
 
     @Override
