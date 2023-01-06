@@ -31,10 +31,7 @@ public class MainController implements Initializable {
     private TextField outputTextField;
     @FXML
     private TextField secretKeyTextField;
-    @FXML
-    private TextField saltTextField;
-    @FXML
-    private TextField passwordTextField;
+
     @FXML
     private Label lengthLabel = new Label("8");
     @FXML
@@ -83,7 +80,7 @@ public class MainController implements Initializable {
 
     @FXML
     private void Generate() throws NoSuchAlgorithmException, InvalidKeySpecException {
-        String passwordText = passwordTextField.getText();
+        String passwordText = secretKeyTextField.getText();
         SecretKey secretKey = Cryptography.generateKey(passwordText, Cryptography.getSalt());
         String encodedKey = Base64.getEncoder().encodeToString(secretKey.getEncoded());
         secretKeyTextField.setText(encodedKey);
