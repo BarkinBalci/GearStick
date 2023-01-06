@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.util.HashMap;
 
+import com.gearstick.vault.VaultStore;
+
 public class Main extends Application {
     private static Scene scene;
     private static Parent[] root;
@@ -61,7 +63,8 @@ public class Main extends Application {
 
     private static void loadRoot() throws IOException {
         if (root == null) {
-            root = new Parent[] { loadFXML("Main"), loadFXML("Pages/Welcome") };
+            root = new Parent[] { loadFXML("Main"),
+                    VaultStore.vaults.size() == 0 ? loadFXML("Pages/Welcome") : new VBox() };
         }
         getMainPane().setCenter(root[1]);
         scene.setRoot(root[0]);
@@ -96,6 +99,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
+        VaultStore.loadVaults();
         launch();
     }
 }
