@@ -26,7 +26,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class MainController implements Initializable {
 
     @FXML
-    private TextField inputTextField;
+    private TextArea inputTextArea;
     @FXML
     private TextField outputTextField;
     @FXML
@@ -53,7 +53,7 @@ public class MainController implements Initializable {
     @FXML
     private void Encrypt() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException,
             IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
-        String inputText = inputTextField.getText();
+        String inputText = inputTextArea.getText();
         String encodedKey = secretKeyTextField.getText();
         byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
         SecretKey originalKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
@@ -65,7 +65,7 @@ public class MainController implements Initializable {
     @FXML
     private void Decrypt() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException,
             IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
-        String inputText = inputTextField.getText();
+        String inputText = inputTextArea.getText();
         String encodedKey = secretKeyTextField.getText();
         byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
         SecretKey originalKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
