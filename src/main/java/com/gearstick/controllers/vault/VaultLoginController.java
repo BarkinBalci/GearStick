@@ -27,6 +27,11 @@ public class VaultLoginController implements Initializable {
     }
 
     @FXML
+    private void switchToRegister() {
+        Main.setRoot("register");
+    }
+
+    @FXML
     private void login() {
         if (vaultnameComboBox.getSelectionModel().isEmpty() || vaultpasswordPasswordField.getText().isEmpty()) {
             errorText.setText("Error: Please fill all fields");

@@ -10,31 +10,35 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" prefHeight="455.0" prefWidth="847.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.vault.VaultRegisterController">
+<VBox alignment="CENTER" prefHeight="455.0" prefWidth="847.0" style="-fx-background-color: #44475a;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.vault.VaultRegisterController">
    <children>
       <HBox alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="253.0" prefWidth="523.0">
+            <AnchorPane prefHeight="302.0" prefWidth="523.0">
                <children>
-                  <TextField fx:id="vaultnameText" layoutX="106.0" layoutY="54.0" prefHeight="25.0" prefWidth="280.0" promptText="Vault Name" text="default" />
-                  <PasswordField fx:id="vaultpasswordPasswordField" layoutX="110.0" layoutY="139.0" prefHeight="25.0" prefWidth="280.0" />
-                  <Label layoutX="211.0" layoutY="15.0" text="Vault name:">
+                  <TextField fx:id="vaultnameText" layoutX="106.0" layoutY="54.0" prefHeight="25.0" prefWidth="280.0" promptText="Vault Name" style="-fx-background-color: #282a36; -fx-text-inner-color: #f8f8f2;" text="default" />
+                  <PasswordField fx:id="vaultpasswordPasswordField" layoutX="110.0" layoutY="139.0" prefHeight="25.0" prefWidth="280.0" style="-fx-background-color: #282a36; -fx-text-inner-color: #f8f8f2;" />
+                  <Label layoutX="211.0" layoutY="15.0" text="Vault name:" textFill="#f8f8f2">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
                   <Button layoutX="394.0" layoutY="139.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" text="Set Visible" visible="false" />
-                  <Label layoutX="163.0" layoutY="105.0" text="Select your master password:">
+                  <Label layoutX="163.0" layoutY="105.0" text="Select your master password:" textFill="#f8f8f2">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Button defaultButton="true" layoutX="280.0" layoutY="214.0" mnemonicParsing="false" onAction="#createVault" prefHeight="25.0" prefWidth="104.0" text="Create Vault" />
-                  <Button cancelButton="true" layoutX="104.0" layoutY="214.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Cancel" />
+                  <Button defaultButton="true" layoutX="280.0" layoutY="214.0" mnemonicParsing="false" onAction="#createVault" prefHeight="25.0" prefWidth="104.0" style="-fx-background-color: #282a36;" text="Create Vault" textFill="#f8f8f2" />
+                  <Button cancelButton="true" layoutX="104.0" layoutY="214.0" mnemonicParsing="false" onAction="#switchToLogin" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #282a36;" text="Cancel" textFill="#f8f8f2" />
+                  <Text fx:id="errorText" fill="#ff5555" layoutX="106.0" layoutY="275.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Text:">
+                     <font>
+                        <Font name="System Bold" size="12.0" />
+                     </font>
+                  </Text>
                </children>
             </AnchorPane>
          </children>
       </HBox>
-      <Text fx:id="errorText" fill="#f80000" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Text:" />
    </children>
 </VBox>
