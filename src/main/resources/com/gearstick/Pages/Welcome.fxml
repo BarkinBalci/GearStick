@@ -7,21 +7,21 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-color: #44475a;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" styleClass="background" stylesheets="@../Css/app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.MainController">
    <children>
       <AnchorPane prefHeight="467.0" prefWidth="600.0">
          <children>
-            <Text fill="#f8f8f2" layoutX="30.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean posuere laoreet enim eu maximus. Nulla sit amet ultricies nibh. Etiam ante augue, pulvinar vel malesuada id, auctor sit amet metus. Quisque eros arcu, egestas vitae metus vel, facilisis convallis dui. Sed eleifend ultricies odio ut fermentum. Vestibulum vel placerat est. Pellentesque eget lectus bibendum, auctor lectus eget, interdum felis. Cras auctor id leo vitae molestie. Nam fermentum, magna sed sagittis lobortis, eros felis tempus neque, id imperdiet arcu nunc in turpis. Phasellus congue id neque non rutrum. Donec " wrappingWidth="540.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
+            <Text layoutX="30.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean posuere laoreet enim eu maximus. Nulla sit amet ultricies nibh. Etiam ante augue, pulvinar vel malesuada id, auctor sit amet metus. Quisque eros arcu, egestas vitae metus vel, facilisis convallis dui. Sed eleifend ultricies odio ut fermentum. Vestibulum vel placerat est. Pellentesque eget lectus bibendum, auctor lectus eget, interdum felis. Cras auctor id leo vitae molestie. Nam fermentum, magna sed sagittis lobortis, eros felis tempus neque, id imperdiet arcu nunc in turpis. Phasellus congue id neque non rutrum. Donec " wrappingWidth="540.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
                <font>
                   <Font size="16.0" />
                </font>
             </Text>
-            <Text fill="#f8f8f2" layoutX="204.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to GearStick!">
+            <Text layoutX="204.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome to GearStick!">
                <font>
                   <Font name="System Bold" size="18.0" />
                </font>
             </Text>
-            <Button layoutX="274.0" layoutY="314.0" mnemonicParsing="false" style="-fx-background-color: #282a36;" text="Button" textFill="#f8f8f2" />
+            <Button layoutX="262.0" layoutY="316.0" mnemonicParsing="false" onAction="#switchToVault" text="Go to Vault" />
          </children>
       </AnchorPane>
    </children>

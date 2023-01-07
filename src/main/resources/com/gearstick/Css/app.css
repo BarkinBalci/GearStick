@@ -1,0 +1,55 @@
+.background {
+    -fx-background-color: #44475a;
+}
+
+.background-primary {
+    -fx-background-color: #282a36;
+}
+
+.button {
+    -fx-background-color: #282a36;
+    -fx-text-fill: #f8f8f2;
+}
+
+Text {
+    -fx-fill: #f8f8f2;
+    -fx-smooth: true;
+}
+
+.label {
+    -fx-text-fill: #f8f8f2;
+}
+
+.text-field,
+.text-area .content {
+    -fx-text-inner-color: #f8f8f2;
+    -fx-background-color: #282a36;
+}
+
+.error-text {
+    -fx-fill: #ff5555;
+    -fx-font-size: 12px;
+    -fx-font-weight: bold;
+}
+
+.page-title-text {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+.combo-box-popup .list-view {
+    /* items in list */
+    -fx-background-color: #282a36;
+}
+
+.combo-box-popup .list-view .list-cell:hover {
+    /* hovering mouse to items in list */
+    -fx-background-color: #6272a4;
+}
+
+.combo-box,
+.combo-box .cell:selected {
+    /* current combo-box cell */
+    -fx-text-fill: #f8f8f2;
+    -fx-background-color: #282a36;
+}

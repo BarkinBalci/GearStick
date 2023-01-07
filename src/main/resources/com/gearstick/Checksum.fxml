@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox prefHeight="450.0" prefWidth="600.0" style="-fx-background-color: #44475a;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.ChecksumController">
+<VBox prefHeight="450.0" prefWidth="600.0" styleClass="background" stylesheets="@Css/app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.ChecksumController">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
          <children>
@@ -26,7 +26,7 @@
                </font>
             </Label>
             <TextField fx:id="currentFileName" layoutX="145.0" layoutY="53.0" prefHeight="25.0" prefWidth="348.0" AnchorPane.leftAnchor="140.0" AnchorPane.rightAnchor="112.0" AnchorPane.topAnchor="50.0" />
-            <Button layoutX="502.0" layoutY="60.0" mnemonicParsing="false" onAction="#openFile" style="-fx-background-color: #282a36;" text="Open File" textFill="#f8f8f2" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="50.0">
+            <Button layoutX="502.0" layoutY="60.0" mnemonicParsing="false" onAction="#openFile" text="Open File" textFill="#f8f8f2" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="50.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -36,8 +36,8 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <ComboBox layoutX="30.0" layoutY="60.0" prefHeight="25.0" prefWidth="100.0" style="-fx-background-color: #282a36;" AnchorPane.topAnchor="50.0" />
-            <Button layoutX="503.0" layoutY="154.0" mnemonicParsing="false" onAction="#calcChecksum" prefHeight="25.0" prefWidth="67.0" style="-fx-background-color: #282a36;" text="Start" textFill="#f8f8f2" AnchorPane.rightAnchor="30.0">
+            <ComboBox layoutX="30.0" layoutY="60.0" prefHeight="25.0" prefWidth="100.0" AnchorPane.topAnchor="50.0" />
+            <Button layoutX="503.0" layoutY="154.0" mnemonicParsing="false" onAction="#calcChecksum" prefHeight="25.0" prefWidth="67.0" text="Start" textFill="#f8f8f2" AnchorPane.rightAnchor="30.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -53,8 +53,8 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField fx:id="targetTextField" layoutX="33.0" layoutY="381.0" prefHeight="25.0" prefWidth="460.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="110.0" />
-            <Button layoutX="393.0" layoutY="381.0" mnemonicParsing="false" onAction="#compareHash" style="-fx-background-color: #282a36;" text="Compare" textFill="#f8f8f2" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0">
+            <TextField layoutX="33.0" layoutY="381.0" prefHeight="25.0" prefWidth="460.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="110.0" />
+            <Button layoutX="393.0" layoutY="381.0" mnemonicParsing="false" text="Compare" textFill="#f8f8f2" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
