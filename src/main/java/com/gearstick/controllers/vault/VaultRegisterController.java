@@ -3,7 +3,7 @@ package com.gearstick.controllers.vault;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import com.gearstick.Main;
+import com.gearstick.controllers.MainController;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -11,7 +11,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
 
-public class VaultRegisterController implements Initializable {
+public class VaultRegisterController extends MainController implements Initializable {
 
     @FXML
     public TextField vaultnameText = new TextField();
@@ -23,11 +23,6 @@ public class VaultRegisterController implements Initializable {
     @FXML
     private void toggleShowPass() {
         vaultpasswordPasswordField.setManaged(!vaultpasswordPasswordField.isManaged());
-    }
-
-    @FXML
-    private void switchToLogin() {
-        Main.setRoot("login");
     }
 
     @FXML

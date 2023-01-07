@@ -13,6 +13,11 @@ public class MainController {
     }
 
     @FXML
+    private void switchToLogin() {
+        Main.setRoot("login");
+    }
+
+    @FXML
     public void switchToRegister() {
         Main.setRoot("register");
     }
