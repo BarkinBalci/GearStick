@@ -16,8 +16,10 @@ Text {
     -fx-smooth: true;
 }
 
-.label {
+.label,
+.text-area {
     -fx-text-fill: #f8f8f2;
+    
 }
 
 .text-field,
@@ -52,4 +54,8 @@ Text {
     /* current combo-box cell */
     -fx-text-fill: #f8f8f2;
     -fx-background-color: #282a36;
+}
+
+.scroll-pane {
+    -fx-background-color: transparent;
 }
