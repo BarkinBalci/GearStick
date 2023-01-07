@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 
 public class Generator {
     /**
-     * !"#$%&'()*+,,
+     * Generates char in range of U+0021 and U+002D (!"#$%&'()*+,)
      */
     public static Stream<Character> generateSpecial(int count, boolean bool) {
         SecureRandom random = new SecureRandom();
@@ -19,7 +19,7 @@ public class Generator {
         return specialChars.mapToObj(data -> (char) data);
     }
     /**
-     * 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
+     * Generates char in range of U+0030 and U+0039 (0, 1, 2, 3, 4, 5, 6, 7, 8, 9)
      */
     public static Stream<Character> generateNumbers(int count, boolean bool) {
         SecureRandom random = new SecureRandom();
@@ -30,7 +30,7 @@ public class Generator {
     }
 
     /**
-     * A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z
+     * Generates char in range of U+0041 and U+005A (A, B, C, D, E, F, G, H, I, J, K, L, M, N, O, P, Q, R, S, T, U, V, W, X, Y, Z)
      */
     public static Stream<Character> generateUppercase(int count, boolean bool) {
         SecureRandom random = new SecureRandom();
@@ -40,7 +40,7 @@ public class Generator {
         return uppercaseChars.mapToObj(data -> (char) data);
     }
     /**
-     * a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z
+     * Generates char in range of U+0061 and U+007A (a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z)
      */
     public static Stream<Character> generateLowercase(int count, boolean bool) {
         SecureRandom random = new SecureRandom();
