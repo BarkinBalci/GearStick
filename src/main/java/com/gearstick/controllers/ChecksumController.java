@@ -1,22 +1,21 @@
 package com.gearstick.controllers;
 
+import com.gearstick.Checksum;
+import com.gearstick.Main;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.*;
+import javafx.stage.FileChooser;
+import javafx.stage.Window;
+
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
-
-import com.gearstick.Checksum;
-import com.gearstick.Main;
-
-import javafx.beans.property.SimpleObjectProperty;
-import javafx.fxml.FXML;
-import javafx.fxml.Initializable;
-import javafx.scene.control.Dialog;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.stage.FileChooser;
-import javafx.stage.Window;
 
 public class ChecksumController implements Initializable {
     private SimpleObjectProperty<File> currentFile = new SimpleObjectProperty<>();
@@ -29,23 +28,30 @@ public class ChecksumController implements Initializable {
 
     @FXML
     private TextField targetTextField;
+    @FXML
+    public ComboBox<String> algorithmComboBox;
+    @FXML
+    public ProgressBar progressBar;
 
     @FXML
     private void openFile() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Any File");
         currentFile.set(fileChooser.showOpenDialog(Main.scene.getWindow()));
+        progressBar.setProgress(0.0F);
+        hashTextArea.clear();
     }
 
     @FXML
     private void calcChecksum() throws IOException, NoSuchAlgorithmException {
-        hashTextArea.setText(Checksum.getChecksum("SHA-256", currentFile.get()));
+        hashTextArea.setText(Checksum.getChecksum(algorithmComboBox.getValue(), currentFile.get()));
+        progressBar.setProgress(1.0F);
     }
 
     @FXML
     private void compareHash(){
         boolean result = Checksum.compareHash(hashTextArea.getText(), targetTextField.getText());
-        Dialog<String> dialog = new Dialog<String>();
+        Dialog<String> dialog = new Dialog<>();
         dialog.setTitle("Comparison Result");
         if(result)
             dialog.setContentText("Hashes match!");
@@ -59,6 +65,9 @@ public class ChecksumController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        ObservableList<String> algorithms = FXCollections.observableArrayList("SHA-256", "MD5");
+        algorithmComboBox.getItems().addAll(algorithms);
+        algorithmComboBox.getSelectionModel().select(0);
         currentFile.addListener((o, oldValue, newValue) -> {
             if (newValue == null)
                 currentFileName.setText("No file selected");
