@@ -16,6 +16,8 @@ import com.gearstick.controllers.vault.VaultController;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -71,6 +73,19 @@ public class MainController implements Initializable {
         outputTextField.setText(decryptedString);
     }
 
+    public static void copyClipboard(String str){
+        ClipboardContent content = new ClipboardContent();
+        content.putString(str);
+        Clipboard.getSystemClipboard().setContent(content);
+    }
+    @FXML
+    private void copyGenerated(){
+        copyClipboard(passwordTextArea.getText());
+    }
+    @FXML
+    private void copyCipher(){
+        copyClipboard(outputTextField.getText());
+    }
     @FXML
     private void Randomize() throws NoSuchAlgorithmException {
         SecretKey secretKey = Cryptography.randomizeKey(128);
