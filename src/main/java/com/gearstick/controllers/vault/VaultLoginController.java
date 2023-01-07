@@ -4,6 +4,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import com.gearstick.Main;
+import com.gearstick.controllers.MainController;
 import com.gearstick.vault.VaultStore;
 
 import javafx.fxml.FXML;
@@ -12,7 +13,7 @@ import javafx.scene.control.ComboBox;
 import javafx.scene.control.PasswordField;
 import javafx.scene.text.Text;
 
-public class VaultLoginController implements Initializable {
+public class VaultLoginController extends MainController implements Initializable {
 
     @FXML
     public ComboBox<String> vaultnameComboBox = new ComboBox<>();
@@ -24,11 +25,6 @@ public class VaultLoginController implements Initializable {
     @FXML
     private void toggleShowPass() {
         vaultpasswordPasswordField.setManaged(!vaultpasswordPasswordField.isManaged());
-    }
-
-    @FXML
-    private void switchToRegister() {
-        Main.setRoot("register");
     }
 
     @FXML

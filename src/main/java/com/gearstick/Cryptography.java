@@ -14,6 +14,8 @@ import javax.crypto.spec.PBEKeySpec;
 import javax.crypto.spec.SecretKeySpec;
 
 import com.gearstick.controllers.vault.VaultController;
+import com.gearstick.vault.Vault;
+import com.gearstick.vault.VaultStore;
 
 public class Cryptography {
 
@@ -65,15 +67,28 @@ public class Cryptography {
         return salt;
     }
 
-        public static String getSalt() {
+    private static Vault getAnyVault() {
         if (VaultController.currentVault.get() != null)
-            return VaultController.currentVault.get().getSalt();
-        return "";
+            // if user logged in, return current vault
+            return VaultController.currentVault.get();
+        if (VaultStore.vaults.size() > 0)
+            // if user not logged in, return first vault
+            return VaultStore.vaults.values().iterator().next();
+
+        return null;
+    }
+
+    public static String getSalt() {
+        if (getAnyVault() != null)
+            return getAnyVault().getSalt();
+
+        // default salt (which is not secure since user is not logged)
+        return "default-salt";
     }
 
     public static IvParameterSpec getIV() {
-        if (VaultController.currentVault.get() != null)
-            return new IvParameterSpec(VaultController.currentVault.get().getIV());
+        if (getAnyVault() != null)
+            return new IvParameterSpec(getAnyVault().getIV());
 
         // default IV (which is not secure since user is not logged)
         byte[] iv = { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 };
