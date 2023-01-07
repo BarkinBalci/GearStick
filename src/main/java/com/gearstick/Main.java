@@ -99,7 +99,8 @@ public class Main extends Application {
         screenMap.put(fxml, fxmlLoader.load());
         return screenMap.get(fxml);
     }
-    public static void copyClipboard(String str){
+
+    public static void copyClipboard(String str) {
         ClipboardContent content = new ClipboardContent();
         content.putString(str);
         Clipboard.getSystemClipboard().setContent(content);

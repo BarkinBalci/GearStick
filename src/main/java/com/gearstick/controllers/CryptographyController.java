@@ -18,7 +18,6 @@ import java.util.Base64;
 
 import static com.gearstick.Main.copyClipboard;
 
-
 public class CryptographyController {
 
     @FXML
@@ -51,10 +50,12 @@ public class CryptographyController {
                 Cryptography.getIV());
         outputTextField.setText(decryptedString);
     }
+
     @FXML
-    private void copyCipher(){
+    private void copyCipher() {
         copyClipboard(outputTextField.getText());
     }
+
     @FXML
     private void Randomize() throws NoSuchAlgorithmException {
         SecretKey secretKey = Cryptography.randomizeKey(128);

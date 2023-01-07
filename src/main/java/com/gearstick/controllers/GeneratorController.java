@@ -13,7 +13,6 @@ import java.util.ResourceBundle;
 
 import static com.gearstick.Main.copyClipboard;
 
-
 public class GeneratorController implements Initializable {
     @FXML
     private TextArea passwordTextArea;
@@ -29,15 +28,18 @@ public class GeneratorController implements Initializable {
     private CheckBox uppercaseCheckBox;
     @FXML
     private CheckBox specialCheckBox;
+
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         lengthSlider.valueProperty()
                 .addListener((observableValue, oldNumber, newNumber) -> lengthLabel.setText(newNumber.intValue() + ""));
     }
+
     @FXML
-    private void copyGenerated(){
+    private void copyGenerated() {
         copyClipboard(passwordTextArea.getText());
     }
+
     @FXML
     private void generatePassword() {
         passwordTextArea.setText(Generator.generatePassword((int) lengthSlider.getValue(), specialCheckBox.isSelected(),
