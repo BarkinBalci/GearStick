@@ -2,6 +2,7 @@ package com.gearstick.vault;
 
 import java.io.Serial;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 import javax.crypto.SecretKey;
@@ -51,7 +52,7 @@ public class Vault implements java.io.Serializable {
     public Vault(String name, SecretKey KEY) throws Exception {
         this.name = name;
         this.IV = Cryptography.generateIv(16).getIV();
-        this.SALT = String.valueOf(Cryptography.generateSalt(16));
+        this.SALT = Arrays.toString(Cryptography.generateSalt(16));
         this.cipherResult = getEncryptionCipher(KEY);
     }
 
@@ -61,7 +62,7 @@ public class Vault implements java.io.Serializable {
     public Vault(String name, String password) throws Exception {
         this.name = name;
         this.IV = Cryptography.generateIv(16).getIV();
-        this.SALT = String.valueOf(Cryptography.generateSalt(16));
+        this.SALT = Arrays.toString(Cryptography.generateSalt(16));
         this.KEY = Cryptography.generateKey(password, SALT);
         this.cipherResult = getEncryptionCipher(KEY);
     }
@@ -85,7 +86,7 @@ public class Vault implements java.io.Serializable {
             this.KEY = KEY;
 
             if (decryptedCredentials == null)
-                decryptedCredentials = new HashMap<String, String>();
+                decryptedCredentials = new HashMap<>();
 
             // decrypt credentials
             credentials.forEach((key, value) -> {

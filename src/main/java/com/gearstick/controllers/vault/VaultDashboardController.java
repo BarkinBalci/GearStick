@@ -54,9 +54,7 @@ public class VaultDashboardController implements Initializable {
         vaultIsValidatedText.setText(vault.isValidated() ? "Validated" : "Not validated");
 
         if (vault.isValidated()) {
-            vault.getCredentialKeys().forEach(key -> {
-                credentialsAccordion.getPanes().add(createCredentialsPane(key));
-            });
+            vault.getCredentialKeys().forEach(key -> credentialsAccordion.getPanes().add(createCredentialsPane(key)));
         }
     }
 }

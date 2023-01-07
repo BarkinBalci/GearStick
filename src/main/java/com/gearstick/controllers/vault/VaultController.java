@@ -18,10 +18,10 @@ public class VaultController implements Initializable {
     /**
      * The current vault with onChange-listener
      */
-    public static SimpleObjectProperty<Vault> currentVault = new SimpleObjectProperty<Vault>();
+    public static SimpleObjectProperty<Vault> currentVault = new SimpleObjectProperty<>();
 
     /**
-     * Auto redirect to login or register
+     * Auto redirect to log in or register
      */
     @FXML
     public static void requestLoginOrRegister() {
@@ -31,7 +31,7 @@ public class VaultController implements Initializable {
             Main.setRoot("register");
         } else {
             if (currentVault.get() == null || !currentVault.get().isValidated()) {
-                // redirect to login
+                // redirect to log in
                 Main.setRoot("login");
             } else
                 Main.setRoot("vault", new VaultDashboardController(currentVault.get()));
@@ -99,9 +99,7 @@ public class VaultController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         loadVaults();
-        currentVault.addListener((e, o, vault) -> {
-            requestLoginOrRegister();
-        });
+        currentVault.addListener((e, o, vault) -> requestLoginOrRegister());
     }
 
 }
