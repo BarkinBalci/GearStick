@@ -10,12 +10,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
-<VBox alignment="CENTER" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.vault.VaultLoginController">
+<VBox alignment="CENTER" styleClass="background" stylesheets="@../Css/app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.vault.VaultLoginController">
    <children>
       <HBox alignment="CENTER">
          <children>
-            <AnchorPane prefHeight="456.0" prefWidth="561.0" style="-fx-background-color: #44475a;">
+            <AnchorPane prefHeight="456.0" prefWidth="561.0">
                <children>
                   <Label layoutX="168.0" layoutY="55.0" text="Login To Your Vault" textFill="#f8f8f2">
                      <font>
@@ -32,17 +31,13 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="vaultpasswordPasswordField" layoutX="151.0" layoutY="236.0" prefHeight="25.0" prefWidth="276.0" style="-fx-text-inner-color: #f8f8f2; -fx-background-color: #282a36;" />
+                  <PasswordField fx:id="vaultpasswordPasswordField" layoutX="151.0" layoutY="236.0" prefHeight="25.0" prefWidth="276.0" />
                   <Button layoutX="401.0" layoutY="236.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" text="Set Visible" visible="false" />
-                  <Button defaultButton="true" layoutX="185.0" layoutY="284.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #282a36;" text="Enter" textFill="#f8f8f2" />
-                  <Button cancelButton="true" layoutX="305.0" layoutY="284.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" style="-fx-background-color: #282a36;" text="Cancel" textFill="#f8f8f2" />
-                  <Text fx:id="errorText" fill="#ff5555" layoutX="135.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Error Text:">
-                     <font>
-                        <Font name="System Bold" size="12.0" />
-                     </font>
-                  </Text>
-                  <ComboBox fx:id="vaultnameComboBox" layoutX="150.0" layoutY="168.0" prefWidth="150.0" style="-fx-background-color: #282a36; -fx-text-fill: #f8f8f2; -fx-text-inner-color: #f8f8f2;" />
-                  <Button layoutX="229.0" layoutY="328.0" mnemonicParsing="false" onAction="#switchToRegister" prefHeight="25.0" prefWidth="115.0" style="-fx-background-color: #282a36;" text="Register New" textFill="#f8f8f2" />
+                  <Button defaultButton="true" layoutX="185.0" layoutY="284.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="80.0" text="Enter" textFill="#f8f8f2" />
+                  <Button cancelButton="true" layoutX="305.0" layoutY="284.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Cancel" textFill="#f8f8f2" />
+                  <Text fx:id="errorText" layoutX="135.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error-text" text="Error Text:" />
+                  <ComboBox fx:id="vaultnameComboBox" layoutX="150.0" layoutY="168.0" prefWidth="150.0" />
+                  <Button layoutX="229.0" layoutY="328.0" mnemonicParsing="false" onAction="#switchToRegister" prefHeight="25.0" prefWidth="115.0" text="Register New" textFill="#f8f8f2" />
                </children>
             </AnchorPane>
          </children>

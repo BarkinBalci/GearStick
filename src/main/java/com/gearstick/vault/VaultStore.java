@@ -19,8 +19,8 @@ import java.util.HashMap;
  * 
  * @implNote vault login strategies:
  *           1. password (masterpass)
- *           2. TODO: biometrics
- *           3. TODO: 2FA
+ *           2. TODO_FUTURE: biometrics
+ *           3. TODO_FUTURE: 2FA
  * 
  * @implNote vault registration strategies:
  *           - password (masterpass) and vault name
