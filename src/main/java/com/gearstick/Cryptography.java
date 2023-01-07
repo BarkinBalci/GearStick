@@ -46,7 +46,7 @@ public class Cryptography {
     }
 
     /**
-     * Generates a key by deriving it from a password.
+     * Generates a key by deriving it from a password. Using PBKDF2
      */
     public static SecretKey generateKey(String masterPassword, String salt)
             throws NoSuchAlgorithmException, InvalidKeySpecException {
@@ -54,13 +54,18 @@ public class Cryptography {
         KeySpec spec = new PBEKeySpec(masterPassword.toCharArray(), salt.getBytes(), 65536, 256);
         return new SecretKeySpec(factory.generateSecret(spec).getEncoded(), "AES");
     }
-
+    /**
+     * Generates Initialization Vector using SecureRandom()
+     */
     public static IvParameterSpec generateIv(int length) {
         byte[] iv = new byte[length];
         new SecureRandom().nextBytes(iv);
         return new IvParameterSpec(iv);
     }
 
+    /**
+     * Generates Salt using SecureRandom()
+     */
     public static byte[] generateSalt(int length) {
         byte[] salt = new byte[length];
         new SecureRandom().nextBytes(salt);
