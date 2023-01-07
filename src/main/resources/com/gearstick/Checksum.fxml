@@ -53,8 +53,8 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <TextField layoutX="33.0" layoutY="381.0" prefHeight="25.0" prefWidth="460.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="110.0" />
-            <Button layoutX="393.0" layoutY="381.0" mnemonicParsing="false" text="Compare" textFill="#f8f8f2" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0">
+            <TextField fx:id="targetTextField" layoutX="33.0" layoutY="381.0" prefHeight="25.0" prefWidth="460.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="110.0" />
+            <Button layoutX="393.0" layoutY="381.0" mnemonicParsing="false" onAction="#compareHash" text="Compare" textFill="#f8f8f2" AnchorPane.bottomAnchor="30.0" AnchorPane.rightAnchor="30.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
