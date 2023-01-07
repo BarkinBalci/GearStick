@@ -49,14 +49,16 @@ public class ChecksumController implements Initializable {
     }
 
     @FXML
-    private void compareHash(){
-        boolean result = Checksum.compareHash(hashTextArea.getText(), targetTextField.getText());
+    private void compareHash() {
+        boolean equals = hashTextArea.getText().equals(targetTextField.getText());
         Dialog<String> dialog = new Dialog<>();
         dialog.setTitle("Comparison Result");
-        if(result)
+
+        if (equals)
             dialog.setContentText("Hashes match!");
         else
             dialog.setContentText("Comparison failed. The file might be compromised, use the file on your own risk!");
+
         Window window = dialog.getDialogPane().getScene().getWindow();
         window.setOnCloseRequest(event -> window.hide());
         dialog.show();
