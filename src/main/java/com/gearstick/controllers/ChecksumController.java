@@ -44,6 +44,7 @@ public class ChecksumController implements Initializable {
 
     @FXML
     private void calcChecksum() throws IOException, NoSuchAlgorithmException {
+        // TODO: disable button if no file is selected
         hashTextArea.setText(Checksum.getChecksum(algorithmComboBox.getValue(), currentFile.get()));
         progressBar.setProgress(1.0F);
     }

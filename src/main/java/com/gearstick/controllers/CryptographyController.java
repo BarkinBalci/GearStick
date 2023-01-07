@@ -27,6 +27,8 @@ public class CryptographyController {
     @FXML
     private TextField secretKeyTextField;
 
+    // TODO: error handling
+
     @FXML
     private void Encrypt() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException,
             IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
