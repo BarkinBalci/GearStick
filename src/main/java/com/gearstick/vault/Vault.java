@@ -1,5 +1,6 @@
 package com.gearstick.vault;
 
+import java.io.Serial;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -9,13 +10,15 @@ import javax.crypto.spec.IvParameterSpec;
 import com.gearstick.Cryptography;
 
 public class Vault implements java.io.Serializable {
-    private static final long serialVersionUID = 1L;
-    public String name = new String();
 
-    private byte[] IV;
-    private String SALT;
-    private String cipherResult;
-    private HashMap<String, String> credentials = new HashMap<String, String>();
+    @Serial
+    private static final long serialVersionUID = 1L;
+    public final String name;
+
+    private final byte[] IV;
+    private final String SALT;
+    private final String cipherResult;
+    private final HashMap<String, String> credentials = new HashMap<>();
 
     /**
      * transient does not serialize the field
@@ -25,8 +28,8 @@ public class Vault implements java.io.Serializable {
      *           for the CRUID password
      *           operations to vault.
      */
-    private transient SecretKey KEY = null;
-    private transient HashMap<String, String> decryptedCredentials = new HashMap<String, String>();
+    private transient SecretKey KEY;
+    private transient HashMap<String, String> decryptedCredentials = new HashMap<>();
 
     public static String generateInput(byte[] IV, String SALT) {
         return new String(IV) + SALT;
@@ -48,7 +51,7 @@ public class Vault implements java.io.Serializable {
     public Vault(String name, SecretKey KEY) throws Exception {
         this.name = name;
         this.IV = Cryptography.generateIv(16).getIV();
-        this.SALT = Cryptography.generateSalt(16).toString();
+        this.SALT = String.valueOf(Cryptography.generateSalt(16));
         this.cipherResult = getEncryptionCipher(KEY);
     }
 
@@ -58,7 +61,7 @@ public class Vault implements java.io.Serializable {
     public Vault(String name, String password) throws Exception {
         this.name = name;
         this.IV = Cryptography.generateIv(16).getIV();
-        this.SALT = Cryptography.generateSalt(16).toString();
+        this.SALT = String.valueOf(Cryptography.generateSalt(16));
         this.KEY = Cryptography.generateKey(password, SALT);
         this.cipherResult = getEncryptionCipher(KEY);
     }
@@ -69,7 +72,7 @@ public class Vault implements java.io.Serializable {
 
     }
 
-    public Boolean isValidated() {
+    public boolean isValidated() {
         return KEY != null;
     }
 
@@ -77,7 +80,7 @@ public class Vault implements java.io.Serializable {
         KEY = null;
     }
 
-    public Boolean validate(SecretKey KEY) throws Exception {
+    public boolean validate(SecretKey KEY) throws Exception {
         if (getEncryptionCipher(KEY).equals(cipherResult)) {
             this.KEY = KEY;
 
@@ -108,13 +111,12 @@ public class Vault implements java.io.Serializable {
         return IV;
     }
 
-    public String getSalt(){
+    public String getSalt() {
         return SALT;
     }
 
-
     public ArrayList<String> getCredentialKeys() {
-        return new ArrayList<String>(credentials.keySet());
+        return new ArrayList<>(credentials.keySet());
     }
 
     public String getCredential(String key) throws Exception {
@@ -137,7 +139,7 @@ public class Vault implements java.io.Serializable {
         return decryptedCredentials.get(key);
     }
 
-    public Boolean addCredential(String key, String value) {
+    public boolean addCredential(String key, String value) {
         if (isValidated()) {
             try {
                 String encrypted = Cryptography.encrypt("AES/CBC/PKCS5Padding", value, KEY,
