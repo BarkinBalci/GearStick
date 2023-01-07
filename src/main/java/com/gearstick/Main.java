@@ -4,6 +4,8 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -96,6 +98,11 @@ public class Main extends Application {
 
         screenMap.put(fxml, fxmlLoader.load());
         return screenMap.get(fxml);
+    }
+    public static void copyClipboard(String str){
+        ClipboardContent content = new ClipboardContent();
+        content.putString(str);
+        Clipboard.getSystemClipboard().setContent(content);
     }
 
     public static void main(String[] args) {
