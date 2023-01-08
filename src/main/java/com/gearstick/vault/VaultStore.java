@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InvalidClassException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
@@ -73,12 +74,11 @@ public class VaultStore {
             fileIn.close();
 
             vaults.put(vault.name, vault);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } catch (ClassNotFoundException e) {
+        } catch (ClassNotFoundException | InvalidClassException e) {
             // old version of vault
-            // delete vault
-            deleteVaultFromFolder(nameWithExtension);
+            System.out.println("Vault " + nameWithExtension + " is outdated!");
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

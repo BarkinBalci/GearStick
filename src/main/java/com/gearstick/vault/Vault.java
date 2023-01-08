@@ -13,7 +13,7 @@ import com.gearstick.Cryptography;
 public class Vault implements java.io.Serializable {
 
     @Serial
-    private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 2L;
     public final String name;
 
     private final byte[] IV;
@@ -33,7 +33,7 @@ public class Vault implements java.io.Serializable {
     private transient HashMap<String, String> decryptedCredentials = new HashMap<>();
 
     public static String generateInput(byte[] IV, String SALT) {
-        return new String(IV) + SALT;
+        return Arrays.toString(IV) + SALT;
     }
 
     /**
