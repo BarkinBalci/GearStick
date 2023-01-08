@@ -2,7 +2,6 @@ package com.gearstick.controllers;
 
 import com.gearstick.Checksum;
 import com.gearstick.Main;
-import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -18,35 +17,36 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ResourceBundle;
 
 public class ChecksumController implements Initializable {
-    private SimpleObjectProperty<File> currentFile = new SimpleObjectProperty<>();
-
     @FXML
     private TextField currentFileName = new TextField("No file selected");
-
     @FXML
     private TextArea hashTextArea;
-
     @FXML
     private TextField targetTextField;
     @FXML
     public ComboBox<String> algorithmComboBox;
     @FXML
     public ProgressBar progressBar;
-
     @FXML
     private void openFile() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Any File");
-        currentFile.set(fileChooser.showOpenDialog(Main.scene.getWindow()));
-        progressBar.setProgress(0.0F);
+        File file = fileChooser.showOpenDialog(Main.scene.getWindow());
+        if (file != null)
+            currentFileName.setText(file.getAbsolutePath());
         hashTextArea.clear();
+        progressBar.setProgress(0);
     }
 
     @FXML
     private void calcChecksum() throws IOException, NoSuchAlgorithmException {
-        // TODO: disable button if no file is selected
-        hashTextArea.setText(Checksum.getChecksum(algorithmComboBox.getValue(), currentFile.get()));
-        progressBar.setProgress(1.0F);
+        File inputFile = new File(currentFileName.getText());
+        if (inputFile.exists()) {
+            hashTextArea.setText(Checksum.getChecksum(algorithmComboBox.getValue(), inputFile));
+            progressBar.setProgress(1);
+        }
+        else
+            currentFileName.setText("No file selected!");
     }
 
     @FXML
@@ -63,7 +63,6 @@ public class ChecksumController implements Initializable {
         Window window = dialog.getDialogPane().getScene().getWindow();
         window.setOnCloseRequest(event -> window.hide());
         dialog.show();
-
     }
 
     @Override
@@ -71,12 +70,6 @@ public class ChecksumController implements Initializable {
         ObservableList<String> algorithms = FXCollections.observableArrayList("SHA-256", "MD5");
         algorithmComboBox.getItems().addAll(algorithms);
         algorithmComboBox.getSelectionModel().select(0);
-        currentFile.addListener((o, oldValue, newValue) -> {
-            if (newValue == null)
-                currentFileName.setText("No file selected");
-            else
-                currentFileName.setText(newValue.getName());
-        });
     }
 
 }
