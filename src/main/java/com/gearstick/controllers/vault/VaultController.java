@@ -4,8 +4,6 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import javax.crypto.SecretKey;
-
 import com.gearstick.Main;
 import com.gearstick.vault.Vault;
 import com.gearstick.vault.VaultStore;
@@ -68,15 +66,7 @@ public class VaultController implements Initializable {
         if (vault == null)
             throw new Exception("No vault found for this name");
 
-        SecretKey secretKey;
-
-        try {
-            secretKey = vault.getKey(password);
-        } catch (Exception e) {
-            throw new Exception("Invalid password");
-        }
-
-        if (vault.validate(secretKey))
+        if (vault.validate(password))
             currentVault.set(vault);
         else
             throw new Exception("Wrong password");
@@ -136,8 +126,7 @@ public class VaultController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        loadVaults();
-        currentVault.addListener((e, o, vault) -> requestLoginOrRegister());
+
     }
 
 }
