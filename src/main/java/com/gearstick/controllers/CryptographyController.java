@@ -1,15 +1,20 @@
 package com.gearstick.controllers;
 
 import com.gearstick.Cryptography;
+import com.gearstick.Main;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.stage.FileChooser;
+import java.awt.Desktop;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
 import javax.crypto.spec.SecretKeySpec;
+import java.io.File;
+import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
@@ -20,37 +25,65 @@ import static com.gearstick.Main.copyClipboard;
 
 public class CryptographyController {
 
+    FileChooser fileChooser = new FileChooser();
+
     @FXML
     private TextArea inputTextArea;
     @FXML
     private TextField outputTextField;
     @FXML
     private TextField secretKeyTextField;
+    private File inputFile;
 
     // TODO: error handling
 
     @FXML
     private void Encrypt() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException,
-            IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
+            IllegalBlockSizeException, BadPaddingException, InvalidKeyException, IOException {
         String inputText = inputTextArea.getText();
         String encodedKey = secretKeyTextField.getText();
         byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
         SecretKey originalKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
-        String encryptedString = Cryptography.encrypt("AES/CBC/PKCS5Padding", inputText, originalKey,
-                Cryptography.getIV());
-        outputTextField.setText(encryptedString);
+
+
+            File inputFile = new File(inputText);
+            if(inputFile.exists()) {
+                File outputFile = new File(inputFile.getParent(),inputFile.getName() + ".gear");
+                Cryptography.encryptFile("AES/CBC/PKCS5Padding", inputFile, originalKey, Cryptography.getIV(), outputFile);
+                outputTextField.setText(outputFile.getAbsolutePath());
+                Desktop.getDesktop().open(outputFile.getParentFile());
+            }
+            else {
+                String encryptedString = Cryptography.encrypt("AES/CBC/PKCS5Padding", inputText, originalKey, Cryptography.getIV());
+                outputTextField.setText(encryptedString);
+            }
     }
 
     @FXML
     private void Decrypt() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException,
-            IllegalBlockSizeException, BadPaddingException, InvalidKeyException {
+            IllegalBlockSizeException, BadPaddingException, InvalidKeyException, IOException {
         String inputText = inputTextArea.getText();
         String encodedKey = secretKeyTextField.getText();
         byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
         SecretKey originalKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
-        String decryptedString = Cryptography.decrypt("AES/CBC/PKCS5Padding", inputText, originalKey,
-                Cryptography.getIV());
-        outputTextField.setText(decryptedString);
+
+            File inputFile = new File(inputText);
+            if(inputFile.exists()) {
+                File outputFile = new File(inputFile.getParent(),inputFile.getName().replace(".gear", ""));
+                Cryptography.decryptFile("AES/CBC/PKCS5Padding", inputFile, originalKey, Cryptography.getIV(), outputFile);
+                outputTextField.setText(outputFile.getAbsolutePath());
+                Desktop.getDesktop().open(outputFile.getParentFile());
+            }
+            else {
+                String decryptedString = Cryptography.decrypt("AES/CBC/PKCS5Padding", inputText, originalKey, Cryptography.getIV());
+                outputTextField.setText(decryptedString);
+            }
+    }
+    @FXML
+    private void openFile() {
+        fileChooser.setTitle("Open Any File");
+        inputFile = fileChooser.showOpenDialog(Main.scene.getWindow());
+        if(inputFile != null) inputTextArea.setText(inputFile.getAbsolutePath());
     }
 
     @FXML
@@ -60,7 +93,7 @@ public class CryptographyController {
 
     @FXML
     private void Randomize() throws NoSuchAlgorithmException {
-        SecretKey secretKey = Cryptography.randomizeKey(128);
+        SecretKey secretKey = Cryptography.randomizeKey(256);
         String encodedKey = Base64.getEncoder().encodeToString(secretKey.getEncoded());
         secretKeyTextField.setText(encodedKey);
     }

@@ -6,6 +6,7 @@ module com.gearstick {
 
     // requires com.dlsc.formsfx;
     requires org.kordamp.ikonli.javafx;
+    requires java.desktop;
 
     opens com.gearstick to javafx.fxml;
     opens com.gearstick.controllers to javafx.fxml;
