@@ -43,8 +43,8 @@ public class Cryptography {
         return new String(plainText);
     }
 
-
-    public static void encryptFile(String algorithm, File inputFile, SecretKey key, IvParameterSpec iv, File outputFile) throws IOException, NoSuchPaddingException,
+    public static void encryptFile(String algorithm, File inputFile, SecretKey key, IvParameterSpec iv, File outputFile)
+            throws IOException, NoSuchPaddingException,
             NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException,
             BadPaddingException, IllegalBlockSizeException {
 
@@ -53,7 +53,8 @@ public class Cryptography {
         processFile(inputFile, outputFile, cipher);
     }
 
-    private static void processFile(File inputFile, File outputFile, Cipher cipher) throws IOException, IllegalBlockSizeException, BadPaddingException {
+    private static void processFile(File inputFile, File outputFile, Cipher cipher)
+            throws IOException, IllegalBlockSizeException, BadPaddingException {
         FileInputStream inputStream = new FileInputStream(inputFile);
         FileOutputStream outputStream = new FileOutputStream(outputFile);
         byte[] buffer = new byte[64];
@@ -72,7 +73,8 @@ public class Cryptography {
         outputStream.close();
     }
 
-    public static void decryptFile(String algorithm, File inputFile, SecretKey key, IvParameterSpec iv, File outputFile) throws IOException, NoSuchPaddingException,
+    public static void decryptFile(String algorithm, File inputFile, SecretKey key, IvParameterSpec iv, File outputFile)
+            throws IOException, NoSuchPaddingException,
             NoSuchAlgorithmException, InvalidAlgorithmParameterException, InvalidKeyException,
             BadPaddingException, IllegalBlockSizeException {
 
@@ -96,6 +98,7 @@ public class Cryptography {
         KeySpec spec = new PBEKeySpec(masterPassword.toCharArray(), salt.getBytes(), 65536, 256);
         return new SecretKeySpec(factory.generateSecret(spec).getEncoded(), "AES");
     }
+
     /**
      * Generates Initialization Vector using SecureRandom()
      */

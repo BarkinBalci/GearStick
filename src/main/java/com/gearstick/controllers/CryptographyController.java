@@ -45,18 +45,17 @@ public class CryptographyController {
         byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
         SecretKey originalKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
 
-
-            File inputFile = new File(inputText);
-            if(inputFile.exists()) {
-                File outputFile = new File(inputFile.getParent(),inputFile.getName() + ".gear");
-                Cryptography.encryptFile("AES/CBC/PKCS5Padding", inputFile, originalKey, Cryptography.getIV(), outputFile);
-                outputTextField.setText(outputFile.getAbsolutePath());
-                Desktop.getDesktop().open(outputFile.getParentFile());
-            }
-            else {
-                String encryptedString = Cryptography.encrypt("AES/CBC/PKCS5Padding", inputText, originalKey, Cryptography.getIV());
-                outputTextField.setText(encryptedString);
-            }
+        File inputFile = new File(inputText);
+        if (inputFile.exists()) {
+            File outputFile = new File(inputFile.getParent(), inputFile.getName() + ".gear");
+            Cryptography.encryptFile("AES/CBC/PKCS5Padding", inputFile, originalKey, Cryptography.getIV(), outputFile);
+            outputTextField.setText(outputFile.getAbsolutePath());
+            Desktop.getDesktop().open(outputFile.getParentFile());
+        } else {
+            String encryptedString = Cryptography.encrypt("AES/CBC/PKCS5Padding", inputText, originalKey,
+                    Cryptography.getIV());
+            outputTextField.setText(encryptedString);
+        }
     }
 
     @FXML
@@ -67,23 +66,25 @@ public class CryptographyController {
         byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
         SecretKey originalKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
 
-            File inputFile = new File(inputText);
-            if(inputFile.exists()) {
-                File outputFile = new File(inputFile.getParent(),inputFile.getName().replace(".gear", ""));
-                Cryptography.decryptFile("AES/CBC/PKCS5Padding", inputFile, originalKey, Cryptography.getIV(), outputFile);
-                outputTextField.setText(outputFile.getAbsolutePath());
-                Desktop.getDesktop().open(outputFile.getParentFile());
-            }
-            else {
-                String decryptedString = Cryptography.decrypt("AES/CBC/PKCS5Padding", inputText, originalKey, Cryptography.getIV());
-                outputTextField.setText(decryptedString);
-            }
+        File inputFile = new File(inputText);
+        if (inputFile.exists()) {
+            File outputFile = new File(inputFile.getParent(), inputFile.getName().replace(".gear", ""));
+            Cryptography.decryptFile("AES/CBC/PKCS5Padding", inputFile, originalKey, Cryptography.getIV(), outputFile);
+            outputTextField.setText(outputFile.getAbsolutePath());
+            Desktop.getDesktop().open(outputFile.getParentFile());
+        } else {
+            String decryptedString = Cryptography.decrypt("AES/CBC/PKCS5Padding", inputText, originalKey,
+                    Cryptography.getIV());
+            outputTextField.setText(decryptedString);
+        }
     }
+
     @FXML
     private void openFile() {
         fileChooser.setTitle("Open Any File");
         inputFile = fileChooser.showOpenDialog(Main.scene.getWindow());
-        if(inputFile != null) inputTextArea.setText(inputFile.getAbsolutePath());
+        if (inputFile != null)
+            inputTextArea.setText(inputFile.getAbsolutePath());
     }
 
     @FXML
