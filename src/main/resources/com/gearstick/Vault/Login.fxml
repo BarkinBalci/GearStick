@@ -10,34 +10,34 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="CENTER" styleClass="background" stylesheets="@../Css/app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.vault.VaultLoginController">
+<VBox alignment="CENTER" prefHeight="450.0" prefWidth="600.0" styleClass="background" stylesheets="@../Css/app.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.gearstick.controllers.vault.VaultLoginController">
    <children>
-      <HBox alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="450.0" prefWidth="600.0">
          <children>
-            <AnchorPane prefHeight="456.0" prefWidth="561.0">
+            <AnchorPane prefHeight="456.0" prefWidth="600.0">
                <children>
-                  <Label layoutX="168.0" layoutY="55.0" text="Login To Your Vault" textFill="#f8f8f2">
+                  <Label layoutX="194.0" layoutY="22.0" prefHeight="35.0" prefWidth="207.0" text="Unlock Your Vault" textFill="#f8f8f2" AnchorPane.topAnchor="30.0">
                      <font>
                         <Font name="System Bold" size="24.0" />
                      </font>
                   </Label>
-                  <Label layoutX="145.0" layoutY="144.0" text="Vault:" textFill="#f8f8f2">
+                  <Label layoutX="147.0" layoutY="96.0" text="Vault:" textFill="#f8f8f2">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <Label layoutX="145.0" layoutY="213.0" text="Enter your master password:" textFill="#f8f8f2">
+                  <Label layoutX="147.0" layoutY="164.0" text="Enter your master password:" textFill="#f8f8f2" AnchorPane.leftAnchor="147.0">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
-                  <PasswordField fx:id="vaultpasswordPasswordField" layoutX="151.0" layoutY="236.0" prefHeight="25.0" prefWidth="276.0" />
+                  <PasswordField fx:id="vaultpasswordPasswordField" layoutX="147.0" layoutY="188.0" prefHeight="25.0" prefWidth="276.0" AnchorPane.leftAnchor="147.0" AnchorPane.rightAnchor="138.0" />
                   <Button layoutX="401.0" layoutY="236.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" text="Set Visible" visible="false" />
-                  <Button defaultButton="true" layoutX="185.0" layoutY="284.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="80.0" text="Enter" textFill="#f8f8f2" />
-                  <Button cancelButton="true" layoutX="305.0" layoutY="284.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Cancel" textFill="#f8f8f2" />
-                  <Text fx:id="errorText" layoutX="135.0" layoutY="418.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error-text" text="Error Text:" />
-                  <ComboBox fx:id="vaultnameComboBox" layoutX="150.0" layoutY="168.0" prefWidth="150.0" />
-                  <Button layoutX="229.0" layoutY="328.0" mnemonicParsing="false" onAction="#switchToRegister" prefHeight="25.0" prefWidth="115.0" text="Register New" textFill="#f8f8f2" />
+                  <Button defaultButton="true" layoutX="203.0" layoutY="236.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="80.0" text="Enter" textFill="#f8f8f2" />
+                  <Button cancelButton="true" layoutX="327.0" layoutY="236.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Cancel" textFill="#f8f8f2" />
+                  <Text fx:id="errorText" layoutX="134.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error-text" text="Error Text:" AnchorPane.bottomAnchor="30.0" />
+                  <ComboBox fx:id="vaultnameComboBox" layoutX="147.0" layoutY="121.0" prefWidth="150.0" />
+                  <Button layoutX="247.0" layoutY="281.0" mnemonicParsing="false" onAction="#switchToRegister" prefHeight="25.0" prefWidth="115.0" text="Create New" textFill="#f8f8f2" />
                </children>
             </AnchorPane>
          </children>
