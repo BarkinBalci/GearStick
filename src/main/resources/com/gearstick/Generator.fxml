@@ -41,7 +41,7 @@
                <font>
                   <Font name="System Bold" size="14.0" />
                </font></TextArea>
-            <Button layoutX="471.0" layoutY="132.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="43.0" text="Save" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="132.0">
+            <Button fx:id="saveButton" layoutX="471.0" layoutY="132.0" mnemonicParsing="false" onAction="#save" prefHeight="25.0" prefWidth="43.0" text="Save" AnchorPane.rightAnchor="86.0" AnchorPane.topAnchor="132.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>

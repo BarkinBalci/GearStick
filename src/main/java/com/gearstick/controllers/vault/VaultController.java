@@ -75,8 +75,14 @@ public class VaultController implements Initializable {
     }
 
     public static void logout() {
-        if (currentVault.get() != null)
-            currentVault.get().invalidate();
+        var vault = currentVault.get();
+
+        if (vault != null) {
+            vault.invalidate();
+            // force update event (logout event dispatch)
+            currentVault.set(null);
+            currentVault.set(vault);
+        }
 
         requestLoginOrRegister();
     }

@@ -16,6 +16,9 @@ public class VaultAddCredentialController implements Initializable {
     private Vault vault;
     private Stage stage;
 
+    private String startupKey;
+    private String startupValue;
+
     @FXML
     private TextField credentiaTextField;
     @FXML
@@ -26,6 +29,13 @@ public class VaultAddCredentialController implements Initializable {
     public VaultAddCredentialController(Vault vault, Stage stage) {
         this.vault = vault;
         this.stage = stage;
+    }
+
+    public VaultAddCredentialController(Vault vault, Stage stage, String key, String value) {
+        this.vault = vault;
+        this.stage = stage;
+        this.startupKey = key;
+        this.startupValue = value;
     }
 
     @FXML
@@ -50,6 +60,10 @@ public class VaultAddCredentialController implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         errorText.setText("");
+        if (startupKey != null || startupValue != null) {
+            credentiaTextField.setText(startupKey);
+            credentialPasswordField.setText(startupValue);
+        }
     }
 
 }
