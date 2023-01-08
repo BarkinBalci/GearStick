@@ -26,8 +26,6 @@ public class ChecksumController implements Initializable {
     @FXML
     public ComboBox<String> algorithmComboBox;
     @FXML
-    public ProgressBar progressBar;
-    @FXML
     private void openFile() {
         FileChooser fileChooser = new FileChooser();
         fileChooser.setTitle("Open Any File");
@@ -35,7 +33,6 @@ public class ChecksumController implements Initializable {
         if (file != null)
             currentFileName.setText(file.getAbsolutePath());
         hashTextArea.clear();
-        progressBar.setProgress(0);
     }
 
     @FXML
@@ -43,7 +40,6 @@ public class ChecksumController implements Initializable {
         File inputFile = new File(currentFileName.getText());
         if (inputFile.exists()) {
             hashTextArea.setText(Checksum.getChecksum(algorithmComboBox.getValue(), inputFile));
-            progressBar.setProgress(1);
         }
         else
             currentFileName.setText("No file selected!");
