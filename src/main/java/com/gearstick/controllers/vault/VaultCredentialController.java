@@ -12,6 +12,8 @@ import javafx.scene.control.Dialog;
 import javafx.scene.control.TitledPane;
 import javafx.scene.text.Text;
 
+import static com.gearstick.Main.copyClipboard;
+
 public class VaultCredentialController implements Initializable {
 
     public String key;
@@ -26,6 +28,9 @@ public class VaultCredentialController implements Initializable {
 
     @FXML
     public Button toggleButton = new Button();
+
+    @FXML
+    public Button copyButton = new Button();
 
     @FXML
     public Button deleteCredentialButton = new Button();
@@ -70,6 +75,7 @@ public class VaultCredentialController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         titledPane.setText(key);
         toggleButton.onActionProperty().set(e -> toggleShowPassword());
+        copyButton.onActionProperty().set(e -> copyClipboard(passwordText.getText()));
         deleteCredentialButton.onActionProperty().set(e -> deleteCredential());
         isShowed.addListener((obs, oldVal, newVal) -> {
             if (newVal) {
