@@ -42,7 +42,11 @@ public class VaultStore {
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
 
+    public static void deleteVaultFromFolder(String nameWithExtension) {
+        File file = new File(FOLDER + nameWithExtension);
+        file.delete();
     }
 
     public static void loadVaults() {
@@ -74,14 +78,14 @@ public class VaultStore {
         } catch (ClassNotFoundException e) {
             // old version of vault
             // delete vault
-            deleteVault(nameWithExtension);
+            deleteVaultFromFolder(nameWithExtension);
             e.printStackTrace();
         }
     }
 
-    public static void deleteVault(String nameWithExtension) {
-        File file = new File(FOLDER + nameWithExtension);
-        file.delete();
+    public static void deleteVault(String name) {
+        vaults.remove(name);
+        deleteVaultFromFolder(name + EXTENSION);
     }
 
     public static Vault createVault(Vault vault) {

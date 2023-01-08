@@ -50,7 +50,7 @@
                      </content>
                   </ScrollPane>
                   <Button cancelButton="true" layoutX="331.0" layoutY="6.0" minWidth="55.0" mnemonicParsing="false" onAction="#logout" prefHeight="25.0" text="Logout" />
-                <Button layoutX="311.0" layoutY="36.0" mnemonicParsing="false" text="Add Credential" />
+                <Button layoutX="311.0" layoutY="36.0" mnemonicParsing="false" onAction="#addCredential" text="Add Credential" />
                </children>
             </AnchorPane>
          </children>

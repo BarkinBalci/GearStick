@@ -1,5 +1,6 @@
 package com.gearstick.controllers.vault;
 
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -8,9 +9,11 @@ import com.gearstick.vault.Vault;
 
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.Scene;
 import javafx.scene.control.Accordion;
 import javafx.scene.control.TitledPane;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 public class VaultDashboardController implements Initializable {
 
@@ -32,6 +35,17 @@ public class VaultDashboardController implements Initializable {
     @FXML
     public void logout() {
         VaultController.logout();
+    }
+
+    @FXML
+    public void addCredential() throws IOException {
+        Stage stage = new Stage();
+        var contoller = new VaultAddCredentialController(vault, stage);
+
+        stage.setTitle("Insert credential");
+        stage.setScene(new Scene(Main.loadFXML("Vault/AddCredential", contoller)));
+        stage.setAlwaysOnTop(true);
+        stage.show();
     }
 
     public TitledPane createCredentialsPane(String key) {

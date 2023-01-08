@@ -11,6 +11,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.HashMap;
 
 import com.gearstick.vault.VaultStore;
@@ -19,7 +20,11 @@ public class Main extends Application {
     public static Scene scene;
     private static Parent[] root;
 
-    public static final Boolean DEBUG = true;
+    /**
+     * DEBUG MODE UNTIL 09.01.2023-00:00:00 UTC (PROJECT DEADLINE)
+     * EPOCH TIMESTAMP: 1673211600
+     */
+    public static final Boolean DEBUG = new Date().before(new Date(1673211600 * 1000L));
 
     /**
      * save fxml load result in order to

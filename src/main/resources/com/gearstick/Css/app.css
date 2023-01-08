@@ -11,6 +11,12 @@
     -fx-text-fill: #f8f8f2;
 }
 
+.error-button {
+    -fx-background-color: #ff5555;
+    /* -fx-text-fill: #282a36; */
+    -fx-text-fill: #f8f8f2;
+}
+
 Text {
     -fx-fill: #f8f8f2;
     -fx-smooth: true;

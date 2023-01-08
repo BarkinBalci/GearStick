@@ -7,6 +7,8 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
 import javafx.scene.control.TitledPane;
 import javafx.scene.text.Text;
 
@@ -24,6 +26,9 @@ public class VaultCredentialController implements Initializable {
 
     @FXML
     public Button toggleButton = new Button();
+
+    @FXML
+    public Button deleteCredentialButton = new Button();
 
     public VaultCredentialController(String key) {
         this.key = key;
@@ -50,10 +55,22 @@ public class VaultCredentialController implements Initializable {
         return password;
     }
 
+    private void deleteCredential() {
+        Dialog<ButtonType> dialog = new Dialog<>();
+        dialog.setTitle("Delete Credential");
+        dialog.setHeaderText("Are you sure you want to delete this credential?");
+        dialog.getDialogPane().getButtonTypes().addAll(ButtonType.OK, ButtonType.CANCEL);
+        dialog.showAndWait().ifPresent(response -> {
+            if (response == ButtonType.OK)
+                VaultController.deleteCredential(this.key);
+        });
+    }
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         titledPane.setText(key);
         toggleButton.onActionProperty().set(e -> toggleShowPassword());
+        deleteCredentialButton.onActionProperty().set(e -> deleteCredential());
         isShowed.addListener((obs, oldVal, newVal) -> {
             if (newVal) {
                 passwordText.setText(getPassword());

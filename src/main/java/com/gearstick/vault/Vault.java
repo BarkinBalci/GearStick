@@ -120,6 +120,13 @@ public class Vault implements java.io.Serializable {
         return new ArrayList<>(credentials.keySet());
     }
 
+    public void deleteCredential(String key) {
+        if (isValidated()) {
+            credentials.remove(key);
+            decryptedCredentials.remove(key);
+        }
+    }
+
     public String getCredential(String key) throws Exception {
         if (isValidated())
             // since user is validated, we can return the decrypted credentials
@@ -154,5 +161,10 @@ public class Vault implements java.io.Serializable {
         }
 
         return false;
+    }
+
+    @Override
+    public String toString() {
+        return "Vault [name=" + name + "]";
     }
 }
