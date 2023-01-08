@@ -19,19 +19,14 @@ public class VaultCredentialController implements Initializable {
     public String key;
 
     private SimpleBooleanProperty isShowed = new SimpleBooleanProperty(false);
-
     @FXML
     public TitledPane titledPane = new TitledPane();
-
     @FXML
     public Text passwordText = new Text();
-
     @FXML
     public Button toggleButton = new Button();
-
     @FXML
-    public Button copyButton = new Button();
-
+    public Button copyCredentialButton = new Button();
     @FXML
     public Button deleteCredentialButton = new Button();
 
@@ -75,7 +70,7 @@ public class VaultCredentialController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         titledPane.setText(key);
         toggleButton.onActionProperty().set(e -> toggleShowPassword());
-        copyButton.onActionProperty().set(e -> copyClipboard(passwordText.getText()));
+        copyCredentialButton.onActionProperty().set(e -> copyClipboard(getPassword()));
         deleteCredentialButton.onActionProperty().set(e -> deleteCredential());
         isShowed.addListener((obs, oldVal, newVal) -> {
             if (newVal) {
