@@ -14,7 +14,7 @@
    <left>
       <VBox spacing="10.0" styleClass="background-primary" BorderPane.alignment="CENTER">
          <children>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToVault" text="Vault">
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToVault" text=" Vault">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
@@ -24,46 +24,58 @@
                         <Rectangle2D />
                      </viewport>
                      <image>
-                        <Image url="@icons/vault.png" />
+                        <Image url="@Icons/safe-box.png" />
                      </image>
                   </ImageView>
                </graphic>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
             </Button>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToCryptography" text="Cryptography">
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToCryptography" text=" Cryptography">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@icons/media-flash-icon.png" />
+                        <Image url="@Icons/encryption.png" />
                      </image>
                   </ImageView>
                </graphic>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
             </Button>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToGenerator" prefHeight="40.0" prefWidth="177.0" text="Password Generator">
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToGenerator" prefHeight="40.0" prefWidth="177.0" text=" Password Generator">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@icons/cpu-icon.png" />
+                        <Image url="@Icons/dices.png" />
                      </image>
                   </ImageView>
                </graphic>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
             </Button>
-            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToChecksum" text="Checksum">
+            <Button alignment="BASELINE_LEFT" mnemonicParsing="false" onAction="#switchToChecksum" text=" Checksum">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
                <graphic>
                   <ImageView fitHeight="32.0" fitWidth="25.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@icons/scanner-icon.png" />
+                        <Image url="@Icons/compare_white.png" />
                      </image>
                   </ImageView>
                </graphic>
+               <VBox.margin>
+                  <Insets left="5.0" />
+               </VBox.margin>
             </Button>
          </children>
          <opaqueInsets>

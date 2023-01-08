@@ -3,7 +3,6 @@ package com.gearstick.controllers;
 import com.gearstick.Cryptography;
 import com.gearstick.Main;
 import javafx.fxml.FXML;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.FileChooser;
 import java.awt.Desktop;
