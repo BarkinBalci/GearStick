@@ -28,19 +28,18 @@ public class CryptographyController {
     FileChooser fileChooser = new FileChooser();
 
     @FXML
-    private TextArea inputTextArea;
+    private TextField inputTextField;
     @FXML
     private TextField outputTextField;
     @FXML
     private TextField secretKeyTextField;
-    private File inputFile;
 
     // TODO: error handling
 
     @FXML
     private void Encrypt() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException,
             IllegalBlockSizeException, BadPaddingException, InvalidKeyException, IOException {
-        String inputText = inputTextArea.getText();
+        String inputText = inputTextField.getText();
         String encodedKey = secretKeyTextField.getText();
         byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
         SecretKey originalKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
@@ -61,7 +60,7 @@ public class CryptographyController {
     @FXML
     private void Decrypt() throws NoSuchAlgorithmException, InvalidAlgorithmParameterException, NoSuchPaddingException,
             IllegalBlockSizeException, BadPaddingException, InvalidKeyException, IOException {
-        String inputText = inputTextArea.getText();
+        String inputText = inputTextField.getText();
         String encodedKey = secretKeyTextField.getText();
         byte[] decodedKey = Base64.getDecoder().decode(encodedKey);
         SecretKey originalKey = new SecretKeySpec(decodedKey, 0, decodedKey.length, "AES");
@@ -82,9 +81,9 @@ public class CryptographyController {
     @FXML
     private void openFile() {
         fileChooser.setTitle("Open Any File");
-        inputFile = fileChooser.showOpenDialog(Main.scene.getWindow());
-        if (inputFile != null)
-            inputTextArea.setText(inputFile.getAbsolutePath());
+        File file = fileChooser.showOpenDialog(Main.scene.getWindow());
+        if (file != null)
+            inputTextField.setText(file.getAbsolutePath());
     }
 
     @FXML

@@ -22,45 +22,45 @@
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Label layoutX="32.0" layoutY="312.0" text="Advanced:" textFill="#f8f8f2" AnchorPane.bottomAnchor="118.0" AnchorPane.leftAnchor="32.0">
+            <Label layoutX="32.0" layoutY="312.0" text="Advanced:" textFill="#f8f8f2" AnchorPane.bottomAnchor="118.0" AnchorPane.leftAnchor="30.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
-            <Button layoutX="485.0" layoutY="50.0" mnemonicParsing="false" onAction="#Decrypt" prefHeight="25.0" prefWidth="85.0" text="Decrypt" AnchorPane.rightAnchor="30.0">
+            <Button layoutX="485.0" layoutY="50.0" mnemonicParsing="false" onAction="#Decrypt" prefHeight="25.0" prefWidth="63.0" text="Decrypt" AnchorPane.rightAnchor="30.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="390.0" layoutY="50.0" mnemonicParsing="false" onAction="#Encrypt" prefHeight="25.0" prefWidth="85.0" text="Encrypt" AnchorPane.rightAnchor="125.0">
+            <Button layoutX="433.0" layoutY="50.0" mnemonicParsing="false" onAction="#Encrypt" prefHeight="25.0" prefWidth="63.0" text="Encrypt" AnchorPane.rightAnchor="104.0" AnchorPane.topAnchor="50.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="490.0" layoutY="184.0" mnemonicParsing="false" onAction="#Generate" prefHeight="25.0" prefWidth="85.0" text="Generate" AnchorPane.rightAnchor="125.0">
+            <Button layoutX="415.0" layoutY="184.0" mnemonicParsing="false" onAction="#Generate" prefHeight="25.0" prefWidth="69.0" text="Generate" AnchorPane.rightAnchor="120.0" AnchorPane.topAnchor="184.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="585.0" layoutY="184.0" mnemonicParsing="false" onAction="#Randomize" prefHeight="25.0" prefWidth="85.0" text="Randomize" AnchorPane.rightAnchor="30.0">
+            <Button layoutX="485.0" layoutY="184.0" mnemonicParsing="false" onAction="#Randomize" prefHeight="25.0" prefWidth="79.0" text="Randomize" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="184.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <TextField fx:id="outputTextField" layoutX="30.0" layoutY="261.0" prefHeight="25.0" prefWidth="440.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="230.0" />
-            <TextField fx:id="secretKeyTextField" layoutX="30.0" layoutY="184.0" prefHeight="25.0" prefWidth="440.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="230.0" />
+            <TextField fx:id="outputTextField" layoutX="30.0" layoutY="261.0" prefHeight="26.0" prefWidth="470.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="103.0" AnchorPane.topAnchor="261.0" />
+            <TextField fx:id="secretKeyTextField" layoutX="30.0" layoutY="184.0" prefHeight="26.0" prefWidth="379.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="200.0" AnchorPane.topAnchor="184.0" />
             <Label layoutX="28.0" layoutY="6.0" text="Input:" textFill="#f8f8f2" AnchorPane.leftAnchor="30.0" AnchorPane.topAnchor="30.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Label>
             <TextArea layoutX="30.0" layoutY="256.0" prefHeight="80.0" prefWidth="540.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
-            <TextArea fx:id="inputTextArea" layoutX="30.0" layoutY="49.0" prefHeight="80.0" prefWidth="440.0" wrapText="true" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="230.0" AnchorPane.topAnchor="50.0" />
-            <Button layoutX="490.0" layoutY="261.0" mnemonicParsing="false" onAction="#copyCipher" prefHeight="25.0" prefWidth="85.0" text="Copy" AnchorPane.rightAnchor="125.0">
+            <Button layoutX="507.0" layoutY="261.0" mnemonicParsing="false" onAction="#copyCipher" prefHeight="25.0" prefWidth="63.0" text="Copy" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="261.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font></Button>
-            <Button layoutX="433.0" layoutY="105.0" mnemonicParsing="false" onAction="#openFile" prefHeight="25.0" prefWidth="85.0" text="Open File" AnchorPane.rightAnchor="82.0">
+            <Button layoutX="22.0" layoutY="50.0" mnemonicParsing="false" onAction="#openFile" prefHeight="25.0" prefWidth="60.0" text="Open" AnchorPane.leftAnchor="30.0">
                <font>
                   <Font name="System Bold" size="12.0" />
                </font>
             </Button>
+            <TextField fx:id="inputTextField" layoutX="99.0" layoutY="50.0" prefHeight="26.0" prefWidth="325.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="178.0" />
          </children>
     </AnchorPane>
   </children>
