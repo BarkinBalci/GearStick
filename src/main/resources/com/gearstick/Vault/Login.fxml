@@ -26,18 +26,18 @@
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
+                  <ComboBox fx:id="vaultnameComboBox" layoutX="147.0" layoutY="121.0" prefWidth="150.0" />
                   <Label layoutX="147.0" layoutY="164.0" text="Enter your master password:" textFill="#f8f8f2" AnchorPane.leftAnchor="147.0">
                      <font>
                         <Font name="System Bold" size="12.0" />
                      </font>
                   </Label>
                   <PasswordField fx:id="vaultpasswordPasswordField" layoutX="147.0" layoutY="188.0" prefHeight="25.0" prefWidth="276.0" AnchorPane.leftAnchor="147.0" AnchorPane.rightAnchor="138.0" />
-                  <Button layoutX="401.0" layoutY="236.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" text="Set Visible" visible="false" />
                   <Button defaultButton="true" layoutX="203.0" layoutY="236.0" mnemonicParsing="false" onAction="#login" prefHeight="25.0" prefWidth="80.0" text="Enter" textFill="#f8f8f2" />
                   <Button cancelButton="true" layoutX="327.0" layoutY="236.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="80.0" text="Cancel" textFill="#f8f8f2" />
-                  <Text fx:id="errorText" layoutX="134.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error-text" text="Error Text:" AnchorPane.bottomAnchor="30.0" />
-                  <ComboBox fx:id="vaultnameComboBox" layoutX="147.0" layoutY="121.0" prefWidth="150.0" />
+                  <Button focusTraversable="false" layoutX="401.0" layoutY="236.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="26.0" text="Set Visible" visible="false" />
                   <Button layoutX="247.0" layoutY="281.0" mnemonicParsing="false" onAction="#switchToRegister" prefHeight="25.0" prefWidth="115.0" text="Create New" textFill="#f8f8f2" />
+                  <Text fx:id="errorText" layoutX="134.0" layoutY="390.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="error-text" text="Error Text:" AnchorPane.bottomAnchor="30.0" />
                </children>
             </AnchorPane>
          </children>

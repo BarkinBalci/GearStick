@@ -25,6 +25,7 @@ public class ChecksumController implements Initializable {
     private TextField targetTextField;
     @FXML
     public ComboBox<String> algorithmComboBox;
+
     @FXML
     private void openFile() {
         FileChooser fileChooser = new FileChooser();
@@ -39,9 +40,9 @@ public class ChecksumController implements Initializable {
     private void calcChecksum() throws IOException, NoSuchAlgorithmException {
         File inputFile = new File(currentFileName.getText());
         if (inputFile.exists()) {
+            // calculating hash if file exists
             hashTextArea.setText(Checksum.getChecksum(algorithmComboBox.getValue(), inputFile));
-        }
-        else
+        } else
             currentFileName.setText("No file selected!");
     }
 

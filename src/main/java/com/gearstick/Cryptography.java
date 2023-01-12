@@ -27,9 +27,13 @@ public class Cryptography {
             throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidAlgorithmParameterException,
             InvalidKeyException, BadPaddingException, IllegalBlockSizeException {
 
+        // get algorithm
         Cipher cipher = Cipher.getInstance(algorithm);
+        // init algorithm
         cipher.init(Cipher.ENCRYPT_MODE, key, iv);
+        // encryption...
         byte[] cipherText = cipher.doFinal(input.getBytes());
+
         return Base64.getEncoder().encodeToString(cipherText);
     }
 
@@ -55,6 +59,8 @@ public class Cryptography {
 
     private static void processFile(File inputFile, File outputFile, Cipher cipher)
             throws IOException, IllegalBlockSizeException, BadPaddingException {
+
+        // read file
         FileInputStream inputStream = new FileInputStream(inputFile);
         FileOutputStream outputStream = new FileOutputStream(outputFile);
         byte[] buffer = new byte[64];
@@ -65,6 +71,7 @@ public class Cryptography {
                 outputStream.write(output);
             }
         }
+        // write to output file
         byte[] outputBytes = cipher.doFinal();
         if (outputBytes != null) {
             outputStream.write(outputBytes);
