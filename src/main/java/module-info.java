@@ -4,8 +4,6 @@ module com.gearstick {
     requires transitive javafx.controls;
     requires transitive javafx.graphics;
 
-    // requires com.dlsc.formsfx;
-    requires org.kordamp.ikonli.javafx;
     requires java.desktop;
 
     opens com.gearstick to javafx.fxml;
